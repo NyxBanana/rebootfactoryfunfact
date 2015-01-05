@@ -306,13 +306,12 @@ nav ul li a {
 	position: fixed;
 	height: 100%;
 	width: 100%;
+
 	transform: translateX(100%);
 }
 
 .section:target, .section:first-of-type {
 	transform: translateX(0);
-
-	z-index: 1
 }
 
 /* Home layout */
