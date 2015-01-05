@@ -1,6 +1,7 @@
 /* Base style */
 body {
 	font-family: sans-serif;
+	background-color: #FEF9F8;
 	margin: 0;
 	padding: 0;
 }
@@ -13,6 +14,9 @@ ul {
 
 h1 {
 	margin: 0;
+	font-weight: lighter;
+	text-transform: uppercase;
+	color: #FEF9F8;
 }
 
 a {
@@ -26,14 +30,19 @@ main {
 /* Common layout */
 /* Header */
 header  {
-	background-color: #DDD;
+	background-color: #DE574B;
 	height: 50px;
 	width: 100%;
+}
+
+.normal {
+	font-weight: normal;
 }
 
 .head {
 	text-align: center;
 	padding-top: 10px;
+	font-size: 30px;
 }
 
 /* Nav */
@@ -42,7 +51,7 @@ header  {
 }
 
 nav ul li {
-	border-bottom: solid 1px #282828;
+	border-bottom: solid 1px #FEF9F8;
 }
 
 nav ul li a {
@@ -57,6 +66,13 @@ nav ul li a {
 	color: inherit;
 }
 
+.section__nav div {
+	background-color: #3E8A9C;
+	height: 50px;
+	width: 100%;
+	padding: 0;
+}
+
 .section__nav {
 	position: fixed;
 	top: 0;
@@ -68,7 +84,8 @@ nav ul li a {
 	height: 100%;
 	transform: translateX(-100%);
 
-	background-color: #DDD;
+	background-color: #49545A;
+	color: #FEF9F8;
 }
 
 .section__nav.nav--transition {
@@ -83,7 +100,8 @@ nav ul li a {
 .btn--openmenu, .btn--openfilter {
 	width: 50px;
 	height: 50px;
-	background-color: #DDD;
+	background-color: #DE574B;
+	color: #FEF9F8;
 	padding: 5px;
 	border: none;
 }
@@ -173,7 +191,6 @@ ul.tapbar li {
 	bottom: 150px;
 	width: 100%;
 	text-align: center;
-	background-color: #DDD;
 }
 
 .tapbar button {
@@ -189,6 +206,23 @@ ul.tapbar li {
 	margin: 0 auto;
 }
 
+/* Buttons Colors */
+
+.addfact {
+	background-color: #DE574B;
+	color: #FEF9F8;
+}
+
+.addfav {
+	background-color: #F69570;
+	color: #FEF9F8;
+}
+
+.share {
+	background-color: #3FAA96;
+	color: #FEF9F8;
+}
+
 /* Facts */
 
 .article__fact {
@@ -198,9 +232,14 @@ ul.tapbar li {
 	position: relative;
 }
 
+.article__fact a {
+	color: #49545A;
+}
+
 .fact {
 	width: 80%;
 	margin: 0 auto;
+	color: #DE574B;
 }
 
 .article__fact:last-of-type {
