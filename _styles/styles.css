@@ -14,8 +14,8 @@ ul {
 
 h1 {
 	margin: 0;
-	font-weight: lighter;
 	text-transform: uppercase;
+	font-weight: lighter;
 	color: #FEF9F8;
 }
 
@@ -36,7 +36,7 @@ header  {
 }
 
 .normal {
-	font-weight: normal;
+	font-weight: bold;
 }
 
 .head {
@@ -186,6 +186,10 @@ ul.tapbar li {
 	box-sizing: border-box;
 }
 
+ul.tapbar li:first-child {
+	width: 34%;
+}
+
 .tapbar {
 	position: absolute;
 	bottom: 150px;
@@ -227,7 +231,7 @@ ul.tapbar li {
 
 .article__fact {
 	padding: 20px 0;
-	border-bottom: solid 1px #b7b7b7;
+	border-bottom: solid 1px #FEF9F8;
 
 	position: relative;
 }
