@@ -382,11 +382,43 @@ form textarea {
       margin-left: 5px; }
   .floatlabel input {
 
-textarea {
-  resize: auto;
-  width: 90%;
-  height: 150px;
+  }
 
-  max-width: 90%;
-  max-height: 150px;
+ /* Page utilisateur */
+.section__otheruser {
+	margin: 0;
+}
+
+.stat li {
+	text-align: center;
+	float: left;
+	display: block;
+	width: 50%;
+	background-color: grey;
+	padding: 35px 10px;
+
+	box-sizing: border-box;
+}
+
+.stat li:last-child {
+	background-color: lightgrey;
+}
+
+.usercount {
+	margin: 0;
+}
+
+.stat:after {
+	content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.head {
+	text-align: center;
+	font-size: 16px;
+	padding-top: 15px;
 }
