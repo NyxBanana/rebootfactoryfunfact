@@ -301,18 +301,65 @@ ul.tapbar li:first-child {
 
 /* Connexion Page */
 .connecthead {
-  margin: 20% auto 20px auto;
+	margin: 0 auto 20px auto;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto;
-  width: 200px;
-  padding: 20px 10px 15px 10px;
-  text-align: center;
-  background-color: grey;
+	display: block;
+	margin: 0 auto;
+	width: 200px;
+	padding: 20px 10px 15px 10px;
+	text-align: center;
+	background-color: grey;
 
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+	-webkit-box-shadow: 6px 6px 0px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    6px 6px 0px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         6px 6px 0px 0px rgba(50, 50, 50, 0.75);
 }
+
+form input, form textarea, form button {
+	border: none; }
+form button {
+	padding: 15px; }
+form input, form textarea {
+	border: 1px #dddddd solid;
+	padding: 8px; }
+
+.form {
+  margin: 0 auto;
+  width: 210px; }
+  .form img {
+    width: 20px;
+    height: 20px; }
+  .form div {
+    position: relative; }
+  .form .connect {
+    text-align: center;
+    width: 210px;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 20px; }
+  .form .forgot {
+    float: right;
+    margin-top: 5px;
+  }
+
+.floatlabel {
+  position: relative; }
+  .floatlabel label {
+    position: absolute;
+    font-size: 11px;
+    -webkit-transition: margin-left 0.5s, color 0.5s;
+            transition: margin-left 0.5s, color 0.5s;
+    top: 6px; }
+    .floatlabel label:not(.visible) {
+      color: transparent;
+      margin-left: -5px; }
+    .floatlabel label.visible {
+      margin-left: 5px; }
+  .floatlabel input {
+    margin-top: 20px; }
