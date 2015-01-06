@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header>
-		<h1 class="head"><span class="normal">Fun</span>fact</h1>
+		<h1 class="head"><a href="#home"><span class="normal">Fun</span>fact</a></h1>
 	</header>
 
 	<main>
@@ -16,12 +16,12 @@
 			<button class="btn--openmenu">Menu</button>
 			<div><h1 class="head">Menu</h1></div>
 			<ul class="nav">
-				<li><a href="#">Déconnexion</a></li>
-				<li><a href="#">Profil</a></li>
-				<li><a href="#">Favoris</a></li>
-				<li><a href="#">Mes Facts</a></li>
-				<li><a href="#">À Propos</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="#deconnexion">Déconnexion</a></li>
+				<li><a href="#profil">Mon Profil</a></li>
+				<li><a href="#fav">Mes Favoris</a></li>
+				<li><a href="#mesFacts">Mes Facts</a></li>
+				<li><a href="#aPropos">À Propos</a></li>
+				<li><a href="#contact">Contact</a></li>
 			</ul>
 		</nav>
 
@@ -50,43 +50,36 @@
 		</section>
 		<section id="fav" class="section section__fav">
 			<article class="article article__fact">
-				<div><h1 class="head">Favoris</h1></div>
-				<p class="fact">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
+				<p class="fact">Techniquement, ce n’est pas la Seine mais l’Yonne qui coule à Paris.</p>
 				<ul>
 					<li><a href="#">source</a></li>
+					<li><a href="#">user</a></li>
 				</ul>
 
-				<div class="options">
-					<button class="btn--share">Delete</button>
-				</div>
 				<div class="options">
 					<button class="btn--share">Share</button>
 				</div>
 			</article>
 
 			<article class="article article__fact">
-				<p class="fact">Jésus-Christ est né vers l'an 7 avant Jésus-Christ</p>
+				<p class="fact">En Alabama, mettre du sel sur une voie ferrée peut être passible de la peine de mort.</p>
 				<ul>
 					<li><a href="#">source</a></li>
+					<li><a href="#">user</a></li>
 				</ul>
 
-				<div class="options">
-					<button class="btn--share">Delete</button>
-				</div>
 				<div class="options">
 					<button class="btn--share">Share</button>
 				</div>
 			</article>
 
 			<article class="article article__fact">
-				<p class="fact">La république de Macédoine n'a pas le droit de s'appeller ainsi</p>
+				<p class="fact">A Fairbanks, Alaska, il est illégal de donner de l’alcool à une souris.</p>
 				<ul>
 					<li><a href="#">source</a></li>
+					<li><a href="#">user</a></li>
 				</ul>
 
-				<div class="options">
-					<button class="btn--share">Delete</button>
-				</div>
 				<div class="options">
 					<button class="btn--share">Share</button>
 				</div>
@@ -136,35 +129,23 @@
 		// Menu
 		(function() {
 			"use strict";
-
-			var 
-				openMenu = document.getElementsByClassName("btn--openmenu")[0],
+			var openMenu = document.getElementsByClassName("btn--openmenu")[0],
 				nav = document.getElementsByClassName("section__nav")[0],
-				menuEl = document.getElementsByClassName("nav__el"),
-				secHome = document.getElementsByClassName("section__home")[0]; 
-
+				menuEl = document.querySelectorAll(".nav li a");
 			openMenu.addEventListener("click", function() {
 				nav.classList.toggle("nav--open");
 				nav.classList.add("nav--transition");
-				secHome.classList.toggle("sec--closed"); 
-				secHome.classList.add("sec--transition"); 
 			});
-
 			nav.addEventListener("transitionend", function() {
 				nav.classList.remove("nav--transition");
-				secHome.classList.remove("sec--transition"); 
 			});
-
-			for(var i=0; i<menuEl.length; i++) {
-				menuEl[i].addEventListener("click", function (){
+			for (var i=0; i<menuEl.length; i++) {
+				menuEl[i].addEventListener("click", function() {
 					nav.classList.add("nav--transition");
 					nav.classList.remove("nav--open");
-					secHome.classList.add("sec--transition"); 
-					secHome.classList.remove("sec--closed"); 
 				});
 			}
 		})();
-
 		// facts
 		(function() {
 			"use strict";
@@ -172,12 +153,10 @@
 			for (var i = 0; i < facts.length; i++) {
 				facts[i].addEventListener("click", function() {
 					var option = this.nextElementSibling.nextElementSibling;
-
 					if (option !== void(0))
 						option.classList.add("active");
 				});
 			}
-
 			var options = document.querySelectorAll(".article__fact .options");
 			for (i = 0; i < options.length; i++) {
 				options[i].addEventListener("click", function() {
