@@ -184,6 +184,16 @@ ul.tapbar li {
 	border-bottom: none;
 }
 
+.article__fact ul {
+	width: 80%;
+	margin: 0 auto;	
+}
+
+
+.article__fact ul li {
+	display: inline-block;
+}
+
 .article__fact .options {
 	cursor: pointer;
 
