@@ -252,7 +252,7 @@ ul.tapbar li:first-child {
 
 .fact {
 	width: 80%;
-	margin: 0 auto;
+	margin: 0 auto 10px auto;
 	color: #DE574B;
 }
 
