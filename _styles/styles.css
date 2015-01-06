@@ -321,13 +321,32 @@ ul.tapbar li:first-child {
 	box-shadow:         6px 6px 0px 0px rgba(50, 50, 50, 0.75);
 }
 
+
+/* FORMS */
 form input, form textarea, form button {
 	border: none; }
 form button {
-	padding: 15px; }
+	padding: 15px;
+	float: right; 
+  margin: 8px; 
+  text-transform: uppercase; 
+  background-color: #DE574B; 
+  color: #fff; }
 form input, form textarea {
 	border: 1px #dddddd solid;
 	padding: 8px; }
+form input {
+  width: 90%;
+}
+form textarea {
+  resize: auto;
+  width: 90%;
+  height: 150px;
+  margin: 20px 0;
+
+  max-width: 90%;
+  max-height: 150px;
+}
 
 .form {
   margin: 0 auto;
@@ -362,4 +381,12 @@ form input, form textarea {
     .floatlabel label.visible {
       margin-left: 5px; }
   .floatlabel input {
-    margin-top: 20px; }
+
+textarea {
+  resize: auto;
+  width: 90%;
+  height: 150px;
+
+  max-width: 90%;
+  max-height: 150px;
+}
