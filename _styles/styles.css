@@ -361,6 +361,7 @@ ul.tapbar li:first-child {
 .filter--bg {
 	background-color: #fff;
 	margin-bottom: 100px;
+	width: 100%;
 }
 
 .section__filter ul:first-of-type {
