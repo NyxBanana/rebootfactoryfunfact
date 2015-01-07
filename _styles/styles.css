@@ -195,7 +195,6 @@ nav ul li a {
 
 /* Other */
 .section {
-	margin-top: 100px;
 	position: fixed;
 	height: 100%;
 	width: 100%;
@@ -241,7 +240,7 @@ ul.tapbar li:first-child {
 
 .tapbar {
 	position: absolute;
-	bottom: 150px;
+	bottom: 50px;
 	width: 100%;
 	text-align: center;
 }
@@ -257,6 +256,10 @@ ul.tapbar li:first-child {
 .tapbar button img {
 	display: block;
 	margin: 0 auto;
+}
+
+.section__home .article__fact {
+	margin-top: 100px;
 }
 
 /* Buttons Colors */
@@ -355,17 +358,13 @@ ul.tapbar li:first-child {
 
 
 	color: #FEF9F8;
-	z-index: 10;
+	background-color: #fff;
+	z-index: 9;
 }
 
-.filter--bg {
-	background-color: #fff;
-	margin-bottom: 100px;
-	width: 100%;
-}
 
 .section__filter ul:first-of-type {
-	margin-top: 15%;
+	margin-top: 30%;
 }
 
 ul.filters {
