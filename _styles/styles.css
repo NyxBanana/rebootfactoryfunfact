@@ -17,6 +17,7 @@ h1 {
 	text-transform: uppercase;
 	font-weight: lighter;
 	color: #FEF9F8;
+	font-family: 'Roboto';
 }
 
 a {
@@ -34,7 +35,7 @@ main {
 /* Common layout */
 /* Header */
 header  {
-	background-color: #DE574B;
+	background-color: #F16723;
 	height: 50px;
 	width: 100%;
 
@@ -47,7 +48,7 @@ header  {
 
 .head {
 	text-align: center;
-	padding-top: 10px;
+	padding-top: 5px;
 	font-size: 30px;
 }
 
@@ -115,7 +116,7 @@ nav ul li a {
 .btn--openmenu, .btn--openfilter {
 	width: 50px;
 	height: 50px;
-	background-color: #DE574B;
+	background-color: #F16723;
 	color: #FEF9F8;
 	padding: 5px;
 	border: none;
@@ -231,6 +232,7 @@ ul.tapbar li {
 	font-size: 1em;
 	width: 33%;
 	margin: 0;
+
 	box-sizing: border-box;
 }
 
@@ -251,6 +253,8 @@ ul.tapbar li:first-child {
 	border: none;
 	display: block;
 	padding: 0;
+	font-family: 'Roboto';
+	text-transform: uppercase;
 }
 
 .tapbar button img {
@@ -265,17 +269,17 @@ ul.tapbar li:first-child {
 /* Buttons Colors */
 
 .addfact {
-	background-color: #DE574B;
+	background-color: #F16723;
 	color: #FEF9F8;
 }
 
 .addfav {
-	background-color: #F69570;
+	background-color: #F16723;
 	color: #FEF9F8;
 }
 
 .share {
-	background-color: #3FAA96;
+	background-color: #F16723;
 	color: #FEF9F8;
 }
 
@@ -299,7 +303,7 @@ ul.tapbar li:first-child {
 .fact {
 	width: 80%;
 	margin: 0 auto 10px auto;
-	color: #DE574B;
+	
 }
 
 .article__fact:last-of-type {
@@ -423,7 +427,7 @@ ul.filters li {
 }
 
 .profilinfo {
-	background-color: #DE574B;
+	background-color: #F16723;
 }
 
 .btn--modifuser, .btn--deleteuser {
@@ -470,7 +474,7 @@ form button {
 	margin: 35px 0 8px 0; 
 	width: 188px;
 	text-transform: uppercase; 
-	background-color: #DE574B; 
+	background-color: #F16723; 
 	color: #fff;
 }
 
