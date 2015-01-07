@@ -92,12 +92,36 @@ nav ul li a {
 	color: #FEF9F8;
 }
 
+.section__filter {
+	position: fixed;
+	top: 0;
+	right: 0;
+
+	z-index: 15;
+
+	width: 100%;
+	height: 100%;
+	transform: translateX(100%);
+
+	background-color: #49545A;
+	color: #FEF9F8;
+}
+
 .section__nav.nav--transition {
 	transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
-	-webkit-animation: bounce 800ms ease-out;
+	-webkit-animation: bounceleft 800ms ease-out;
+}
+
+.section__filter.filter--transition {
+	transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+	-webkit-animation: bounceright 800ms ease-out;
 }
 
 .section__nav.nav--open {
+	transform: translateX(0);
+}
+
+.section__filter.filter--open {
 	transform: translateX(0);
 }
 
@@ -115,6 +139,15 @@ nav ul li a {
 	right: -50px;
 }
 
+.btn--openfilter {
+	position: absolute;
+	left: -50px;
+}
+
+.nav--filteropen {
+	z-index: 5;
+}
+
 .section:target.sec--closed, .section:first-of-type.sec--closed {
 	transition: all 300ms ease-out;
 }
@@ -123,7 +156,7 @@ nav ul li a {
 	transform: translateX(calc(100% - 50px));
 }
 
-@-webkit-keyframes bounce {
+@-webkit-keyframes bounceleft {
   0% {
 	-webkit-transform:translateX(-100%);
   }
@@ -147,11 +180,28 @@ nav ul li a {
   }
 }
 
-/* Filtres */
-.btn--openfilter {
-	position: absolute;
-	top: 0;
-	right: 0;
+@-webkit-keyframes bounceright {
+  0% {
+	-webkit-transform:translateX(100%);
+  }
+  20% {
+  	-webkit-transform:translateX(0%);
+  }
+  50% {
+  	-webkit-transform:translateX(5%);
+  }
+  60% {
+  	-webkit-transform:translateX(0%);
+  }
+  70% {
+  	-webkit-transform:translateX(1%);
+  }
+  80% {
+  	-webkit-transform:translateX(0%);
+  }
+  100% {
+  	-webkit-transform:translateX(0);
+  }
 }
 
 /* Other */
@@ -301,6 +351,33 @@ ul.tapbar li:first-child {
 
 .article__fact ul li:not(:last-of-type):after {
 	content: " -";
+}
+
+/* Filters */
+ul.filters {
+	font-size: 0;
+}
+
+ul.filters li {
+	font-size: 1em;
+	width: 33%;
+	margin: 0;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.filters {
+	width: 100%;
+	text-align: center;
+	background-color: #DDD;
+}
+
+.filters button {
+	height: 100px;
+	width: 100%;
+	border: solid 1px #757575;
+	display: block;
+	padding: 0;
 }
 
 /* Connexion Page */

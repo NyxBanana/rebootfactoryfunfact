@@ -25,8 +25,25 @@
 			</ul>
 		</nav>
 
-		<button class="btn--openfilter">Filtres</button>
-		<!-- CONTENU FILTRE -->
+		<section class="section__filter">
+			<button class="btn--openfilter">Filtres</button>
+			
+				<ul class="filters">
+					<li><button class="filters__sport">Sport</button></li>
+					<li><button class="filters__art">Art</button></li>
+					<li><button class="filters__culture">Culture</button></li>
+				</ul>
+				<ul class="filters">
+					<li><button class="filters__cinema">Tv/Cinéma</button></li>
+					<li><button class="filters__sciences">Sciences</button></li>
+					<li><button class="filters__histoiry">Histoire</button></li>
+				</ul>
+				<ul class="filters">
+					<li><button class="filters__world">Monde</button></li>
+					<li><button class="filters__celebrities">Célébrités</button></li>
+					<li><button class="filters__fails">Fails</button></li>
+				</ul>
+		</section>
 
 		<section id="home" class="section section__home">
 			<article class="article article__fact">
@@ -235,7 +252,25 @@
 				});
 			}
 		})();
-		// facts
+
+		// Filters
+		(function() {
+			"use strict";
+			var openFilter = document.getElementsByClassName("btn--openfilter")[0],
+				filter = document.getElementsByClassName("section__filter")[0];
+
+			openFilter.addEventListener("click", function() {
+				filter.classList.toggle("filter--open");
+				filter.classList.add("filter--transition");
+				nav.classList.add("nav--filteropen");
+			});
+			filter.addEventListener("transitionend", function() {
+				filter.classList.remove("filter--transition");
+				nav.classList.remove("nav--filteropen");
+			});
+		})();
+
+		// Facts
 		(function() {
 			"use strict";
 			var facts = document.querySelectorAll(".article__fact .fact");
