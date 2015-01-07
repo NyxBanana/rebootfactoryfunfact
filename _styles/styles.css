@@ -472,39 +472,50 @@ form textarea {
 }
 
 .form {
-  display: block;
-  margin: 0 auto;
-  width: 210px; }
-  .form img {
-    width: 20px;
-    height: 20px; }
-  .form div {
-    position: relative; }
-  .form .connect {
+	display: block;
+	margin: 0 auto;
+	width: 210px;
+}
+
+.form div {
+    position: relative;
+}
+
+.form .connect {
     text-align: center;
     width: 210px;
     text-transform: uppercase;
     font-size: 20px;
-    margin-top: 20px; }
-  .form .forgot {
+    margin-top: 20px;
+}
+
+.form .forgot {
     float: right;
     margin-top: 5px;
-  }
+}
 
 .floatlabel {
-  position: relative; }
-  .floatlabel label {
-    position: absolute;
-    font-size: 11px;
+	position: relative;
+}
+
+.floatlabel label {
+	position: absolute;
+	font-size: 11px;
     -webkit-transition: margin-left 0.5s, color 0.5s;
             transition: margin-left 0.5s, color 0.5s;
-    top: 6px; }
-    .floatlabel label:not(.visible) {
-      color: transparent;
-      margin-left: -5px; }
-    .floatlabel label.visible {
-      margin-left: 5px; }
-  .floatlabel input {
+    top: 6px;
+}
+
+.floatlabel label:not(.visible) {
+	color: transparent;
+	margin-left: -5px;
+}
+
+.floatlabel label.visible {
+	margin-left: 5px;
+}
+
+.floatlabel input {
 
   }
 
