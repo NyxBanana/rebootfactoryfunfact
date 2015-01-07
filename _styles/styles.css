@@ -411,3 +411,36 @@ ul.filters li {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+
+/* Profil */
+.profilinfo, .btn--modifuser, .btn--deleteuser {
+	width: 250px;
+	padding: 15px;
+	margin: 10px auto;
+	color: #FEF9F8;
+
+	box-sizing: border-box;
+}
+
+.profilinfo {
+	background-color: #DE574B;
+}
+
+.btn--modifuser, .btn--deleteuser {
+	display: block;
+	background-color: #3FAA96;
+	border: none;
+	text-align: center;
+}
+
+.btn--modifuser {
+	border: solid 2px #3FAA96;
+}
+
+.btn--deleteuser {
+	border: solid 2px red;
+}
+
+.section__profil ul {
+	margin-top: 50px;
+}
