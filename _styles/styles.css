@@ -445,30 +445,47 @@ ul.filters li {
 	margin-top: 50px;
 }
 
+/* ModifProfil */
+.section__profilmodif {
+	margin: 10px auto;
+}
+
+.profilmodif {
+	width: 210px;
+	margin: 50px auto 0 auto;
+}
+
+.profilmodif div:last-of-type {
+	margin-bottom: 10px;
+}
+
+
 /* FORMS */
 form input, form textarea, form button {
-	border: none; }
+	border: none;
+}
+
 form button {
 	padding: 15px;
-	float: right; 
-  margin: 8px; 
-  text-transform: uppercase; 
-  background-color: #DE574B; 
-  color: #fff; }
+	margin: 35px 0 8px 0; 
+	width: 188px;
+	text-transform: uppercase; 
+	background-color: #DE574B; 
+	color: #fff;
+}
+
 form input, form textarea {
 	border: 1px #dddddd solid;
-	padding: 8px; }
-form input {
-  width: 90%;
+	padding: 8px;
 }
-form textarea {
-  resize: auto;
-  width: 90%;
-  height: 150px;
-  margin: 20px 0;
 
-  max-width: 90%;
-  max-height: 150px;
+form textarea {
+	resize: auto;
+	height: 150px;
+	margin: 20px 0;
+
+	max-width: 90%;
+	max-height: 150px;
 }
 
 .form {
@@ -516,38 +533,5 @@ form textarea {
 }
 
 .floatlabel input {
-
+    margin-top: 20px;
   }
-
- /* Page utilisateur */
-.section__otheruser {
-	margin: 0;
-}
-
-.stat li {
-	text-align: center;
-	float: left;
-	display: block;
-	width: 50%;
-	background-color: grey;
-	padding: 35px 10px;
-
-	box-sizing: border-box;
-}
-
-.stat li:last-child {
-	background-color: lightgrey;
-}
-
-.usercount {
-	margin: 0;
-}
-
-.stat:after {
-	content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
-}
