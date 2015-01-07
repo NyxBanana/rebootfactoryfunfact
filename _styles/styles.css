@@ -568,3 +568,70 @@ form textarea {
     line-height: 0;
     height: 0;
 }
+
+/*AddFact*/
+
+form, fieldset {
+    border: none;
+}
+
+select, input, textarea {
+    display: block;
+}
+
+.categorie, .insertfact, .fact--src {
+    /*http://stackoverflow.com/questions/22681141/select-option-padding-not-working-in-chrome*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    font-size: 15px;
+    width: 240px;
+    border: 1px solid #F16723;
+    border-radius: 0;
+    padding: 10px;
+    font-family: 'Roboto';
+    margin: 40px 15px;
+    box-shadow: 0 0 0 10px #fff;
+}
+
+.section__addFact textarea {
+    min-height: 200px;
+    max-width: 240px;
+    max-height: 200px;
+}
+
+.categorie {
+    width: 262px;
+    border-bottom: 1px solid #F16723;
+}
+
+.fact--src {
+    margin-bottom: 135px;
+}
+
+.add {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 106px;
+    margin: 0px;
+    background-color: #F16723;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #fff;
+    font-family: 'Roboto';
+    font-weight: 100;
+}
+
+.triangle {
+    /*http://www.bellami.fr/triangles-css*/
+    width: 0px;
+    height: 0px;
+    border: 12px solid transparent;
+    border-top: 12px solid #f16723;
+    position: absolute;
+    top: 113px;
+    right: 38px;
+}
