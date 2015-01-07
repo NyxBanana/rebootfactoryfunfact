@@ -68,7 +68,7 @@
 			
 			<ul>
 				<li>
-					<a class="btn--modifuser" href="#">Modifier le profil</a>
+					<a class="btn--modifuser" href="#profilmodif">Modifier le profil</a>
 				</li>
 				<li>
 					<a class="btn--deleteuser" href="#">Supprimer le compte</a>
@@ -76,6 +76,41 @@
 			</ul>
 			
 		</section>
+
+		<section id="profilmodif" class="section section__profilmodif">
+			<div><h1 class="head">Profil</h1></div>
+			<form class="profile">
+				<div class="floatlabel">
+					<label for="profile_email">Email</label>
+					<input type="email" name="email" id="profile_email">
+				</div>
+
+				<div class="floatlabel">
+					<label for="profile_username">Pseudo</label>
+					<input type="text" name="username" id="profile_username">
+				</div>
+
+				<div class="floatlabel">
+					<label for="profile_password_new">Nouveau mot de passe</label>
+					<input type="password" name="password_new" id="profile_password_new">
+				</div>
+
+				<div class="floatlabel">
+					<label for="profile_password_conf">Confirmation</label>
+					<input type="password" name="password_conf" id="profile_password_conf">
+				</div>
+
+				<div class="floatlabel">
+					<label for="profile_password_old">Mot de passe actuel</label>
+					<input type="password" name="password_old" id="profile_password_old">
+				</div>
+
+				<a href="" class="cancel">Annuler</a>
+				<button type="submit" class="confirm">Confirmer</button>
+			</form>
+			
+		</section>
+
 		<section id="fav" class="section section__fav">
 			<article class="article article__fact">
 				<p class="fact">Techniquement, ce n’est pas la Seine mais l’Yonne qui coule à Paris.</p>
