@@ -160,16 +160,18 @@
 		(function() {
 			"use strict";
 			var openFilter = document.getElementsByClassName("btn--openfilter")[0],
-				filter = document.getElementsByClassName("section__filter")[0];
+				filter = document.getElementsByClassName("section__filter")[0],
+				catfilt = document.getElementsByClassName("filters")[0];
 
 			openFilter.addEventListener("click", function() {
 				filter.classList.toggle("filter--open");
 				filter.classList.add("filter--transition");
-				nav.classList.add("nav--filteropen");
+				catfilt.classList.add("filter--transition");
 			});
+
 			filter.addEventListener("transitionend", function() {
 				filter.classList.remove("filter--transition");
-				nav.classList.remove("nav--filteropen");
+				catfilt.classList.remove("filter--transition");
 			});
 		})();
 
