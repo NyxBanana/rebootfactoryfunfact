@@ -57,6 +57,7 @@ header  {
 	position: fixed;
 	top: 50px;
 	right: 0;
+	overflow: scroll;
 
 
 	width: 100%;
@@ -79,6 +80,10 @@ ul.filters li {
 	margin: 0 auto;
 	display: block;
 	box-sizing: border-box;
+}
+
+ul.filters li:last-child {
+	margin-bottom: 50px;
 }
 
 .filters {
@@ -169,7 +174,7 @@ ul.filters li {
 .filters__cinema {
 	background-color: #EE5281;
 }
-.filters__siences {
+.filters__sciences {
 	background-color: #F16723;
 }
 .filters__history {
