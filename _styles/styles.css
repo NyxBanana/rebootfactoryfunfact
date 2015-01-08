@@ -85,6 +85,9 @@ ul.filters li {
 	width: 100%;
 	text-align: center;
 	background-color: #DDD;
+
+	transform:         translateX(0);
+	-webkit-transform: translateX(0);
 }
 
 .filters button {
@@ -100,95 +103,45 @@ ul.filters li {
 	transition: all 300ms ease-out;
 }
 
-<<<<<<< HEAD
 .filters.filterList--transition {
 	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-			.filters.filter--transition:nth-child(1) {
-              -webkit-transition-delay: .235s;
-              transition-delay: .235s;
-            }
-
-            .filters.filter--transition:nth-child(2) {
-              -webkit-transition-delay: .2s;
-              transition-delay: .2s;
-            }
-
-            .filters.filter--transition:nth-child(3) {
-              -webkit-transition-delay: .165s;
-              transition-delay: .165s;
-            }
-
-            .filters.filter--transition:nth-child(4) {
-              -webkit-transition-delay: .13s;
-              transition-delay: .13s;
-            }
-
-            .filters.filter--transition:nth-child(5) {
-              -webkit-transition-delay: .095s;
-              transition-delay: .095s;
-            }
-
-            .filters.filter--transition:nth-child(6) {
-              -webkit-transition-delay: .06s;
-              transition-delay: .06s;
-            }
-
-            .filters.filter--transition:nth-child(7) {
-              -webkit-transition-delay: .25s;
-              transition-delay: .025s;
-            }
-
-            .filters.filter--transition:nth-child(8) {
-              -webkit-transition-delay: .25s;
-              transition-delay: .025s;
-            }
-
-            .filters.filter--transition:nth-child(9) {
-              -webkit-transition-delay: .25s;
-              transition-delay: .025s;
-            }
-=======
-.filters.filterList--transition:nth-child(2) {
-	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.filters.filterList--transition:nth-child(3) {
-	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.filters.filterList--transition:nth-child(4) {
-	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.filters.filterList--transition:nth-child(5) {
-	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.filters.filterList--transition:nth-child(6) {
-	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.filters.filterList--transition:nth-child(7) {
-	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.filters.filterList--transition:nth-child(8) {
-	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.filters.filterList--transition:last-child {
-	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
->>>>>>> origin/master
+	.section__filter li:nth-child(2) {
+	  animation-delay:         .2s;
+	  -webkit-animation-delay: .2s;
+	}
+	.section__filter li:nth-child(3) {
+	  animation-delay:         .3s;
+	  -webkit-animation-delay: .3s;
+	}
+	.section__filter li:nth-child(4) {
+	  animation-delay:         .4s;
+	  -webkit-animation-delay: .4s;
+	}
+	.section__filter li:nth-child(5) {
+	  animation-delay:         .5s;
+	  -webkit-animation-delay: .5s;
+	}
+	.section__filter li:nth-child(6) {
+	  animation-delay:         .6s;
+	  -webkit-animation-delay: .6s;
+	}
+	.section__filter li:nth-child(7) {
+	  animation-delay:         .7s;
+	  -webkit-animation-delay: .7s;
+	}
+	.section__filter li:nth-child(8) {
+	  animation-delay:         .8s;
+	  -webkit-animation-delay: .8s;
+	}
 
 .section__filter.filter--open {
 	transform: translateX(0);
 }
 
 .section__filter.filterList--open {
-	transform: translateX(-100%);
+	transform: translateX(0);
 }
 
 .btn--openfilter {
@@ -233,7 +186,7 @@ ul.filters li {
 	display: inline-block;
 }
 
-.addfact {
+.addfact, .addfact--btn {
 	height: 60px;
 	width: 60px;
 	border: none;
@@ -408,7 +361,12 @@ form textarea {
 
 /* AddFact */
 
-.categorie, .insertfact, .fact--src {
+fieldset {
+	border: none;
+	width: 100%;
+}
+
+.categorie, .insertfact, .fact--add {
     /*http://stackoverflow.com/questions/22681141/select-option-padding-not-working-in-chrome*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -416,11 +374,11 @@ form textarea {
     background-color: #fff;
     font-size: 15px;
     width: 240px;
-    border: 1px solid #F16723;
+    border: 1px solid #FAA81A;
     border-radius: 0;
     padding: 10px;
     font-family: 'Roboto';
-    margin: 40px 15px;
+    margin: 15px 15px;
 }
 
 .section__addFact textarea {
@@ -431,35 +389,21 @@ form textarea {
 
 .categorie {
     width: 262px;
-    border-bottom: 1px solid #F16723;
+    border-bottom: 1px solid #FAA81A;
 }
 
 .fact--src {
     margin-bottom: 135px;
 }
 
-.add {
-    position: fixed;
-    bottom: 0px;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    margin: 25px auto;
-    background-color: #F16723;
-    text-transform: uppercase;
-    font-size: 24px;
-    color: #fff;
-    font-family: 'Roboto';
-    font-weight: 100;
-}
 
 .triangle {
     /*http://www.bellami.fr/triangles-css*/
     width: 0px;
     height: 0px;
     border: 12px solid transparent;
-    border-top: 12px solid #f16723;
+    border-top: 12px solid #FAA81A;
     position: absolute;
-    top: 113px;
+    top: 110px;
     right: 38px;
 }
