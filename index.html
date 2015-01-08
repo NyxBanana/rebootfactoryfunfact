@@ -15,31 +15,15 @@
 	</header>
 
 	<main>
-		<nav class="section__nav">
-			<button class="btn--openmenu">Menu</button>
-			<div><h1 class="head">Menu</h1></div>
-			<ul class="nav">
-				<li><a href="#deconnexion">Déconnexion</a></li>
-				<li><a href="#profil">Mon Profil</a></li>
-				<li><a href="#fav">Mes Favoris</a></li>
-				<li><a href="#mesFacts">Mes Facts</a></li>
-				<li><a href="#aPropos">À Propos</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</nav>
 
 		<section class="section__filter">
 				<ul class="filters">
 					<li><button class="filters__sport">Sport</button></li>
 					<li><button class="filters__art">Art</button></li>
 					<li><button class="filters__culture">Culture</button></li>
-				</ul>
-				<ul class="filters">
 					<li><button class="filters__cinema">Tv/Cinéma</button></li>
 					<li><button class="filters__sciences">Sciences</button></li>
 					<li><button class="filters__histoiry">Histoire</button></li>
-				</ul>
-				<ul class="filters">
 					<li><button class="filters__world">Monde</button></li>
 					<li><button class="filters__celebrities">Célébrités</button></li>
 					<li><button class="filters__fails">Fails</button></li>
@@ -55,18 +39,14 @@
 				</ul>
 			</article>
 
-			<ul class="tapbar">
-				<li><button class="addfact"><img src="#" alt="+" />Add Fact</button></li>
-				<li><button class="addfav"><img src="#" alt="star" />Add Fav</button></li>
-				<li><button class="share"><img src="#" alt="share" />Share</button></li>
-			</ul>
+			<button class="addfact">+</button>
 		</section>
 
 		<section id="addFact" class="section section__addFact">
 			<form action="" method="post" class="form--addafact">
 	       		<fieldset>
 		            <select class="categorie" name="categorie" size="1">
-		                 <option value="" disabled selected>Catégorie</option>
+		                <option value="" disabled selected>Catégorie</option>
 		                <option value="sport">Sport</option>
 		                <option value="cinema">Cinéma</option>
 		                <option value="culture">Culture</option>
@@ -88,205 +68,85 @@
 		</section>
 
 		<section id="profil" class="section section__profil">
-			<p class="profilinfo">utilisateur@email.com</p>
-			<p class="profilinfo">PseudoUtilisateur</p>
+			<input class="pseudo" name="pseudo" type="text"  value="" placeholder="Pseudo"></input>
 			
-			<ul>
-				<li>
-					<a class="btn--modifuser" href="#profilmodif">Modifier le profil</a>
-				</li>
-				<li>
-					<a class="btn--deleteuser" href="#">Supprimer le compte</a>
-				</li>
-			</ul>
-		</section>
+			<button>Mes Facts</button>
+			<button>Mes Favoris</button>
 
-		<section id="profilmodif" class="section section__profilmodif">
-			<form class="profilmodif">
-				<div class="floatlabel">
-					<label for="profile_email">Email</label>
-					<input type="email" name="email" id="profile_email">
-				</div>
-
-				<div class="floatlabel">
-					<label for="profile_username">Pseudo</label>
-					<input type="text" name="username" id="profile_username">
-				</div>
-
-				<div class="floatlabel">
-					<label for="profile_password_new">Nouveau mot de passe</label>
-					<input type="password" name="password_new" id="profile_password_new">
-				</div>
-
-				<div class="floatlabel">
-					<label for="profile_password_conf">Confirmation</label>
-					<input type="password" name="password_conf" id="profile_password_conf">
-				</div>
-
-				<div class="floatlabel">
-					<label for="profile_password_old">Mot de passe actuel</label>
-					<input type="password" name="password_old" id="profile_password_old">
-				</div>
-
-				<button type="submit" class="confirm">Valider</button>
-			</form>
-		</section>
-
-		<section id="fav" class="section section__fav">
-			<article class="article article__fact">
-				<p class="fact">Techniquement, ce n’est pas la Seine mais l’Yonne qui coule à Paris.</p>
-				<ul>
-					<li><a href="#">source</a></li>
-					<li><a href="#">user</a></li>
-				</ul>
-
-				<div class="options">
-					<button class="btn--share">Share</button>
-				</div>
-			</article>
-
-			<article class="article article__fact">
-				<p class="fact">En Alabama, mettre du sel sur une voie ferrée peut être passible de la peine de mort.</p>
-				<ul>
-					<li><a href="#">source</a></li>
-					<li><a href="#">user</a></li>
-				</ul>
-
-				<div class="options">
-					<button class="btn--share">Share</button>
-				</div>
-			</article>
-
-			<article class="article article__fact">
-				<p class="fact">A Fairbanks, Alaska, il est illégal de donner de l’alcool à une souris.</p>
-				<ul>
-					<li><a href="#">source</a></li>
-					<li><a href="#">user</a></li>
-				</ul>
-
-				<div class="options">
-					<button class="btn--share">Share</button>
-				</div>
-			</article>
-		</section>
-
-		<section id="mesFacts" class="section section__mesFacts">
-			<article class="article article__fact">
-				<p class="fact">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
-				<ul>
-					<li><a href="#">source</a></li>
-				</ul>
-
-				<div class="options">
-					<button class="btn--share">Share</button>
-				</div>
-			</article>
-
-			<article class="article article__fact">
-				<p class="fact">Jésus-Christ est né vers l'an 7 avant Jésus-Christ</p>
-				<ul>
-					<li><a href="#">source</a></li>
-				</ul>
-
-				<div class="options">
-					<button class="btn--share">Share</button>
-				</div>
-			</article>
-
-			<article class="article article__fact">
-				<p class="fact">La république de Macédoine n'a pas le droit de s'appeller ainsi</p>
-				<ul>
-					<li><a href="#">source</a></li>
-				</ul>
-
-				<div class="options">
-					<button class="btn--share">Share</button>
-				</div>
-			</article>
-		</section>
-
-		<section id="aPropos" class="section section__aPropos">
-			
-				<p class="fact">Funfacts est une application mobile qui vous propose des faits aléatoires, drôles et amusants. Elle propose un filtrage de catégories vous permettant d'accéder à vos contenus préférés.</p>
-				<p class="fact">Amusez-vous bien !</p>
-				<p class="fact">L'équipe</p>
-		</section>
-
-		<section id="contact" class="section section__contact">
-			
-				<form class="form">
-					<div class="floatlabel">
-						<label for="contact_object">Objet</label>
-						<input type="text" name="object" id="contact_object">
-					</div>
-
-					<div class="floatlabel">
-						<label for="contact_message">Votre message</label>
-						<textarea id="contact_message" name="message" cols="" rows=""></textarea>
-					</div>
-
-					<button type="submit" class="send">Envoyer</button>
-				</form>
-		</section>
-
-		<section id="otheruser" class="section section__otheruser">				
-				<section class="stat">
+			<div id="fav" class="section section__fav">
+				<article class="article article__fact">
+					<p class="fact">Techniquement, ce n’est pas la Seine mais l’Yonne qui coule à Paris.</p>
 					<ul>
-						<li>
-							<h1>50</h1>
-							<p class="usercount">Facts</p>
-						</li>
-						<li>
-							<h1>30</h1>
-							<p class="usercount">Favoris</p>
-						</li>
+						<li><a href="#">source</a></li>
+						<li><a href="#">user</a></li>
 					</ul>
-				</section>
 
-				<section>
-					<article class="article article__fact">
-						<p class="fact">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
-						<ul>
-							<li><a href="#">source</a></li>
-						</ul>
-					</article>
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
 
-					<article class="article article__fact">
-						<p class="fact">Jésus-Christ est né vers l'an 7 avant Jésus-Christ</p>
-						<ul>
-							<li><a href="#">source</a></li>
-						</ul>
-					</article>
+				<article class="article article__fact">
+					<p class="fact">En Alabama, mettre du sel sur une voie ferrée peut être passible de la peine de mort.</p>
+					<ul>
+						<li><a href="#">source</a></li>
+						<li><a href="#">user</a></li>
+					</ul>
 
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
 
-					<article class="article article__fact">
-						<p class="fact">La république de Macédoine n'a pas le droit de s'appeller ainsi</p>
-						<ul>
-							<li><a href="#">source</a></li>
-						</ul>
-					</article>
-		</section>
+				<article class="article article__fact">
+					<p class="fact">A Fairbanks, Alaska, il est illégal de donner de l’alcool à une souris.</p>
+					<ul>
+						<li><a href="#">source</a></li>
+						<li><a href="#">user</a></li>
+					</ul>
 
-		<section id="connexion" class="section section__connexion">
-			<div class="connecthead">
-				<h1 class="logo"><span class="normal">Fun</span>Fact</h1>
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
 			</div>
 
-			<form class="form">
-				<div class="floatlabel">
-					<label for="profile_username">Pseudo</label>
-					<input type="text" name="username" id="profile_username">
-				</div>
+			<div id="mesFacts" class="section section__mesFacts">
+				<article class="article article__fact">
+					<p class="fact">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
+					<ul>
+						<li><a href="#">source</a></li>
+					</ul>
 
-				<div class="floatlabel">
-					<label for="profile_password_old">Mot de passe</label>
-					<input type="password" name="password_old" id="profile_password_old">
-				</div>
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
 
-				<a href="" class="forgot">mot de passe oublié ?</a>
-				<button type="submit" class="connect">Connexion</button>
-			</form>
+				<article class="article article__fact">
+					<p class="fact">Jésus-Christ est né vers l'an 7 avant Jésus-Christ</p>
+					<ul>
+						<li><a href="#">source</a></li>
+					</ul>
+
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
+
+				<article class="article article__fact">
+					<p class="fact">La république de Macédoine n'a pas le droit de s'appeller ainsi</p>
+					<ul>
+						<li><a href="#">source</a></li>
+					</ul>
+
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
+			</div>
 		</section>
+
 	</main>
 	<footer>
 	</footer>
@@ -295,26 +155,6 @@
 	
 		
 		if (location.hash === "") location.hash = "home";
-		
-		// Menu
-		(function() {
-			"use strict";
-			var openMenu = document.getElementsByClassName("btn--openmenu")[0],
-				nav = document.getElementsByClassName("section__nav")[0],
-				menuEl = document.querySelectorAll(".nav li a");
-			openMenu.addEventListener("click", function() {
-				nav.classList.toggle("nav--open");
-				nav.classList.add("nav--transition");
-			});
-			nav.addEventListener("transitionend", function() {
-				nav.classList.remove("nav--transition");
-			});
-			for (var i=0; i<menuEl.length; i++) {
-				menuEl[i].addEventListener("click", function() {
-					nav.classList.remove("nav--open");
-				});
-			}
-		})();
 
 		// Filters
 		(function() {

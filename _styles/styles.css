@@ -52,68 +52,18 @@ header  {
 	font-size: 30px;
 }
 
-/* Nav */
-.nav {
-	text-align: left;
-}
-
-nav ul li {
-	border-bottom: solid 1px #FEF9F8;
-}
-
-nav ul li a {
-	width: 100%;
-	padding: 20px;
-
-	box-sizing: border-box;
-	display: inline-block;
-
-	font-variant: small-caps;
-
-	color: inherit;
-}
-
-.section__nav div {
-	background-color: #3E8A9C;
-	height: 50px;
-	width: 100%;
-	padding: 0;
-}
-
-.section__nav {
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	z-index: 10;
-
-	width: calc(100% - 50px);
-	height: 100%;
-	transform: translateX(-100%);
-
-	background-color: #49545A;
-	color: #FEF9F8;
-}
-
-.section__nav.nav--transition {
-	transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
-	-webkit-animation: bounceleft 800ms ease-out;
-}
+/* Filters */
 
 .section__filter.filter--transition {
 	transition: all 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
 	-webkit-animation: bounceright 800ms ease-out;
 }
 
-.section__nav.nav--open {
-	transform: translateX(0);
-}
-
 .section__filter.filter--open {
 	transform: translateX(0);
 }
 
-.btn--openmenu, .btn--openfilter {
+.btn--openfilter {
 	width: 50px;
 	height: 50px;
 	background-color: #F16723;
@@ -121,29 +71,9 @@ nav ul li a {
 	padding: 5px;
 	border: none;
 
-}
-
-.btn--openmenu {
-	position: absolute;
-	right: -50px;
-}
-
-.btn--openfilter {
 	position: absolute;
 	right: 0;
 	top: 0;
-}
-
-.nav--filteropen {
-	z-index: 5;
-}
-
-.section:target.sec--closed, .section:first-of-type.sec--closed {
-	transition: all 300ms ease-out;
-}
-
-.section:target.sec--closed, .section:first-of-type.sec--closed {
-	transform: translateX(calc(100% - 50px));
 }
 
 @-webkit-keyframes bounceleft {
@@ -223,64 +153,24 @@ nav ul li a {
 	display: inline-block;
 }
 
-ul.tapbar {
-	font-size: 0;
-	width: 100%;
-}
-
-ul.tapbar li {
-	font-size: 1em;
-	width: 33%;
-	margin: 0;
-
-	box-sizing: border-box;
-}
-
-ul.tapbar li:first-child {
-	width: 34%;
-}
-
-.tapbar {
-	position: absolute;
-	bottom: 50px;
-	width: 100%;
-	text-align: center;
-}
-
-.tapbar button {
-	height: 100px;
-	width: 100%;
+.addfact {
+	height: 60px;
+	width: 60px;
 	border: none;
 	display: block;
-	padding: 0;
 	font-family: 'Roboto';
-	text-transform: uppercase;
-}
+	font-size: 35px;
+	color: #FFF;
+	border-radius: 50%;
+	background-color: #F16723;
 
-.tapbar button img {
-	display: block;
-	margin: 0 auto;
+	position: absolute;
+	bottom: 75px;
+	left: calc(50% - 30px);
 }
 
 .section__home .article__fact {
 	margin-top: 100px;
-}
-
-/* Buttons Colors */
-
-.addfact {
-	background-color: #F16723;
-	color: #FEF9F8;
-}
-
-.addfav {
-	background-color: #F16723;
-	color: #FEF9F8;
-}
-
-.share {
-	background-color: #F16723;
-	color: #FEF9F8;
 }
 
 /* Facts */
@@ -377,9 +267,9 @@ ul.filters {
 
 ul.filters li {
 	font-size: 1em;
-	width: 33%;
+	width: 100%;
 	margin: 0;
-	display: inline-block;
+	display: block;
 	box-sizing: border-box;
 }
 
@@ -398,71 +288,16 @@ ul.filters li {
 	background-color: #3FAA96;
 }
 
-/* Connexion Page */
-.connecthead {
-  margin: 20% auto 20px auto;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto;
-  width: 200px;
-  padding: 20px 10px 15px 10px;
-  text-align: center;
-  background-color: grey;
-
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-}
-
 /* Profil */
-.profilinfo, .btn--modifuser, .btn--deleteuser {
+.pseudo {
 	width: 250px;
 	padding: 15px;
 	margin: 10px auto;
 	color: #FEF9F8;
+	background-color: #F16723;
 
 	box-sizing: border-box;
 }
-
-.profilinfo {
-	background-color: #F16723;
-}
-
-.btn--modifuser, .btn--deleteuser {
-	display: block;
-	background-color: #3FAA96;
-	border: none;
-	text-align: center;
-}
-
-.btn--modifuser {
-	border: solid 2px #3FAA96;
-}
-
-.btn--deleteuser {
-	border: solid 2px red;
-}
-
-.section__profil ul {
-	margin-top: 50px;
-}
-
-/* ModifProfil */
-.section__profilmodif {
-	margin: 10px auto;
-}
-
-.profilmodif {
-	width: 210px;
-	margin: 50px auto 0 auto;
-}
-
-.profilmodif div:last-of-type {
-	margin-bottom: 10px;
-}
-
 
 /* FORMS */
 form input, form textarea, form button {
@@ -540,48 +375,7 @@ form textarea {
     margin-top: 20px;
   }
 
-  /* Page utilisateur */
-.section__otheruser {
-	margin: 0;
-}
-
-.stat li {
-	text-align: center;
-	float: left;
-	display: block;
-	width: 50%;
-	background-color: grey;
-	padding: 35px 10px;
-
-	box-sizing: border-box;
-}
-
-.stat li:last-child {
-	background-color: lightgrey;
-}
-
-.usercount {
-	margin: 0;
-}
-
-.stat:after {
-	content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0;
-}
-
-/*AddFact*/
-
-form, fieldset {
-    border: none;
-}
-
-select, input, textarea {
-    display: block;
-}
+/* AddFact */
 
 .categorie, .insertfact, .fact--src {
     /*http://stackoverflow.com/questions/22681141/select-option-padding-not-working-in-chrome*/
@@ -596,7 +390,6 @@ select, input, textarea {
     padding: 10px;
     font-family: 'Roboto';
     margin: 40px 15px;
-    box-shadow: 0 0 0 10px #fff;
 }
 
 .section__addFact textarea {
@@ -617,10 +410,10 @@ select, input, textarea {
 .add {
     position: fixed;
     bottom: 0px;
-    left: 0px;
-    width: 100%;
-    height: 106px;
-    margin: 0px;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 25px auto;
     background-color: #F16723;
     text-transform: uppercase;
     font-size: 24px;
