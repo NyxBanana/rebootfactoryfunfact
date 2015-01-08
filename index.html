@@ -166,12 +166,13 @@
 			openFilter.addEventListener("click", function() {
 				filter.classList.toggle("filter--open");
 				filter.classList.add("filter--transition");
-				catfilt.classList.add("filter--transition");
+				catfilt.classList.toggle("filterList--open");
+				catfilt.classList.add("filterList--transition");
 			});
 
 			filter.addEventListener("transitionend", function() {
 				filter.classList.remove("filter--transition");
-				catfilt.classList.remove("filter--transition");
+				catfilt.classList.remove("filterList--transition");
 			});
 		})();
 
