@@ -39,12 +39,14 @@
 				</ul>
 			</article>
 
-			<button class="addfact">+</button>
+			<div class="addfact--btn"><button class="addfact">+</button></div>
 		</section>
 
 		<section id="addFact" class="section section__addFact">
 			<form action="" method="post" class="form--addafact">
 	       		<fieldset>
+	       			<input class="fact--add" name="fact--src" type="text" value="" placeholder="Pseudo"></input>
+
 		            <select class="categorie" name="categorie" size="1">
 		                <option value="" disabled selected>Catégorie</option>
 		                <option value="sport">Sport</option>
@@ -60,9 +62,9 @@
 		            
 		            <textarea class="insertfact" name="fact" rows="1" cols="1" placeholder="Insérer votre fact"></textarea>
 		            
-		            <input class="fact--src" name="fact--src" type="text" value="" placeholder="Source (facultatif)"></input>
+		            <input class="fact--add" name="fact--src" type="text" value="" placeholder="Source (facultatif)"></input>
 		            
-		            <input class="add" tabindex="1" type="submit" value="Ajouter"/>
+		            <div class="addfact--btn"><input class="addfact" tabindex="1" type="submit" value="v"/></div>
 	       		</fieldset>
 			</form>
 		</section>
@@ -155,27 +157,23 @@
 	
 		
 		if (location.hash === "") location.hash = "home";
-
 		// Filters
 		(function() {
 			"use strict";
 			var openFilter = document.getElementsByClassName("btn--openfilter")[0],
 				filter = document.getElementsByClassName("section__filter")[0],
 				catfilt = document.getElementsByClassName("filters")[0];
-
 			openFilter.addEventListener("click", function() {
 				filter.classList.toggle("filter--open");
 				filter.classList.add("filter--transition");
 				catfilt.classList.toggle("filterList--open");
 				catfilt.classList.add("filterList--transition");
 			});
-
 			filter.addEventListener("transitionend", function() {
 				filter.classList.remove("filter--transition");
 				catfilt.classList.remove("filterList--transition");
 			});
 		})();
-
 		// Facts
 		(function() {
 			"use strict";
@@ -194,22 +192,16 @@
 				});
 			}
 		})();
-
 		// Forms
 		(function() {
 			"use strict";
-
 			var floatlabels = document.getElementsByClassName("floatlabel");
-
 			for (var i = 0; i < floatlabels.length; i++) {
 				var input = floatlabels[i].getElementsByTagName("input")[0];
 				var label = floatlabels[i].getElementsByTagName("label")[0];
-
 				input.placeholder = label.innerText;
-
 				input.addEventListener("input", function(e) {
 					var label = this.previousElementSibling;
-
 					if (this.value.length != 0)
 						label.classList.add("visible");
 					else
@@ -217,23 +209,22 @@
 				});
 			}
 		})();
-
 		//AddFact
 		(function() {
 			"use strict";
-			var floatlabels = document.getElementsByClassName("floatlabel");
-			for (var i = 0; i < floatlabels.length; i++) {
-				var input = floatlabels[i].getElementsByTagName("input")[0];
-				var label = floatlabels[i].getElementsByTagName("label")[0];
-				input.placeholder = label.innerText;
-				input.addEventListener("input", function(e) {
-					var label = this.previousElementSibling;
-					if (this.value.length != 0)
-						label.classList.add("visible");
-					else
-						label.classList.remove("visible");
+			var addFact = document.getElementsByClassName("section__addFact"),
+				btnAdd = document.getElementsByCLassName("addfact"),
+				addBg = document.getElementsByClassName("addfact--btn");
+
+				btnAdd.addEventListener("click", function() {
+					addBg.classList.toggle("addFact--open");
+					addBg.classList.add("addFact--transition");
 				});
-			}
+				btnAdd.addEventListener("transitionend", function() {
+					btnAdd.classList.remove("addFact--transition");
+
+				});
+
 		})();
 	</script>
 </body>
