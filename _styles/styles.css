@@ -35,7 +35,7 @@ main {
 /* Common layout */
 /* Header */
 header  {
-	background-color: #F16723;
+	background-color: #FAA81A;
 	height: 50px;
 	width: 100%;
 
@@ -66,7 +66,7 @@ header  {
 .btn--openfilter {
 	width: 50px;
 	height: 50px;
-	background-color: #F16723;
+	background-color: #FAA81A;
 	color: #FEF9F8;
 	padding: 5px;
 	border: none;
@@ -162,7 +162,7 @@ header  {
 	font-size: 35px;
 	color: #FFF;
 	border-radius: 50%;
-	background-color: #F16723;
+	background-color: #FAA81A;
 
 	position: absolute;
 	bottom: 75px;
