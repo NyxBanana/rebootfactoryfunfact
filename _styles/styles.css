@@ -61,7 +61,7 @@ header  {
 
 	width: 100%;
 	height: 100%;
-	transform: translateX(100%);
+	transform: translateX(-100%);
 
 
 	color: #FEF9F8;
@@ -91,12 +91,11 @@ ul.filters li {
 }
 
 .filters button {
-	height: 60px;
+	height: 70px;
 	width: 100%;
 	border: none;
 	display: block;
-	padding: 0;
-	background-color: #3FAA96;
+	color: #FFF;
 }
 
 .section__filter.filter--transition {
@@ -153,8 +152,37 @@ ul.filters li {
 	border: none;
 
 	position: absolute;
-	right: 0;
+	left: 0;
 	top: 0;
+}
+
+/* Color Filter */
+.filters__sport {
+	background-color: #00A498;
+}
+.filters__art {
+	background-color: #F2971F;
+}
+.filters__culture {
+	background-color: #A2CC39;
+}
+.filters__cinema {
+	background-color: #EE5281;
+}
+.filters__siences {
+	background-color: #F16723;
+}
+.filters__history {
+	background-color: #2E72B5;
+}
+.filters__world {
+	background-color: #FBB64C;
+}
+.filters__celebrities {
+	background-color: #77489B;
+}
+.filters__fails {
+	background-color: #B892C2;
 }
 
 /* Other */
@@ -176,11 +204,6 @@ ul.filters li {
 }
 
 /* Home layout */
-
-.section__home ul {
-	width: 80%;
-	margin: 0 auto;	
-}
 
 .section__home ul li {
 	display: inline-block;
@@ -233,16 +256,6 @@ ul.filters li {
 	border-bottom: none;
 }
 
-.article__fact ul {
-	width: 80%;
-	margin: 0 auto;	
-}
-
-
-.article__fact ul li {
-	display: inline-block;
-}
-
 .article__fact .options {
 	cursor: pointer;
 
@@ -270,6 +283,23 @@ ul.filters li {
 
 .article__fact ul li:not(:last-of-type):after {
 	content: " -";
+}
+
+.infofact {
+	margin: 20% 15% 0 15%;
+}
+
+.infofact ul {
+	float: right;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
 }
 
 /* Profil */
