@@ -152,19 +152,6 @@ ul.filters li:last-child {
 	transform: translateX(0);
 }
 
-.btn--openfilter {
-	width: 50px;
-	height: 50px;
-	background-color: #FAA81A;
-	color: #FEF9F8;
-	padding: 5px;
-	border: none;
-
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-
 /* Color Filter */
 .filters__sport {
 	background-color: #00A498;
@@ -236,6 +223,27 @@ ul.filters li:last-child {
 
 .section__home .article__fact {
 	margin-top: 100px;
+}
+
+.btn--openfilter, .btn--openprofile {
+	width: 50px;
+	height: 50px;
+	background-color: #FAA81A;
+	color: #FEF9F8;
+	padding: 5px;
+	border: none;
+}
+
+.btn--openfilter {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.btn--openprofile {
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 /* Facts */
@@ -321,6 +329,8 @@ ul.filters li:last-child {
 
 	box-sizing: border-box;
 }
+
+
 
 /* FORMS */
 form input, form textarea, form button {
