@@ -170,11 +170,11 @@
 			"use strict";
 			var openFilter = document.getElementsByClassName("btn--openfilter")[0],
 				filter = document.getElementsByClassName("section__filter")[0],
-				catfilt = document.getElementsByClassName("filters")[0];
+				catfilt = document.getElementsByClassName("filters");
 
 			openFilter.addEventListener("click", function() {
-				//filter.classList.toggle("filter--open");
-				//filter.classList.add("filter--transition");
+				filter.classList.toggle("filter--open");
+				filter.classList.add("filter--transition");
 				catfilt.classList.toggle("filterList--open");
 				catfilt.classList.add("filterList--transition");
 			});
@@ -246,26 +246,70 @@
 			category : "sport",
 			text : "A Detroit, un homme de 41 ans est mort noyé dans 50cm d’eau après avoir passé la tête dans une bouche d’égout et s’être bloqué… en cherchant ses clés de voiture.",
 			source : "Darwin Award",
-			author : "Funfacts"
+			author : "NyxBanana"
 		},
 		{
-			text : "bonjour2",
+			category : "cinema"
+			text : "Le premier épisode de la Saga Star Wars va être traduit dans la langue du peuple amérindien des Navajos.",
 			source : "htt://",
-			author : "moi"
+			author : "NyxBanana"
 		},
 		{
-			text : "bonjour3",
+			category : "fails";
+			text : "A Paris, une poubelle est considérée comme une arme mortelle.",
 			source : "htt://",
-			author : "moi"
-		}
+			author : "XynPapple"
+		},
+		{
+			category : "history";
+			text : "Le terme OK  vient de la Guerre de Sécession : tous les jours, ils compilaient le nombre de morts dans un registre en indiquant le nombre de tués à coté d'un K pour 'Killed', ce qui donnait 25K 12K etc... Les bons jours sont ceux où l'on avait aucun mort, soit 0 K, devenu par la suite OK.",
+			source : "htt://",
+			author : "XynPapple"
+		},
+		{
+			category : "world";
+			text : "En Alabama, il est illégal de porter une fausse moustache qui puisse causer des rires à l’église.",
+			source : "htt://",
+			author : "NyxBanana"
+		},
+		{
+			category : "world";
+			text : "Un milliard de Chinois se partagent 100 noms de famille.",
+			source : "htt://",
+			author : "NyxBanana"
+		},
+		{
+			category : "culture";
+			text : "Jésus est né vers l’an 7 ou 5 avant Jésus-Christ.",
+			source : "htt://",
+			author : "NyxBanana"
+		},
+		{
+			category : "culture";
+			text : "L’inventeur du Coca-Cola s’est inspiré d’un vin français à la coca.",
+			source : "htt://",
+			author : "NyxBanana"
+		},
+		{
+			category : "fails";
+			text : "En France, il est interdit d’appeler un cochon Napoléon.",
+			source : "htt://",
+			author : "XynPapple"
+		},
+		{
+			category : "world";
+			text : "Au Royaume-uni, un homme peut uriner en public mais uniquement sur la roue arrière d’un véhicule motorisé sur lequel il aura préalablement posé sa main droite.",
+			source : "htt://",
+			author : "NyxBanana"
+		},
 	];
 
 	/*var randomFact = Math.floor(Math.random() * facts.length);*/
 	var currentFact = 0;
 	
-	$(".article__fact .fact").html(facts[0].text);
-	$(".article__fact .source").html(facts[0].source);
-	$(".article__fact .user").html(facts[0].author);
+	$(".article__fact .fact").html(facts[currentFact].text);
+	$(".article__fact .source").html(facts[currentFact].source);
+	$(".article__fact .user").html(facts[currentFact].author);
 
 
 

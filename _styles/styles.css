@@ -1,4 +1,6 @@
 /* Base style */
+@import "font.css";
+
 body {
 	font-family: sans-serif;
 	background-color: #FEF9F8;
