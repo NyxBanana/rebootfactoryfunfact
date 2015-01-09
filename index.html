@@ -158,6 +158,8 @@
 	<footer>
 	</footer>
 
+	<script src="_js/jquery-1.6.2.min.js"></script>
+
 	<script>
 	
 		
@@ -171,8 +173,8 @@
 				catfilt = document.getElementsByClassName("filters")[0];
 
 			openFilter.addEventListener("click", function() {
-				filter.classList.toggle("filter--open");
-				filter.classList.add("filter--transition");
+				//filter.classList.toggle("filter--open");
+				//filter.classList.add("filter--transition");
 				catfilt.classList.toggle("filterList--open");
 				catfilt.classList.add("filterList--transition");
 			});
@@ -243,7 +245,7 @@
 
 	var facts = [
 		{
-			category : "sport"
+			category : "sport",
 			text : "bonjour1",
 			source : "htt://",
 			author : "moi"
@@ -257,7 +259,7 @@
 			text : "bonjour3",
 			source : "htt://",
 			author : "moi"
-		},
+		}
 	];
 
 	/*var randomFact = Math.floor(Math.random() * facts.length);*/
@@ -271,6 +273,6 @@
 
 	</script>
 
-	<script src="-_js/jquery-1.6.2.min.js"></script>
+	
 </body>
 </html>
