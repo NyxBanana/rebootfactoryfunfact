@@ -39,7 +39,8 @@
 				</ul>
 			</article>
 
-			<div class="addfact--btn"><button class="addfact">+</button></div>
+			<button class="addfact">+</button>
+			<div class="addfact--btn"></div>
 		</section>
 
 		<section id="addFact" class="section section__addFact">
@@ -212,17 +213,21 @@
 		//AddFact
 		(function() {
 			"use strict";
-			var addFact = document.getElementsByClassName("section__addFact"),
-				btnAdd = document.getElementsByCLassName("addfact"),
-				addBg = document.getElementsByClassName("addfact--btn");
+			var addFact = document.getElementsByClassName("section__addFact")[0],
+				btnAdd = document.getElementsByClassName("addfact")[0],
+				addBg = document.getElementsByClassName("addfact--btn")[0];
 
 				btnAdd.addEventListener("click", function() {
-					addBg.classList.toggle("addFact--open");
+					addBg.classList.add("addFact--open");
 					addBg.classList.add("addFact--transition");
+					btnAdd.classList.add("btnAdd--gone");
+					btnAdd.classList.add("btnAdd--transition");
 				});
-				btnAdd.addEventListener("transitionend", function() {
-					btnAdd.classList.remove("addFact--transition");
 
+				addBg.addEventListener("transitionend", function() {
+					setTimeout(function(){
+						location.hash = "addFact";
+					}, 300);	
 				});
 
 		})();
