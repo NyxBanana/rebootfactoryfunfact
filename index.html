@@ -181,10 +181,9 @@
 				filter.classList.remove("filter--transition");
 				catfilt.classList.remove("filterList--transition");
 			});
-		})();
 
 		// Facts
-		/*
+		/*--
 		(function() {
 			"use strict";
 			var facts = document.querySelectorAll(".article__fact .fact");
@@ -204,7 +203,6 @@
 		})();*/
 
 		// Forms
-		(function() {
 			"use strict";
 
 			var floatlabels = document.getElementsByClassName("floatlabel");
@@ -224,10 +222,8 @@
 						label.classList.remove("visible");
 				});
 			}
-		})();
 
 		//AddFact
-		(function() {
 			"use strict";
 			var floatlabels = document.getElementsByClassName("floatlabel");
 			for (var i = 0; i < floatlabels.length; i++) {
@@ -262,18 +258,19 @@
 			source : "htt://",
 			author : "moi"
 		},
-	]
+	];
 
-	var randomFact = Math.floor(Math.random() * facts.length);
+	/*var randomFact = Math.floor(Math.random() * facts.length);*/
 	var currentFact = 0;
-
 	
-	$(".article__fact").find(".fact").html(facts[0].text);
-	$(".article__fact").find(".source").html(facts[0].source);
-	$(".article__fact").find(".user").html(facts[0].author);
+	$(".article__fact .fact").html(facts[0].text);
+	$(".article__fact .source").html(facts[0].source);
+	$(".article__fact .user").html(facts[0].author);
 
 
 
 	</script>
+
+	<script src="-_js/jquery-1.6.2.min.js"></script>
 </body>
 </html>

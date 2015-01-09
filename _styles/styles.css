@@ -101,6 +101,7 @@ ul.filters li:last-child {
 	border: none;
 	display: block;
 	color: #FFF;
+	text-transform: uppercase;
 }
 
 .section__filter.filter--transition {
