@@ -187,7 +187,12 @@ ul.filters li {
 	display: inline-block;
 }
 
-.addfact, .addfact--btn {
+.section__home.unsee {
+	opacity: 0;
+	z-index: -1;
+}
+
+.addfact, .addfact--btn, .validFact, .validfact--btn {
 	height: 60px;
 	width: 60px;
 	border: none;
@@ -211,13 +216,12 @@ ul.filters li {
 	z-index: 0;
 }
 
-
 .section__home .article__fact {
 	margin-top: 100px;
 }
 
 .addfact--btn.addFact--transition {
-	-webkit-transition: all 300ms ease-in;
+	-webkit-transition: all 200ms ease-out;
 }
 
 .addfact--btn.addFact--open {
@@ -225,11 +229,11 @@ ul.filters li {
 }
 
 .addfact.btnAdd--transition {
-	-webkit-transition: all 1s ease-out;
+	-webkit-transition: all 300ms ease-out;
 }
 
-.home:not(:target) .addfact--btn {
-	opacity: 0;
+.addfact.btnAdd--gone {
+	-webkit-transform: scale(0);
 }
 
 /* Facts */
@@ -387,6 +391,11 @@ form textarea {
 
 /* AddFact */
 
+.section__addFact.unsee {
+	opacity: 0;
+	z-index: -1;
+}
+
 fieldset {
 	border: none;
 	width: 100%;
@@ -422,7 +431,6 @@ fieldset {
     margin-bottom: 135px;
 }
 
-
 .triangle {
     /*http://www.bellami.fr/triangles-css*/
     width: 0px;
@@ -434,4 +442,28 @@ fieldset {
     right: 38px;
 }
 
-/*blebleble*/
+.validFact {
+	z-index: 1;
+	-webkit-transform: scale(0);
+}
+
+.validfact--btn {
+	-webkit-transform: scale(18);
+}
+
+.validfact--btn.valBg--transition {
+	-webkit-transition: all 200ms ease-out;
+}
+
+.validfact--btn.valBg--close {
+	-webkit-transform: scale(1);
+}
+
+.validFact.btnVal--transition {
+	-webkit-transition: all 300ms ease-out;
+}
+
+.validFact.btnVal--open {
+	-webkit-transform: scale(1);
+}
+
