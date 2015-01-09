@@ -38,8 +38,8 @@
 					<!-- ajouter étoile fav -->
 
 					<ul>
-						<li><a href="#">source</a></li>
-						<li><a href="#">user</a></li>
+						<li class="source"><a href="#">source</a></li>
+						<li class="user">user</li>
 					</ul>
 				</div>
 			</article>
@@ -184,6 +184,7 @@
 		})();
 
 		// Facts
+		/*
 		(function() {
 			"use strict";
 			var facts = document.querySelectorAll(".article__fact .fact");
@@ -200,7 +201,7 @@
 					this.classList.remove("active");
 				});
 			}
-		})();
+		})();*/
 
 		// Forms
 		(function() {
@@ -242,6 +243,37 @@
 				});
 			}
 		})();
+
+
+	var facts = [
+		{
+			category : "sport"
+			text : "bonjour1",
+			source : "htt://",
+			author : "moi"
+		},
+		{
+			text : "bonjour2",
+			source : "htt://",
+			author : "moi"
+		},
+		{
+			text : "bonjour3",
+			source : "htt://",
+			author : "moi"
+		},
+	]
+
+	var randomFact = Math.floor(Math.random() * facts.length);
+	var currentFact = 0;
+
+	
+	$(".article__fact").find(".fact").html(facts[0].text);
+	$(".article__fact").find(".source").html(facts[0].source);
+	$(".article__fact").find(".user").html(facts[0].author);
+
+
+
 	</script>
 </body>
 </html>
