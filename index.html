@@ -12,8 +12,7 @@
 		<h1 class="head"><a href="#home"><span class="fun">Fun</span>fact</a></h1>
 
 		<button class="btn--openfilter">Filtres</button>
-		<button class="btn--openprofile">Profile</button>
-		<button class="btn--backhome">Home</button>
+		<button class="btn--openprofile profilIcon">Profil</button>
 	</header>
 
 	<main>
@@ -201,49 +200,44 @@
 		(function() {
 			"use strict";
 			var btnProfil = document.getElementsByClassName("btn--openprofile")[0],
-				profil = document.getElementsByClassName("section__profil")[0],
-				backHome = document.getElementsByClassName("btn--backhome")[0];
+				profil = document.getElementsByClassName("section__profil")[0];
 
 			//OPEN
-			btnProfil.addEventListener("click", function() {
-				profil.classList.add("profilOpen--open"); 
-				profil.classList.add("profilOpen--transition");
-				btnProfil.classList.add("profilIcon--close"); //disparition du bouton profil
-				btnProfil.classList.add("profilIcon--transition");
+			if (btnProfil.classList.contains("profilIcon")) {
+
+				btnProfil.addEventListener("click", function() {
+					profil.classList.add("profilOpen--open"); 
+					profil.classList.add("profilOpen--transition");
+					btnProfil.classList.remove("profilIcon"); //disparition du bouton profil
+					btnProfil.classList.add("homeIcon"); //apparition de la class homeIcon
 			});
 
 			profil.addEventListener("transitionend", function() {
 				profil.classList.remove("profilOpen--transition");
 			});
-
-			btnProfil.addEventListener("transitionend", function() {
-				backHome.classList.add("homeIcon--open"); //apparition du bouton home
-				backHome.classList.add("homeIcon--transition");
-			});
-
-			backHome.addEventListener("transitionend", function() {
-				backHome.classList.remove("homeIcon--transition");
-			});
+			}
 
 			//CLOSE
-			backHome.addEventListener("click", function() {
-				profil.classList.add("profilClose--open"); //animation du profil qui se casse vers le haut
-				profil.classList.add("profilClose--transition");
-				backHome.classList.remove("homeIcon--open"); //disparition du bouton home
-				backHome.classList.add("homeIconGone--transition");
+			if (btnProfil.classList.contains("homeIcon")) {
+
+				btnProfil.addEventListener("click", function() {
+					profil.classList.add("profilClose--open"); //animation du profil qui se casse vers le haut
+					profil.classList.add("profilClose--transition");
 			});
 
-			backHome.addEventListener("transitionend", function() {
-				btnProfil.classList.add("profilIcon--open"); //apparition du bouton profil
-				btnProfil.classList.add("profilIcon--transition");
-			})
+			backHome.addEventListener("transitionend", function() { //tu peux jouer avec un settimeout pour le moment ou l'anim doit de déclencher
+					btnProfil.classList.remove("homeIcon"); 
+					btnProfil.classList.add("profilIcon");
+			});
 
 			//nettoyage des class une fois tout fermé
 			profil.addEventListener("transitionend", function() {
 				profil.classList.remove("profilOpen--open");
 				profil.classList.remove("profilClose--open");
 				profil.classList.remove("profilClose--transition");
-			})
+			});
+			}
+			
 
 		})();
 
