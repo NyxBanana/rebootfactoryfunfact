@@ -33,6 +33,8 @@
 
 		<section id="home" class="section section__home">
 			<article class="article article__fact">
+				<p class="category"></p>
+				<button class="menuFact clearfix">MenuFact</button>
 				<p class="fact"></p>
 			
 				<div class="infofact clearfix">
@@ -45,7 +47,9 @@
 				</div>
 			</article>
 
-			<button class="addfact">+</button>
+			<div class="footPA">
+				<button class="addfact">+</button>
+			</div>
 		</section>
 
 		<section id="addFact" class="section section__addFact">
@@ -307,6 +311,7 @@
 	$(".article__fact .fact").html(facts[currentFact].text);
 	$(".article__fact .source").html(facts[currentFact].source);
 	$(".article__fact .author").html(facts[currentFact].author); 
+	$(".article__fact .category").html(facts[currentFact].category); 
 
 
 
