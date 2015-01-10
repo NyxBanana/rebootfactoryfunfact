@@ -162,31 +162,30 @@
 	<script src="_js/jquery-1.11.2.min.js"></script>
 
 	<script>
-	
 		
 		if (location.hash === "") location.hash = "home";
 
+		
 		// Filters
 		(function() {
 			"use strict";
 			var openFilter = document.getElementsByClassName("btn--openfilter")[0],
 				filter = document.getElementsByClassName("section__filter")[0],
-				catfilt = document.getElementsByClassName("filters");
+				catfilt = document.getElementsByClassName("filters")[0];
 
 			openFilter.addEventListener("click", function() {
 				filter.classList.toggle("filter--open");
 				filter.classList.add("filter--transition");
 				catfilt.classList.toggle("filterList--open");
-				catfilt.classList.add("filterList--transition");
+				
 			});
 
 			filter.addEventListener("transitionend", function() {
 				filter.classList.remove("filter--transition");
-				catfilt.classList.remove("filterList--transition");
+				
 			});
 
 		// Facts
-		/*--
 		(function() {
 			"use strict";
 			var facts = document.querySelectorAll(".article__fact .fact");
@@ -203,7 +202,7 @@
 					this.classList.remove("active");
 				});
 			}
-		})();*/
+		})();
 
 		// Forms
 			"use strict";
@@ -245,25 +244,25 @@
 
 	var facts = [
 		{
-			category : "sport",
+			category : "sport", 
 			text : "A Detroit, un homme de 41 ans est mort noyé dans 50cm d’eau après avoir passé la tête dans une bouche d’égout et s’être bloqué… en cherchant ses clés de voiture.",
 			source : "Darwin Award",
 			author : "NyxBanana"
 		},
 		{
-			category : "fails",
+			category : "fails", 
 			text : "A Paris, une poubelle est considérée comme une arme mortelle.",
 			source : "htt://",
 			author : "XynPapple"
 		},
 		{
-			category : "history",
+			category : "history", 
 			text : "Le terme OK  vient de la Guerre de Sécession : tous les jours, ils compilaient le nombre de morts dans un registre en indiquant le nombre de tués à coté d'un K pour 'Killed', ce qui donnait 25K 12K etc... Les bons jours sont ceux où l'on avait aucun mort, soit 0 K, devenu par la suite OK.",
 			source : "htt://",
 			author : "XynPapple"
 		},
 		{
-			category : "world",
+			category : "world", 
 			text : "En Alabama, il est illégal de porter une fausse moustache qui puisse causer des rires à l’église.",
 			source : "htt://",
 			author : "NyxBanana"
@@ -275,25 +274,25 @@
 			author : "NyxBanana"
 		},
 		{
-			category : "culture",
+			category : "culture", 
 			text : "Jésus est né vers l’an 7 ou 5 avant Jésus-Christ.",
 			source : "htt://",
 			author : "NyxBanana"
 		},
 		{
-			category : "culture",
+			category : "culture", 
 			text : "L’inventeur du Coca-Cola s’est inspiré d’un vin français à la coca.",
 			source : "htt://",
 			author : "NyxBanana"
 		},
 		{
-			category : "fails",
+			category : "fails", 
 			text : "En France, il est interdit d’appeler un cochon Napoléon.",
 			source : "htt://",
 			author : "XynPapple"
 		},
 		{
-			category : "world",
+			category : "world", 
 			text : "Au Royaume-uni, un homme peut uriner en public mais uniquement sur la roue arrière d’un véhicule motorisé sur lequel il aura préalablement posé sa main droite.",
 			source : "htt://",
 			author : "NyxBanana"
@@ -303,9 +302,10 @@
 	/*var randomFact = Math.floor(Math.random() * facts.length);*/
 	var currentFact = 0;
 	
+	
 	$(".article__fact .fact").html(facts[currentFact].text);
 	$(".article__fact .source").html(facts[currentFact].source);
-	$(".article__fact .user").html(facts[currentFact].author);
+	$(".article__fact .author").html(facts[currentFact].author); 
 
 
 
