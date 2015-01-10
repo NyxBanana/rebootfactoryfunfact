@@ -5,7 +5,7 @@ body {
 	background-color: #F4F5F7;
 	margin: 0;
 	padding: 0;
-	color: #545454;
+	color: #454444;
 	font-family: 'Roboto';
 	line-height: 1.5;
 	font-size: 18px;
@@ -310,7 +310,7 @@ ul.filters li:last-child {
 }
 
 .article__fact ul li:first-child {
-	border-right: solid 1px #545454;
+	border-right: solid 1px #454444;
 	padding-right: 5px;
 }
 
@@ -459,7 +459,6 @@ form textarea {
 
 .section__addFact {
 	overflow: scroll;
-	position: relative;
 }
 
 fieldset {
