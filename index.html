@@ -82,7 +82,7 @@
 			</ul>
 
 			<div class="section section__fav">
-				<article class="article article__fact">
+				<article class="article article__fact article__mesFav">
 					<p class="factfav">Techniquement, ce n’est pas la Seine mais l’Yonne qui coule à Paris.</p>
 					<ul>
 						<li>source</li>
@@ -96,7 +96,7 @@
 			</div>
 
 			<div class="section__mesFacts">
-				<article class="article article__fact">
+				<article class="article article__fact artcile__meFacts">
 					<p class="factperso">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
 					<ul>
 						<li>source</li>
@@ -195,6 +195,55 @@
 				});
 			}
 		})();
+
+		//Mesfacts/MesFav
+		(function () {
+			"use strict";
+			var btnMesFact = document.getElementsByClassName("btn--myfact")[0],
+				btnMesFav = document.getElementsByClassName("btn--fav")[0],
+				mesFact = document.getElementsByClassNamer("artcile__meFacts")[0],
+				mesFav = document.getElementsByClassName("article__mesFav")[0],
+				sectionFact = document.getElementsByClassName("section__mesFacts")[0],
+				sectionFav = document.getElementsByClassName("section__fav")[0];
+
+			btnMesFav.addEventListener("click", function() {
+				if (!sectionFact.classList.contains("section")) { //condition: si mesFact ne contiennent pas la class section
+					mesFact.classList.add("mesFact--close"); //animation de fermeture des favs. S'applique sur chaque article
+					mesFact.classList.add("mesFact--close--transition");
+				}
+			});
+
+			mesFact.addEventListener("transitionend", function() {
+				mesFact.classList.remove("mesFact--close--transition");
+				sectionFact.classList.add("section"); //ajout de la class section pour faire disparaitre les facts
+				sectionFav.classList.remove("section"); //suppression de la class section pour faire apparaitre les fav
+				mesFav.classList.add("mesFav--open");//animation des fav qui apparaissent
+				mesFav.classList.add("mesFav--transition");
+			});
+
+			MesFav.addEventListener("transitionend", function() {
+				mesFav.classList.remove("mesFav--transition");
+			});
+			
+			btnMesFav.addEventListener("click", function() {
+				if (!sectionFact.classList.contains("section")) {
+					mesFav.classList.add("mesFav--close"); //animation de fermeture des fav
+					mesFav.classList.add("mesFav--close--transition");
+				}
+			});
+
+			mesFav.addEventListener("transitionend", function() {
+				mesFav.classList.remove("mesFav--close--transition");
+				sectionFav.classList.add("section"); //ajout de la class section pour faire disparaitre les fav
+				sectionFact.classList.remove("section"); //suppression de la class section pour faire apparaitre les Fact
+				mesFact.classList.add("mesFact--open");//anim des fact qui apparaissent
+				mesFact.classList.add("mesFact--transition");
+			});
+
+			MesFact.addEventListener("transitionend", function() {
+				mesFact.classList.remove("mesFact--transition");
+			});
+		});
 
 
 	var facts = [
