@@ -2,9 +2,13 @@
 
 body {
 	font-family: sans-serif;
-	background-color: #FEF9F8;
+	background-color: #F4F5F7;
 	margin: 0;
 	padding: 0;
+	color: #545454;
+	font-family: 'Roboto';
+	line-height: 1.5;
+	font-size: 18px;
 }
 
 ul {
@@ -18,7 +22,6 @@ h1 {
 	text-transform: uppercase;
 	font-weight: lighter;
 	color: #FEF9F8;
-	font-family: 'Roboto';
 }
 
 a {
@@ -214,10 +217,6 @@ ul.filters li:last-child {
 	left: calc(50% - 30px);
 }
 
-.section__home .article__fact {
-	margin-top: 100px;
-}
-
 .btn--openfilter, .btn--openprofile {
 	width: 50px;
 	height: 50px;
@@ -239,6 +238,16 @@ ul.filters li:last-child {
 	top: 0;
 }
 
+.footPA {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	width: 100%;
+	height: 165px;
+	background-color: #E5E4E3;
+}
+
 /* Facts */
 
 .section__mesFacts, .section__fav {
@@ -246,7 +255,6 @@ ul.filters li:last-child {
 }
 
 .article__fact {
-	padding: 20px 0;
 	border-bottom: solid 1px #FEF9F8;
 
 	position: relative;
@@ -254,6 +262,16 @@ ul.filters li:last-child {
 
 .article__fact a {
 	color: #49545A;
+}
+
+.article__fact .category {
+	height: 50px;
+	background-color: #E5E4E3;
+	margin: 0 0 100px 0;
+	padding: 13px 32px;
+	text-transform: uppercase;
+
+	box-sizing: border-box;
 }
 
 .fact {
@@ -291,16 +309,24 @@ ul.filters li:last-child {
 	z-index: 1;
 }
 
-.article__fact ul li:not(:last-of-type):after {
-	content: " -";
+.article__fact ul li:first-child {
+	border-right: solid 1px #545454;
+	padding-right: 5px;
 }
 
 .infofact {
-	margin: 20% 15% 0 15%;
+	margin: 50px 25px 0 0;
+	font-size: 14px;
+	text-transform: uppercase;
 }
 
 .infofact ul {
 	float: right;
+}
+
+.infofact ul li {
+	display: inline-block;
+	margin: 0;
 }
 
 .clearfix:after {
@@ -310,6 +336,20 @@ ul.filters li:last-child {
     visibility: hidden;
     line-height: 0;
     height: 0;
+}
+
+.source {
+	text-decoration: underline;
+}
+
+.menuFact {
+	position: absolute;
+	top: 100px;
+	right: 50px;
+	width: 50px;
+	height: 50px;
+	border: none;
+	background-color: #F4F5F7;
 }
 
 /* Profil */
@@ -417,12 +457,17 @@ form textarea {
 
 /* AddFact */
 
+.section__addFact {
+	overflow: scroll;
+	position: relative;
+}
+
 fieldset {
 	border: none;
 	width: 100%;
 }
 
-.categorie, .insertfact, .fact--add {
+.categorie, .insertfact, .fact--add, .fact--pseudo {
     /*http://stackoverflow.com/questions/22681141/select-option-padding-not-working-in-chrome*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -435,6 +480,10 @@ fieldset {
     padding: 10px;
     font-family: 'Roboto';
     margin: 15px 15px;
+}
+
+.fact--add  {
+	margin-bottom: 100px;
 }
 
 .section__addFact textarea {
