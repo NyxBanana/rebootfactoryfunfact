@@ -1,0 +1,471 @@
+/* Base style */
+@import "font.css";
+
+body {
+	font-family: sans-serif;
+	background-color: #FEF9F8;
+	margin: 0;
+	padding: 0;	
+	font-size: 16px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	margin: 0;
+	text-transform: uppercase;
+	font-weight: lighter;
+	color: #FEF9F8;
+	font-family: 'Roboto';
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 a {
+	color: #fff;
+}
+
+main {
+	overflow-scrolling: touch;
+}
+
+/* Common layout */
+/* Header */
+header  {
+	background-color: #FAA81A;
+	height: 50px;
+	width: 100%;
+
+	z-index: 10;
+}
+
+.normal {
+	font-weight: bold;
+}
+
+.head {
+	text-align: center;
+	padding-top: 5px;
+	font-size: 30px;
+}
+
+/* Filters */
+.section__filter {
+	position: fixed;
+	top: 50px;
+	right: 0;
+	overflow: scroll;
+
+
+	width: 100%;
+	height: 100%;
+	transform: translateX(-100%);
+
+
+	color: #FEF9F8;
+	background-color: #fff;
+	z-index: 9;
+}
+
+ul.filters {
+	font-size: 0;
+}
+
+ul.filters li {
+	font-size: 1em;
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+	box-sizing: border-box;
+}
+
+ul.filters li:last-child {
+	margin-bottom: 50px;
+}
+
+.filters {
+	width: 100%;
+	text-align: center;
+	background-color: #DDD;
+
+	transform:         translateX(0);
+	-webkit-transform: translateX(0);
+}
+
+.filters button {
+	height: 70px;
+	width: 100%;
+	border: none;
+	display: block;
+	color: #FFF;
+	text-transform: uppercase;
+}
+
+.section__filter.filter--transition {
+	transition: all 300ms ease-out;
+}
+
+.filters.filterList--transition {
+	-webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+	.section__filter li:nth-child(2) {
+	  transition-delay:         .2s;
+	  -webkit-transition-delay: .2s;
+	}
+	.section__filter li:nth-child(3) {
+	  transition-delay:         .3s;
+	  -webkit-transition-delay: .3s;
+	}
+	.section__filter li:nth-child(4) {
+	  transition-delay:         .4s;
+	  -webkit-transition-delay: .4s;
+	}
+	.section__filter li:nth-child(5) {
+	  transition-delay:         .5s;
+	  -webkit-transition-delay: .5s;
+	}
+	.section__filter li:nth-child(6) {
+	  transition-delay:         .6s;
+	  -webkit-transition-delay: .6s;
+	}
+	.section__filter li:nth-child(7) {
+	  transition-delay:         .7s;
+	  -webkit-transition-delay: .7s;
+	}
+	.section__filter li:nth-child(8) {
+	  transition-delay:         .8s;
+	  -webkit-transition-delay: .8s;
+	}
+
+.section__filter.filter--open {
+	transform: translateX(0);
+}
+
+.section__filter.filterList--open {
+	transform: translateX(0);
+}
+
+/* Color Filter */
+.filters__sport {
+	background-color: #00A498;
+}
+.filters__art {
+	background-color: #F2971F;
+}
+.filters__culture {
+	background-color: #A2CC39;
+}
+.filters__cinema {
+	background-color: #EE5281;
+}
+.filters__sciences {
+	background-color: #F16723;
+}
+.filters__history {
+	background-color: #2E72B5;
+}
+.filters__world {
+	background-color: #FBB64C;
+}
+.filters__celebrities {
+	background-color: #77489B;
+}
+.filters__fails {
+	background-color: #B892C2;
+}
+
+/* Other */
+.section {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+
+	transform: translateX(100%);
+}
+
+.section:target, .section:first-of-type {
+	transform: translateX(0);
+}
+
+.section:not(:target) {
+	transform: translateX(100%);
+
+}
+
+/* Home layout */
+
+.section__home ul li {
+	display: inline-block;
+}
+
+.addfact, .addfact--btn {
+	height: 60px;
+	width: 60px;
+	border: none;
+	display: block;
+	font-family: 'Roboto';
+	font-size: 35px;
+	color: #FFF;
+	border-radius: 50%;
+	background-color: #FAA81A;
+
+	position: absolute;
+	bottom: 75px;
+	left: calc(50% - 30px);
+}
+
+.section__home .article__fact {
+	margin-top: 100px;
+}
+
+.btn--openfilter, .btn--openprofile {
+	width: 50px;
+	height: 50px;
+	background-color: #FAA81A;
+	color: #FEF9F8;
+	padding: 5px;
+	border: none;
+}
+
+.btn--openfilter {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.btn--openprofile {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+/* Facts */
+
+.section__mesFacts, .section__fav {
+	margin: 0;
+}
+
+.article__fact {
+	padding: 20px 0;
+	border-bottom: solid 1px #FEF9F8;
+
+	position: relative;
+}
+
+.article__fact a {
+	color: #49545A;
+}
+
+.fact {
+	width: 80%;
+	margin: 0 auto 10px auto;
+	
+}
+
+.article__fact:last-of-type {
+	border-bottom: none;
+}
+
+.article__fact .options {
+	cursor: pointer;
+
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	height: 100%;
+	width: 100%;
+
+	z-index: -1;
+	background: grey;
+
+	text-align: center;
+
+	transition: opacity 0.5s;
+}
+
+.article__fact .options.active {
+	opacity: 1;
+
+	z-index: 1;
+}
+
+.article__fact ul li:not(:last-of-type):after {
+	content: " -";
+}
+
+.infofact {
+	margin: 20% 15% 0 15%;
+}
+
+.infofact ul {
+	float: right;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+/* Profil */
+.section__profil ul {
+	width: 100%;
+}
+
+.section__profil li {
+	width: 49%;
+	display: inline-block;
+}
+
+.section__profil button {
+	background-color: #FFF;
+	border: none;
+	padding: 0;
+	width: 100%;
+	height: 50px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.section__filter.filterList--open {
+	transform: translateY(0);
+}
+
+/* FORMS */
+form input, form textarea, form button {
+	border: none;
+}
+
+form button {
+	padding: 15px;
+	margin: 35px 0 8px 0; 
+	width: 188px;
+	text-transform: uppercase; 
+	background-color: #F16723; 
+	color: #fff;
+}
+
+form input, form textarea {
+	border: 1px #dddddd solid;
+	padding: 8px;
+	border: none;
+}
+
+form textarea {
+	resize: auto;
+	height: 150px;
+	margin: 20px 0;
+
+	max-width: 90%;
+	max-height: 150px;
+}
+
+.form {
+	display: block;
+	margin: 0 auto;
+	width: 210px;
+}
+
+.form div {
+    position: relative;
+}
+
+.form .connect {
+    text-align: center;
+    width: 210px;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.form .forgot {
+    float: right;
+    margin-top: 5px;
+}
+
+.floatlabel {
+	position: relative;
+}
+
+.floatlabel label {
+	position: absolute;
+	font-size: 11px;
+    -webkit-transition: margin-left 0.5s, color 0.5s;
+            transition: margin-left 0.5s, color 0.5s;
+    top: 6px;
+}
+
+.floatlabel label:not(.visible) {
+	color: transparent;
+	margin-left: -5px;
+}
+
+.floatlabel label.visible {
+	margin-left: 5px;
+}
+
+.floatlabel input {
+    margin-top: 20px;
+  }
+
+/* AddFact */
+
+fieldset {
+	border: none;
+	width: 100%;
+}
+
+.categorie, .insertfact, .fact--add {
+    /*http://stackoverflow.com/questions/22681141/select-option-padding-not-working-in-chrome*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    font-size: 15px;
+    width: 240px;
+    border: 1px solid #FAA81A;
+    border-radius: 0;
+    padding: 10px;
+    font-family: 'Roboto';
+    margin: 15px 15px;
+}
+
+.section__addFact textarea {
+    min-height: 200px;
+    max-width: 240px;
+    max-height: 200px;
+}
+
+.categorie {
+    width: 262px;
+    border-bottom: 1px solid #FAA81A;
+}
+
+.fact--src {
+    margin-bottom: 135px;
+}
+
+
+.triangle {
+    /*http://www.bellami.fr/triangles-css*/
+    width: 0px;
+    height: 0px;
+    border: 12px solid transparent;
+    border-top: 12px solid #FAA81A;
+    position: absolute;
+    top: 110px;
+    right: 38px;
+}
