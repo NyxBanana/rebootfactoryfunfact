@@ -76,12 +76,13 @@
 		</section>
 
 		<section id="profil" class="section section__profil">
-			<input class="pseudo" name="pseudo" type="text"  value="" placeholder="Pseudo"></input>
 			
-			<button>Mes Facts</button>
-			<button>Mes Favoris</button>
+			<ul>
+				<li><button class="btn--myfact">Mes facts</button></li>
+				<li><button class="btn--fav">Mes favoris</button></li>
+			</ul>
 
-			<div id="fav" class="section section__fav">
+			<div class="section section__fav">
 				<article class="article article__fact">
 					<p class="fact">Techniquement, ce n’est pas la Seine mais l’Yonne qui coule à Paris.</p>
 					<ul>
@@ -119,7 +120,7 @@
 				</article>
 			</div>
 
-			<div id="mesFacts" class="section section__mesFacts">
+			<div class="section__mesFacts">
 				<article class="article article__fact">
 					<p class="fact">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
 					<ul>
@@ -184,6 +185,25 @@
 				filter.classList.remove("filter--transition");
 				catfilt.classList.remove("filterList--transition");
 			});
+
+		//Profile
+			var openProfile = document.getElementsByClassName("btn--openprofile")[0],
+				profile = document.getElementsByClassName("section__profil")[0],
+				openMyFact = document.getElementsByClassName("btn--myfact")[0],
+				openFav = document.
+				fav = document.getElementsByClassName ("section__fav")[0],
+				myfact = document.getElementsByClassName("section__mesFacts");
+
+			openProfile.addEventListener("click", function() {
+				profile.classList.toggle("profile--open");
+				profile.classList.add("profile--transition");
+			});
+
+			profile.addEventListener("transitionend", function() {
+				profile.classList.remove("profile--transition");
+			});
+
+
 
 		// Facts
 		/*--
