@@ -219,7 +219,7 @@ ul.filters li:last-child {
 	margin-top: 100px;
 }
 
-.btn--openfilter, .btn--openprofile {
+.btn--openfilter, .btn--openprofile, .btn--backhome {
 	width: 50px;
 	height: 50px;
 	background-color: #FAA81A;
@@ -234,10 +234,14 @@ ul.filters li:last-child {
 	top: 0;
 }
 
-.btn--openprofile {
+.btn--openprofile, .btn--backhome {
 	position: absolute;
 	right: 0;
 	top: 0;
+}
+
+.btn--backhome {
+	-webkit-transform: scale(0);
 }
 
 /* Facts */
