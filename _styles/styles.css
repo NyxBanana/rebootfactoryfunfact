@@ -213,7 +213,7 @@ ul.filters li:last-child {
 	border-radius: 50%;
 	background-color: #FAA81A;
 
-	position: fixed;
+	position: absolute;
 	bottom: 75px;
 	left: calc(50% - 30px);
 }
@@ -446,6 +446,7 @@ form textarea {
 
 .section__addFact {
 	overflow: scroll;
+	position: relative;
 }
 
 fieldset {
@@ -469,7 +470,7 @@ fieldset {
 }
 
 .fact--add  {
-	margin-bottom: 150px;
+	margin-bottom: 100px;
 }
 
 .section__addFact textarea {
