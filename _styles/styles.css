@@ -213,7 +213,7 @@ ul.filters li:last-child {
 	border-radius: 50%;
 	background-color: #FAA81A;
 
-	position: absolute;
+	position: fixed;
 	bottom: 75px;
 	left: calc(50% - 30px);
 }
@@ -444,12 +444,16 @@ form textarea {
 
 /* AddFact */
 
+.section__addFact {
+	overflow: scroll;
+}
+
 fieldset {
 	border: none;
 	width: 100%;
 }
 
-.categorie, .insertfact, .fact--add {
+.categorie, .insertfact, .fact--add, .fact--pseudo {
     /*http://stackoverflow.com/questions/22681141/select-option-padding-not-working-in-chrome*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -462,6 +466,10 @@ fieldset {
     padding: 10px;
     font-family: 'Roboto';
     margin: 15px 15px;
+}
+
+.fact--add  {
+	margin-bottom: 150px;
 }
 
 .section__addFact textarea {
