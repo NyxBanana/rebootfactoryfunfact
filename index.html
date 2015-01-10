@@ -243,12 +243,55 @@
 			}
 		})();
 
-		//Profil
+		//Profil Open/Close
 		(function() {
 			"use strict";
 			var btnProfil = document.getElementsByClassName("btn--openprofile")[0],
+				profil = document.getElementsByClassName("section__profil")[0],
+				backHome = document.getElementsByClassName("btn--backhome")[0];
 
-		})
+			//OPEN
+			btnProfil.addEventListener("click", function() {
+				profil.classList.add("profilOpen--open"); //animation de la page qui tombe et bounce à peine
+				profil.classList.add("profilOpen--transition");
+				btnProfil.classList.add("profilIcon--close"); //disparition du bouton profil
+				btnProfil.classList.add("profilIcon--transition");
+			});
+
+			profil.addEventListener("transitionend", function() {
+				profil.classList.remove("profilOpen--transition");
+			});
+
+			btnProfil.addEventListener("transitionend", function() {
+				backHome.classList.add("homeIcon--open"); //apparition du bouton home
+				backHome.classList.add("homeIcon--transition");
+			});
+
+			backHome.addEventListener("transitionend", function() {
+				backHome.classList.remove("homeIcon--transition");
+			});
+
+			//CLOSE
+			backHome.addEventListener("click", function() {
+				profil.classList.add("profilClose--open"); //animation du profil qui se casse vers le haut
+				profil.classList.add("profilClose--transition");
+				backHome.classList.remove("homeIcon--open"); //disparition du bouton home
+				backHome.classList.add("homeIconGone--transition");
+			});
+
+			backHome.addEventListener("transitionend", function() {
+				btnProfil.classList.add("profilIcon--open"); //apparition du bouton profil
+				btnProfil.classList.add("profilIcon--transition");
+			})
+
+			//nettoyage des class une fois tout fermé
+			profil.addEventListener("transitionend", function() {
+				profil.classList.remove("profilOpen--open");
+				profil.classList.remove("profilClose--open");
+				profil.classList.remove("profilClose--transition");
+			})
+
+		})();
 
 
 	var facts = [
