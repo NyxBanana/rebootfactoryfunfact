@@ -2,9 +2,13 @@
 
 body {
 	font-family: sans-serif;
-	background-color: #FEF9F8;
+	background-color: #F4F5F7;
 	margin: 0;
 	padding: 0;
+	color: #454444;
+	font-family: 'Roboto';
+	line-height: 1.5;
+	font-size: 18px;
 }
 
 ul {
@@ -18,7 +22,6 @@ h1 {
 	text-transform: uppercase;
 	font-weight: lighter;
 	color: #FEF9F8;
-	font-family: 'Roboto';
 }
 
 a {
@@ -31,6 +34,10 @@ h1 a {
 
 main {
 	overflow-scrolling: touch;
+}
+
+button {
+	border: none;
 }
 
 /* Common layout */
@@ -96,9 +103,8 @@ ul.filters li:last-child {
 }
 
 .filters button {
-	height: 70px;
+	height: 80px;
 	width: 100%;
-	border: none;
 	display: block;
 	color: #FFF;
 	text-transform: uppercase;
@@ -201,7 +207,6 @@ ul.filters li:last-child {
 .addfact, .addfact--btn {
 	height: 60px;
 	width: 60px;
-	border: none;
 	display: block;
 	font-family: 'Roboto';
 	font-size: 35px;
@@ -214,17 +219,12 @@ ul.filters li:last-child {
 	left: calc(50% - 30px);
 }
 
-.section__home .article__fact {
-	margin-top: 100px;
-}
-
 .btn--openfilter, .btn--openprofile {
 	width: 50px;
 	height: 50px;
 	background-color: #FAA81A;
 	color: #FEF9F8;
 	padding: 5px;
-	border: none;
 }
 
 .btn--openfilter {
@@ -239,6 +239,22 @@ ul.filters li:last-child {
 	top: 0;
 }
 
+<<<<<<< HEAD
+.section__home.unsee {
+	opacity: 0;
+	z-index: -1;
+=======
+.footPA {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	width: 100%;
+	height: 165px;
+	background-color: #E5E4E3;
+>>>>>>> origin/master
+}
+
 /* Facts */
 
 .section__mesFacts, .section__fav {
@@ -246,7 +262,6 @@ ul.filters li:last-child {
 }
 
 .article__fact {
-	padding: 20px 0;
 	border-bottom: solid 1px #FEF9F8;
 
 	position: relative;
@@ -254,6 +269,16 @@ ul.filters li:last-child {
 
 .article__fact a {
 	color: #49545A;
+}
+
+.article__fact .category {
+	height: 50px;
+	background-color: #E5E4E3;
+	margin: 0 0 100px 0;
+	padding: 13px 32px;
+	text-transform: uppercase;
+
+	box-sizing: border-box;
 }
 
 .fact {
@@ -291,16 +316,30 @@ ul.filters li:last-child {
 	z-index: 1;
 }
 
-.article__fact ul li:not(:last-of-type):after {
-	content: " -";
+.article__fact ul li:first-child {
+	border-right: solid 1px #454444;
+	padding-right: 5px;
 }
 
 .infofact {
-	margin: 20% 15% 0 15%;
+	margin: 50px 25px 0 0;
+	font-size: 14px;
+	text-transform: uppercase;
 }
 
 .infofact ul {
 	float: right;
+}
+
+.infofact ul li {
+	display: inline-block;
+	margin: 0;
+}
+
+.btn--addToFav {
+	position: relative;
+	bottom: 15px;
+	left: 15px;
 }
 
 .clearfix:after {
@@ -311,6 +350,27 @@ ul.filters li:last-child {
     line-height: 0;
     height: 0;
 }
+
+.source {
+	text-decoration: underline;
+}
+
+.menuFact, .btn--swipeFact {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+}
+
+.menuFact {
+	top: 90px;
+	right: 8px;
+}
+
+.btn--swipeFact {
+	bottom: 75px;
+	right: 15px;
+}
+
 
 /* Profil */
 
@@ -325,7 +385,6 @@ ul.filters li:last-child {
 
 .section__profil button {
 	background-color: #FFF;
-	border: none;
 	padding: 0;
 	width: 100%;
 	height: 50px;
@@ -417,12 +476,22 @@ form textarea {
 
 /* AddFact */
 
+<<<<<<< HEAD
+.section__addFact.unsee {
+	opacity: 0;
+	z-index: -1;
+=======
+.section__addFact {
+	overflow: scroll;
+>>>>>>> origin/master
+}
+
 fieldset {
 	border: none;
 	width: 100%;
 }
 
-.categorie, .insertfact, .fact--add {
+.categorie, .insertfact, .fact--add, .fact--pseudo {
     /*http://stackoverflow.com/questions/22681141/select-option-padding-not-working-in-chrome*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -435,6 +504,10 @@ fieldset {
     padding: 10px;
     font-family: 'Roboto';
     margin: 15px 15px;
+}
+
+.fact--add  {
+	margin-bottom: 100px;
 }
 
 .section__addFact textarea {
@@ -463,3 +536,99 @@ fieldset {
     top: 110px;
     right: 38px;
 }
+
+<<<<<<< HEAD
+.validFact {
+	z-index: 1;
+	-webkit-transform: scale(0);
+}
+
+.validfact--btn {
+	-webkit-transform: scale(18);
+}
+
+.validfact--btn.valBg--transition {
+	-webkit-transition: all 200ms ease-out;
+}
+
+.validfact--btn.valBg--close {
+	-webkit-transform: scale(1);
+}
+
+.validFact.btnVal--transition {
+	-webkit-transition: all 300ms ease-out;
+}
+
+.validFact.btnVal--open {
+	-webkit-transform: scale(1);
+}
+=======
+/* Icons */
+
+.icon {
+	background: url(../_img/icons.png) no-repeat;
+	width: 50px;
+	height: 50px;
+}
+
+.iconFilters {
+	margin: 0 auto;
+}
+
+.icon--swipeFact {
+	background-position: -87px -346px;
+}
+
+.icon--filters {
+	background-position: -50px -308px;
+}
+
+.icon--profile {
+	background-position: -3px -355px;
+}
+
+.icon--factmenu {
+	background-position: -134px -298px;
+}
+
+.icon--favempty {
+	background-position: -50px -263px;
+}
+
+.icon--sportW {
+	background-position: left -117px;
+}
+
+.icon--artW {
+	background-position: -46px -115px;
+}
+
+.icon--cultureW {
+	background-position: -98px -113px;
+}
+
+.icon--cinemaW {
+	background-position: 4px 9px;
+}
+
+.icon--sciencesW {
+	background-position: 2px -35px;
+}
+
+.icon--historyW {
+	background-position: -39px 11px;
+}
+
+.icon--worldW {
+	background-position: -39px -32px;
+}
+
+.icon--celebrityW {
+	background-position: 5px -73px;
+}
+
+.icon--failsW {
+	background-position: -39px -73px;
+}
+
+>>>>>>> origin/master
