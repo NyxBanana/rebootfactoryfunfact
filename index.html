@@ -211,8 +211,7 @@
 				}
 			});
 			
-			profil.addEventListener("animationend", function() {
-				//alert("end open");
+			profil.addEventListener("webkitAnimationEnd", function() {
 				profil.classList.remove("profilOpen--transition");
 				//profil.classList.remove("profilOpen--open"); //DAM
 				btnProfil.classList.remove("profilIcon"); //disparition du bouton profil
@@ -229,7 +228,6 @@
 			
 			//OPEN
 			function OpenProfil() {
-				//alert("profilIcon");
 				profil.classList.remove("profilClose--open"); //DAM
 				profil.classList.add("profilOpen--open"); 
 				profil.classList.add("profilOpen--transition");
@@ -238,7 +236,6 @@
 			
 			//CLOSE
 			function CloseProfil() {
-				//alert("homeIcon");
 				profil.classList.remove("profilOpen--open"); //DAM
 				profil.classList.add("profilClose--open"); 
 				profil.classList.add("profilClose--transition");
