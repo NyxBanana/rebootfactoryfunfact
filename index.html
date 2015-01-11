@@ -140,7 +140,7 @@
 				filter.classList.toggle("filter--open");
 				filter.classList.add("filter--transition");
 				catfilt.classList.toggle("filterList--open");
-				
+				AddCascadeDelay(menu, 0.2);
 			});
 
 			filter.addEventListener("transitionend", function() {
@@ -344,8 +344,21 @@
 	$(".article__fact .author").html(facts[currentFact].author); 
 	$(".article__fact .category").html(facts[currentFact].category); 
 
+	function AddDelay(node, delay)
+	{
+		node.style.transitionDelay = delay + 's';
+		node.style.WebkitTransitionDelay = delay + 's';
+	}
+	
+	function AddCascadeDelay(node, cascadeDelay)
+	{
+		childs = node.children;
+		for (i = 0; i < childs.length; i++)
+		{
+			AddDelay(childs[i], i * cascadeDelay);
+		}
+	}
 
-	//bleblebleble
 	</script>
 
 	
