@@ -337,6 +337,31 @@ ul.filters li:last-child {
 	transform: translateY(0);
 }
 
+.inProfileClose {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	transform:         scale(0);
+	-webkit-transform: scale(0);
+}
+
+	animation:         display 5s ;
+	-webkit-animation: display 5s ;
+
+.inProfileOpen {
+	position: absolute;
+	top: 25px;
+	left: 0;
+}
+
+@keyframes display {
+	from, 80%, to { transform: scale(0); }
+	4%, 76%   { transform: scale(1); }
+}
+@-webkit-keyframes display {
+	from, 80%, to { -webkit-transform: scale(0); }
+	4%, 76%   { -webkit-transform: scale(1); }
+}
 
 
 /* FORMS */

@@ -81,7 +81,7 @@
 				<li><button class="btn--fav">Mes favoris</button></li>
 			</ul>
 
-			<div class="section section__fav">
+			<div class="inProfileClose section__fav">
 				<article class="article article__fact article__mesFav">
 					<p class="factfav">Techniquement, ce n’est pas la Seine mais l’Yonne qui coule à Paris.</p>
 					<ul>
@@ -95,7 +95,7 @@
 				</article>
 			</div>
 
-			<div class="section__mesFacts">
+			<div class="inProfileOpen section__mesFacts">
 				<article class="article article__fact artcile__meFacts">
 					<p class="factperso">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
 					<ul>
@@ -207,7 +207,7 @@
 				sectionFav = document.getElementsByClassName("section__fav")[0];
 
 			btnMesFav.addEventListener("click", function() {
-				if (!sectionFact.classList.contains("section")) { //condition: si mesFact ne contiennent pas la class section
+				if (!sectionFact.classList.contains("inProfileClose")) { //condition: si mesFact ne contiennent pas la class close
 					mesFact.classList.add("mesFact--close"); //animation de fermeture des favs. S'applique sur chaque article
 					mesFact.classList.add("mesFact--close--transition");
 				}
