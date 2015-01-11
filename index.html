@@ -201,42 +201,59 @@
 			"use strict";
 			var btnProfil = document.getElementsByClassName("btn--openprofile")[0],
 				profil = document.getElementsByClassName("section__profil")[0];
-
-			//OPEN
-			if (btnProfil.classList.contains("profilIcon")) {
-
-				btnProfil.addEventListener("click", function() {
-					profil.classList.add("profilOpen--open"); 
-					profil.classList.add("profilOpen--transition");
-					btnProfil.classList.remove("profilIcon"); //disparition du bouton profil
-					btnProfil.classList.add("homeIcon"); //apparition de la class homeIcon
+			
+			btnProfil.addEventListener("click", function() {
+				if (btnProfil.classList.contains("profilIcon")) {
+					OpenProfil();
+				}
+				else if (btnProfil.classList.contains("homeIcon")) {
+					CloseProfil();
+				}
 			});
-
-			profil.addEventListener("transitionend", function() {
+			
+			profil.addEventListener("animationend", function() {
+				//alert("end open");
 				profil.classList.remove("profilOpen--transition");
+				//profil.classList.remove("profilOpen--open"); //DAM
+				btnProfil.classList.remove("profilIcon"); //disparition du bouton profil
+				btnProfil.classList.add("homeIcon"); //apparition de la class homeIcon
 			});
-			}
-
-			//CLOSE
-			if (btnProfil.classList.contains("homeIcon")) {
-
-				btnProfil.addEventListener("click", function() {
-					profil.classList.add("profilClose--open"); 
-					profil.classList.add("profilClose--transition");
-			});
-
-			backHome.addEventListener("transitionend", function() { //tu peux jouer avec un settimeout pour le moment ou l'anim doit de déclencher
-					btnProfil.classList.remove("homeIcon"); 
-					btnProfil.classList.add("profilIcon");
-			});
-
-			//nettoyage des class une fois tout fermé
+			
 			profil.addEventListener("transitionend", function() {
-				profil.classList.remove("profilOpen--open");
-				profil.classList.remove("profilClose--open");
+				alert("end close");
+				alert("j");
+				// DAM profil.classList.remove("profilOpen--open");
+				// DAM profil.classList.remove("profilClose--open");
 				profil.classList.remove("profilClose--transition");
+				btnProfil.classList.add("profilIcon"); // DAM disparition du bouton profil
+				btnProfil.classList.remove("homeIcon"); //DAM apparition de la class 
 			});
+			
+			//OPEN
+			function OpenProfil() {
+				//alert("profilIcon");
+				profil.classList.remove("profilClose--open"); //DAM
+				profil.classList.add("profilOpen--open"); 
+				profil.classList.add("profilOpen--transition");
+
 			}
+			
+			//CLOSE
+			function CloseProfil() {
+				//alert("homeIcon");
+				profil.classList.remove("profilOpen--open"); //DAM
+				profil.classList.add("profilClose--open"); 
+				profil.classList.add("profilClose--transition");
+			}
+			
+
+				
+			//	backHome.addEventListener("transitionend", function() { //tu peux jouer avec un settimeout pour le moment ou l'anim doit de déclencher
+			//			btnProfil.classList.remove("homeIcon"); 
+			//			btnProfil.classList.add("profilIcon");
+			//	});
+
+			//}
 			
 
 		})();
