@@ -207,7 +207,7 @@
 				sectionFav = document.getElementsByClassName("section__fav")[0];
 
 			btnMesFav.addEventListener("click", function() {
-				if (!sectionFact.classList.contains("inProfileClose")) { //condition: si mesFact ne contiennent pas la class close
+				if (!sectionFact.classList.contains("inProfileClose")) { //condition: si mesFact ne contiennent pas la class inProfileClose
 					mesFact.classList.add("mesFact--close"); //animation de fermeture des favs. S'applique sur chaque article
 					mesFact.classList.add("mesFact--close--transition");
 				}
@@ -310,6 +310,21 @@
 	$(".article__fact .fact").html(facts[currentFact].text);
 	$(".article__fact .source").html(facts[currentFact].source);
 	$(".article__fact .author").html(facts[currentFact].author); 
+
+	function AddDelay(node, delay)
+	{
+		node.style.transitionDelay = delay + 's';
+		node.style.WebkitTransitionDelay = delay + 's';
+	}
+
+	function AddCascadeDelay(node, cascadeDelay)
+	{
+		childs = node.children;
+		for (i = 0; i < childs.length; i++)
+		{
+			AddDelay(childs[i], i * cascadeDelay);
+		}
+	}
 
 
 
