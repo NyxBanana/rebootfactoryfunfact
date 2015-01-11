@@ -17,6 +17,7 @@
 
 	<main>
 
+		<div class="blackFilter unsee"></div>
 		<section class="section__filter">
 				<ul class="filters">
 					<li><button class="filters__sport"><div class="icon iconFilters icon--sportW"></div>Sport</button></li>
@@ -53,10 +54,10 @@
 			</div>
 		</section>
 
-		<section id="addFact" class="section section__addFact">
+		<section id="addFact" class="section section__addFact unsee">
 			<form action="" method="post" class="form--addafact">
 	       		<fieldset>
-	       			<input class="fact--pseudo" name="fact--src" type="text" value="" placeholder="Pseudo"></input>
+	       			<input class="fact--add" name="fact--src" type="text" value="" placeholder="Pseudo"></input>
 
 		            <select class="categorie" name="categorie" size="1">
 		                <option value="" disabled selected>Catégorie</option>
@@ -75,7 +76,9 @@
 		            
 		            <input class="fact--add" name="fact--src" type="text" value="" placeholder="Source (facultatif)"></input>
 		            
-		            <input class="addfact" tabindex="1" type="submit" value="v"/>
+		            <input class="validFact" tabindex="1" type="submit" value="v"/>
+		            <div class="validfact--btn"></div>
+		            <div class="validMessage unsee"><p>Votre fact a bien été ajouté.</p></div>
 	       		</fieldset>
 			</form>
 		</section>
@@ -199,6 +202,79 @@
 						label.classList.remove("visible");
 				});
 			}
+		})();
+
+		//AddFact Open/Close
+		(function() {
+			"use strict";
+			var btnAdd = document.getElementsByClassName("addfact")[0],
+				addBg = document.getElementsByClassName("addfact--btn")[0],
+				btnVal = document.getElementsByClassName("validFact")[0],
+				valBg = document.getElementsByClassName("validfact--btn")[0],
+				targetHome = document.getElementsByClassName("section__home")[0],
+				targetAddFact = document.getElementsByClassName("section__addFact")[0],
+				goHome = document.getElementsByClassName("goHome")[0],
+				validMessage = document.getElementsByClassName("validMessage")[0],
+				blackFilter = document.getElementsByClassName("blackFilter")[0];
+				goHome.addEventListener("click", function() {
+					if (targetHome.classList.contains("unsee")) {
+						targetHome.classList.remove("unsee");
+					}
+					if (addBg.classList.contains("addFact--open")) {
+						addBg.classList.remove("addFact--open");
+						addBg.classList.remove("addFact--transition");
+					}
+					if (btnAdd.classList.contains("btnAdd--gone")) {
+						btnAdd.classList.remove("btnAdd--gone");
+					}
+					if (!targetAddFact.classList.contains("unsee")) {
+						targetAddFact.classList.add("unsee");
+					}
+					valBg.classList.remove("valBg--close");
+					btnVal.classList.remove("btnVal--open");
+				})
+				btnAdd.addEventListener("click", function() {
+					addBg.classList.add("addFact--open");
+					addBg.classList.add("addFact--transition");
+					btnAdd.classList.add("btnAdd--gone");
+					btnAdd.classList.add("btnAdd--transition");
+				});
+				addBg.addEventListener("transitionend", function() {
+					setTimeout(function(){
+						location.hash = "addFact";
+						btnAdd.classList.remove("btnAdd--transition");
+						targetHome.classList.add("unsee");
+						targetAddFact.classList.remove("unsee");
+						valBg.classList.add("valBg--close"); 
+						valBg.classList.add("valBg--transition");
+						btnVal.classList.add("btnVal--open"); //ouverture du bouton V
+						btnVal.classList.add("btnVal--transition");
+					}, 200);	
+				});
+				valBg.addEventListener("transitionend", function() {
+					valBg.classList.remove("valBg--transition");
+					btnVal.classList.remove("btnVal--transition");
+					valBg.classList.add("valBg--bounce");
+					valBg.classList.add("valBg--bounceTransition");
+				});
+				btnVal.addEventListener("click", function() {
+					validMessage.classList.add("validMessage--open"); //attention, il est en unsee, il aura donc besoin que tu ajoute le changement d'opacité dans la transition
+					validMessage.classList.add("validMessage--transition");
+					blackFilter.classList.add("blackFilter--open"); //pareil que validMessage, il est en unsee de base
+					blackFilter.classList.add("blackFilter--transition");
+				});
+				validMessage.addEventListener("transitionend", function() {
+					setTimeout(function() {
+						validMessage.classList.remove("validMessage--open");
+						blackFilter.classList.remove("blackFilter--open");
+					})
+				}, 800);
+				validMessage.addEventListener("transitionend", function() {
+					setTimeout(function() {
+						validMessage.classList.remove("validMessage--transition");
+						blackFilter.classList.remove("blackFilter--transition");
+					})
+				}, 800); //il faudra changer le temps ici pas celui de la transition
 		})();
 
 
