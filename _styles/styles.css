@@ -36,6 +36,10 @@ main {
 	overflow-scrolling: touch;
 }
 
+button {
+	border: none;
+}
+
 /* Common layout */
 /* Header */
 header  {
@@ -101,7 +105,6 @@ ul.filters li:last-child {
 .filters button {
 	height: 80px;
 	width: 100%;
-	border: none;
 	display: block;
 	color: #FFF;
 	text-transform: uppercase;
@@ -204,7 +207,6 @@ ul.filters li:last-child {
 .addfact, .addfact--btn {
 	height: 60px;
 	width: 60px;
-	border: none;
 	display: block;
 	font-family: 'Roboto';
 	font-size: 35px;
@@ -223,7 +225,6 @@ ul.filters li:last-child {
 	background-color: #FAA81A;
 	color: #FEF9F8;
 	padding: 5px;
-	border: none;
 }
 
 .btn--openfilter {
@@ -330,7 +331,6 @@ ul.filters li:last-child {
 }
 
 .btn--addToFav {
-	border: none;
 	position: relative;
 	bottom: 15px;
 	left: 15px;
@@ -349,15 +349,22 @@ ul.filters li:last-child {
 	text-decoration: underline;
 }
 
-.menuFact {
+.menuFact, .btn--swipeFact {
 	position: absolute;
-	top: 90px;
-	right: 50px;
 	width: 50px;
 	height: 50px;
-	border: none;
-	background-color: #F4F5F7;
 }
+
+.menuFact {
+	top: 90px;
+	right: 8px;
+}
+
+.btn--swipeFact {
+	bottom: 75px;
+	right: 15px;
+}
+
 
 /* Profil */
 
@@ -372,7 +379,6 @@ ul.filters li:last-child {
 
 .section__profil button {
 	background-color: #FFF;
-	border: none;
 	padding: 0;
 	width: 100%;
 	height: 50px;
@@ -521,47 +527,69 @@ fieldset {
 
 /* Icons */
 
-.navicon {
-	background: url(../_img/navicon.png) no-repeat;
+.icon {
+	background: url(../_img/icons.png) no-repeat;
 	width: 50px;
 	height: 50px;
 }
 
-.filtersicon {
-	background: url(../_img/filtersicon.png) no-repeat;
-	width: 33px;
-	height: 33px;
+.iconFilters {
 	margin: 0 auto;
 }
 
+.icon--swipeFact {
+	background-position: -87px -346px;
+}
+
 .icon--filters {
-	background-position: -97px -73px;
+	background-position: -50px -308px;
 }
 
 .icon--profile {
-	background-position: -112px 3px;
+	background-position: -3px -355px;
 }
 
 .icon--factmenu {
-	background-position: -150px 5px;
+	background-position: -134px -298px;
 }
 
 .icon--favempty {
-	background-position: left top;
+	background-position: -50px -263px;
 }
 
 .icon--sportW {
-	background-position: -3px top;
+	background-position: left -117px;
 }
 
 .icon--artW {
-	background-position: -41px top;
+	background-position: -46px -115px;
 }
 
 .icon--cultureW {
-	background-position: -2px -33px;
+	background-position: -98px -113px;
 }
 
 .icon--cinemaW {
-	background-position: -41px -34px;
+	background-position: 4px 9px;
 }
+
+.icon--sciencesW {
+	background-position: 2px -35px;
+}
+
+.icon--historyW {
+	background-position: -39px 11px;
+}
+
+.icon--worldW {
+	background-position: -39px -32px;
+}
+
+.icon--celebrityW {
+	background-position: 5px -73px;
+}
+
+.icon--failsW {
+	background-position: -39px -73px;
+}
+
