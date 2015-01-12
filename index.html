@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<h1 class="head"><a href="#home" class="goHome"><span class="fun">Fun</span>fact</a></h1>
+		<h1 class="head"><a href="#home"><span class="fun">Fun</span>fact</a></h1>
 
 		<button class="btn--openfilter"><div class="icon icon--filters"> </div></button>
 		<button class="btn--openprofile profilIcon"><div class="icon icon--profile"> </div></button>
@@ -68,7 +68,6 @@
 
 			<div class="footPA">
 				<button class="addfact">+</button>
-				<div class="addfact--btn"></div>
 			</div>
 		</section>
 
@@ -316,6 +315,79 @@
 			}
 		})();
 
+//		//AddFact Open/Close
+//		(function() {
+//			"use strict";
+//			var btnAdd = document.getElementsByClassName("addfact")[0],
+//				addBg = document.getElementsByClassName("addfact--btn")[0],
+//				btnVal = document.getElementsByClassName("validFact")[0],
+//				valBg = document.getElementsByClassName("validfact--btn")[0],
+//				targetHome = document.getElementsByClassName("section__home")[0],
+//				targetAddFact = document.getElementsByClassName("section__addFact")[0],
+//				goHome = document.getElementsByClassName("goHome")[0],
+//				validMessage = document.getElementsByClassName("validMessage")[0],
+//				blackFilter = document.getElementsByClassName("blackFilter")[0];
+//				goHome.addEventListener("click", function() {
+//					if (targetHome.classList.contains("unsee")) {
+//						targetHome.classList.remove("unsee");
+//					}
+//					if (addBg.classList.contains("addFact--open")) {
+//						addBg.classList.remove("addFact--open");
+//						addBg.classList.remove("addFact--transition");
+//					}
+//					if (btnAdd.classList.contains("btnAdd--gone")) {
+//						btnAdd.classList.remove("btnAdd--gone");
+//					}
+//					if (!targetAddFact.classList.contains("unsee")) {
+//						targetAddFact.classList.add("unsee");
+//					}
+//					valBg.classList.remove("valBg--close");
+//					btnVal.classList.remove("btnVal--open");
+//				})
+//				btnAdd.addEventListener("click", function() {
+//					addBg.classList.add("addFact--open");
+//					addBg.classList.add("addFact--transition");
+//					btnAdd.classList.add("btnAdd--gone");
+//					btnAdd.classList.add("btnAdd--transition");
+//				});
+//				addBg.addEventListener("transitionend", function() {
+//					setTimeout(function(){
+//						location.hash = "addFact";
+//						btnAdd.classList.remove("btnAdd--transition");
+//						targetHome.classList.add("unsee");
+//						targetAddFact.classList.remove("unsee");
+//						valBg.classList.add("valBg--close"); 
+//						valBg.classList.add("valBg--transition");
+//						btnVal.classList.add("btnVal--open"); //ouverture du bouton V
+//						btnVal.classList.add("btnVal--transition");
+//					}, 200);	
+//				});
+//				valBg.addEventListener("transitionend", function() {
+//					valBg.classList.remove("valBg--transition");
+//					btnVal.classList.remove("btnVal--transition");
+//					valBg.classList.add("valBg--bounce");
+//					valBg.classList.add("valBg--bounceTransition");
+//				});
+//				btnVal.addEventListener("click", function() {
+//					validMessage.classList.add("validMessage--open"); //attention, il est en unsee, il aura donc besoin que tu ajoute le changement d'opacité dans la transition
+//					validMessage.classList.add("validMessage--transition");
+//					blackFilter.classList.add("blackFilter--open"); //pareil que validMessage, il est en unsee de base
+//					blackFilter.classList.add("blackFilter--transition");
+//				});
+//				validMessage.addEventListener("transitionend", function() {
+//					setTimeout(function() {
+//						validMessage.classList.remove("validMessage--open");
+//						blackFilter.classList.remove("blackFilter--open");
+//					})
+//				}, 800);
+//				validMessage.addEventListener("transitionend", function() {
+//					setTimeout(function() {
+//						validMessage.classList.remove("validMessage--transition");
+//						blackFilter.classList.remove("blackFilter--transition");
+//					})
+//				}, 800); //il faudra changer le temps ici pas celui de la transition
+//		})();
+
 
 		//Profil Open/Close
 	(function() {
@@ -510,79 +582,7 @@
 		}
 	})();
 
-	//AddFact Open/Close
-		(function() {
-			"use strict";
-			var btnAdd = document.getElementsByClassName("addfact")[0],
-				addBg = document.getElementsByClassName("addfact--btn")[0],
-				btnVal = document.getElementsByClassName("validFact")[0],
-				valBg = document.getElementsByClassName("validfact--btn")[0],
-				targetHome = document.getElementsByClassName("section__home")[0],
-				targetAddFact = document.getElementsByClassName("section__addFact")[0],
-				goHome = document.getElementsByClassName("goHome")[0],
-				validMessage = document.getElementsByClassName("validMessage")[0],
-				blackFilter = document.getElementsByClassName("blackFilter")[0];
-				goHome.addEventListener("click", function() {
-					if (targetHome.classList.contains("unsee")) {
-						targetHome.classList.remove("unsee");
-					}
-					if (addBg.classList.contains("addFact--open")) {
-						addBg.classList.remove("addFact--open");
-						addBg.classList.remove("addFact--transition");
-					}
-					if (btnAdd.classList.contains("btnAdd--gone")) {
-						btnAdd.classList.remove("btnAdd--gone");
-					}
-					if (!targetAddFact.classList.contains("unsee")) {
-						targetAddFact.classList.add("unsee");
-					}
-					valBg.classList.remove("valBg--close");
-					btnVal.classList.remove("btnVal--open");
-				})
-				btnAdd.addEventListener("click", function() {
-					addBg.classList.add("addFact--open");
-					addBg.classList.add("addFact--transition");
-					btnAdd.classList.add("btnAdd--gone");
-					btnAdd.classList.add("btnAdd--transition");
-				});
-				addBg.addEventListener("transitionend", function() {
-					setTimeout(function(){
-						location.hash = "addFact";
-						btnAdd.classList.remove("btnAdd--transition");
-						targetHome.classList.add("unsee");
-						targetAddFact.classList.remove("unsee");
-						valBg.classList.add("valBg--close"); //animation de fermeture du cercle orange pour aller à l'état V
-						valBg.classList.add("valBg--transition");
-						btnVal.classList.add("btnVal--open"); //ouverture du bouton V
-						btnVal.classList.add("btnVal--transition");
-					}, 200);	
-				});
-				valBg.addEventListener("transitionend", function() {
-					valBg.classList.remove("valBg--transition");
-					btnVal.classList.remove("btnVal--transition");
-					//si tu ne sais pas mettre l'animation en une fois, tu peux utiliser ça pour rajouter le bounce
-					/*valBg.classList.add("valBg--bounce");
-					valBg.classList.add("valBg--bounceTransition");*/
-				});
-				btnVal.addEventListener("click", function() {
-					validMessage.classList.add("validMessage--open"); //attention, il est en unsee, il aura donc besoin que tu ajoute le changement d'opacité dans la transition
-					validMessage.classList.add("validMessage--transition");
-					blackFilter.classList.add("blackFilter--open"); //pareil que validMessage, il est en unsee de base
-					blackFilter.classList.add("blackFilter--transition");
-				});
-				validMessage.addEventListener("transitionend", function() {
-					setTimeout(function() {
-						validMessage.classList.remove("validMessage--open");
-						blackFilter.classList.remove("blackFilter--open");
-					})
-				}, 800);
-				validMessage.addEventListener("transitionend", function() {
-					setTimeout(function() {
-						validMessage.classList.remove("validMessage--transition");
-						blackFilter.classList.remove("blackFilter--transition");
-					})
-				}, 800); //il faudra changer le temps ici pas celui de la transition
-		})();
+	//blebleble
 	</script>
 
 	
