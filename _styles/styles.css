@@ -181,7 +181,6 @@ ul.filters li:last-child {
 /* Home layout */
 
 .section__home ul {
-	width: 80%;
 	margin: 0 auto;	
 }
 
@@ -400,7 +399,7 @@ ul.filters li:last-child {
 
 .btn--swipeFact {
 	bottom: 18px;
-	right: 15px;
+	right: -7px;
 }
 
 
