@@ -233,7 +233,7 @@
 
 	var facts = [
 		{
-			category : "sport", 
+			category : "fails", 
 			text : "A Detroit, un homme de 41 ans est mort noyé dans 50cm d’eau après avoir passé la tête dans une bouche d’égout et s’être bloqué… en cherchant ses clés de voiture.",
 			source : "Source",
 			author : "NyxBanana"
@@ -251,6 +251,24 @@
 			author : "XynPapple"
 		},
 		{
+			category : "sport", 
+			text : "Henry Pearce s’est arrêté de ramer lors du quart des finales de la compétition d’aviron des Jeux olympiques d’Amsterdam en 1928 pour laisser passer une famille de canards. Il s’est qualifié et a remporté l’or en finale.",
+			source : "Source",
+			author : "NyxBanana"
+		},
+		{
+			category : "art", 
+			text : "Contrairement à la croyant populaire, Molière n'est pas mort sur scène mais après la représentation du 'Malade Imaginaire'.",
+			source : "Source",
+			author : "NyxBanana"
+		},
+		{
+			category : "sport", 
+			text : "Le temps était si mauvais lors des Jeux olympiques 1948 que les deux dernières épreuves ont dû se faire de nuit, les athlètes étant éclairés par les phares des voitures.",
+			source : "Source",
+			author : "NyxBanana"
+		},
+		{
 			category : "monde", 
 			text : "En Alabama, il est illégal de porter une fausse moustache qui puisse causer des rires à l’église.",
 			source : "Source",
@@ -265,6 +283,24 @@
 		{
 			category : "culture", 
 			text : "Jésus est né vers l’an 7 ou 5 avant Jésus-Christ.",
+			source : "Source",
+			author : "NyxBanana"
+		},
+		{
+			category : "cinema", 
+			text : "Dans Iron Man et Avengers, J.A.R.V.I.S est l'acronyme de 'Just A Very Intelligent System' que l'on peut traduire par 'Juste un système très intelligent'",
+			source : "Source",
+			author : "NyxBanana"
+		},
+		{
+			category : "célébrité", 
+			text : "Tom Baker a arrêté de boire et de fumer en publique lorsqu'il a obtenu le rôle du Docteur dans Doctor Who.",
+			source : "Source",
+			author : "NyxBanana"
+		},
+		{
+			category : "sciences", 
+			text : "Le scarabée bousier est l'animal le plus fort au monde. Il peut soulever 1141 fois son poids.",
 			source : "Source",
 			author : "NyxBanana"
 		},
