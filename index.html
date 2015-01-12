@@ -522,6 +522,7 @@
 				goHome = document.getElementsByClassName("goHome")[0],
 				validMessage = document.getElementsByClassName("validMessage")[0],
 				blackFilter = document.getElementsByClassName("blackFilter")[0];
+
 				goHome.addEventListener("click", function() {
 					if (targetHome.classList.contains("unsee")) {
 						targetHome.classList.remove("unsee");
@@ -573,14 +574,13 @@
 					setTimeout(function() {
 						validMessage.classList.remove("validMessage--open");
 						blackFilter.classList.remove("blackFilter--open");
-					})
-				}, 800);
-				validMessage.addEventListener("transitionend", function() {
-					setTimeout(function() {
 						validMessage.classList.remove("validMessage--transition");
 						blackFilter.classList.remove("blackFilter--transition");
+						location.hash = "home";
+						targetAddFact.classList.add("unsee");
+						targetHome.classList.remove("unsee");
 					})
-				}, 800); //il faudra changer le temps ici pas celui de la transition
+				}, 800);
 		})();
 	</script>
 

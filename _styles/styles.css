@@ -646,6 +646,17 @@ fieldset {
     right: 38px;
 }
 
+.validMessage {
+	text-align: center;
+	background: #DDD;
+	width: 150px;
+}
+
+.validMessage.unsee {
+	opacity: 0;
+	z-index: -1;
+}
+
 /* Icons */
 
 .icon {
