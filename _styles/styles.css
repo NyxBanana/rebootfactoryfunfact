@@ -70,8 +70,8 @@ header  {
 
 	width: 100%;
 	height: 100%;
-	transform: translateX(-100%);
 	-webkit-transform: translateX(-100%);
+			transform: translateX(-100%);
 
 
 	/*color: #FEF9F8;*/
@@ -101,8 +101,8 @@ ul.filters li:last-child {
 }
 
 .section__filter ul li{
-	transform:         translateX(-100%);
 	-webkit-transform: translateX(-100%);
+			transform:         translateX(-100%);
 }
 
 .filters button {
@@ -114,21 +114,23 @@ ul.filters li:last-child {
 }
 
 .section__filter.filter--transition {
-	transition: all 300ms ease-out;
+	-webkit-transition: all 300ms ease-out;
+			transition: all 300ms ease-out;
 }
 
 .section__filter.filter--transition ul li{
-	transition: all 150ms ease-out;
+	-webkit-transition: all 150ms ease-out;
+			transition: all 150ms ease-out;
 }
 
 .section__filter.filter--open {
-	transform: translateX(0);
 	-webkit-transform: translateX(0);
+			transform: translateX(0);
 }
 
 .section__filter.filter--open ul li {
-	transform: translateX(0);
 	-webkit-transform: translateX(0);
+			transform: translateX(0);
 }
 
 
@@ -168,17 +170,17 @@ ul.filters li:last-child {
 	width: 100%;
 
 	-webkit-transform: translateX(100%);
-	transform: translateX(100%);
+			transform: translateX(100%);
 }
 
 .section:target, .section:first-of-type {
 	-webkit-transform: translateX(0);
-	transform: translateX(0);
+			transform: translateX(0);
 }
 
 .section:not(:target) {
 	-webkit-transform: translateX(100%);
-	transform: translateX(100%);
+			transform: translateX(100%);
 }
 
 /* Home layout */
@@ -208,7 +210,7 @@ ul.filters li:last-child {
 	background-color: #FAA81A;
 
 	position: absolute;
-	bottom: 50%;
+	bottom: 70px;
 	left: 43%;
 }
 
@@ -222,18 +224,22 @@ ul.filters li:last-child {
 
 .addfact--btn.addFact--transition {
 	-webkit-transition: all 200ms ease-out;
+			transition: all 200ms ease-out;
 }
 
 .addfact--btn.addFact--open {
 	-webkit-transform: scale(18);
+			transform: scale(18);
 }
 
 .addfact.btnAdd--transition {
 	-webkit-transition: all 300ms ease-out;
+			transition: all 300ms ease-out;
 }
 
 .addfact.btnAdd--gone {
 	-webkit-transform: scale(0);
+			transform: scale(0);
 }
 
 .btn--openfilter, .btn--openprofile {
@@ -332,7 +338,8 @@ ul.filters li:last-child {
 
 	text-align: center;
 
-	transition: opacity 0.5s;
+	-webkit-transition: opacity 0.5s;
+			transition: opacity 0.5s;
 }
 
 .article__fact .options.active {
@@ -351,7 +358,7 @@ ul.filters li:last-child {
 	width: 100%;
 	height: 73%;
 	-webkit-transform: translateX(0);
-	transform: translateX(0);
+			transform: translateX(0);
 	position:fixed;
 	background-color: #F4F5F7;
 }
@@ -359,15 +366,15 @@ ul.filters li:last-child {
 .transition_fact
 {
 	-webkit-transition: transform 300ms ease-out;
-	transition: transform 300ms ease-out;
+			transition: transform 300ms ease-out;
 }
 
 .hidden_fact
 {
     width: 100%;
 	height: 73%;
-	transform: translateX(100%);
 	-webkit-transform: translateX(100%);
+			transform: translateX(100%);
 	position:fixed;
 	background-color: #F4F5F7;
 }
@@ -444,14 +451,14 @@ ul.filters li:last-child {
 
 .section__profil {
 	-webkit-transform: translateY(-100%);
-	transform: translateY(-100%);
+			transform: translateY(-100%);
 
 	background-color: #F4F5F7;
 }
 
 .section__profil.profilOpen--open {
 	-webkit-transform: translateY(0);
-	transform: translateY(0);
+			transform: translateY(0);
 }
 
 .section__profil.profilOpen--transition {
@@ -459,7 +466,7 @@ ul.filters li:last-child {
 	transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);*/
 
 	-webkit-animation: bounce 800ms ease-out;
-	animation: bounce 800ms ease-out;
+			animation: bounce 800ms ease-out;
 }
 
 
@@ -486,7 +493,7 @@ ul.filters li:last-child {
   	-webkit-transform:translateY(0%);
   }
 }
-@keyframes bounce {
+@		keyframes bounce {
   0% {
 	transform:translateY(-110%);
   }
@@ -512,20 +519,13 @@ ul.filters li:last-child {
 
 .section__profil.profilClose--open {
 	-webkit-transform: translateY(-110%);
-	transform: translateY( -110% );
+			transform: translateY( -110% );
 }
 
 .section__profil.profilClose--transition {
 	-webkit-transition: all 400ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
-	transition: all 400ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+			transition: all 400ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
-
-
-/*
-.section__filter.filterList--open {
-	transform: translateY(0);
-}
-*/
 
 
 /* FORMS */
@@ -611,10 +611,6 @@ form textarea {
 	z-index: -1;
 }
 
-.section__addFact {
-	overflow: scroll;
-}
-
 fieldset {
 	border: none;
 	width: 100%;
@@ -623,8 +619,7 @@ fieldset {
 .categorie, .insertfact, .fact--add, .fact--pseudo {
     /*http://stackoverflow.com/questions/22681141/select-option-padding-not-working-in-chrome*/
     -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+   			appearance: none;
     background-color: #fff;
     font-size: 15px;
     width: 240px;
@@ -635,14 +630,9 @@ fieldset {
     margin: 15px 15px;
 }
 
-.addSource  {
-	margin-bottom: 100px;
-}
-
 .section__addFact textarea {
-    min-height: 200px;
     max-width: 240px;
-    max-height: 200px;
+    max-height: 150px;
 }
 
 .categorie {
@@ -748,24 +738,30 @@ fieldset {
 .validFact {
 	z-index: 1;
 	-webkit-transform: scale(0);
+			transform: scale(0);
 }
 
 .validfact--btn {
 	-webkit-transform: scale(18);
+			transform: scale(18);
 }
 
 .validfact--btn.valBg--transition {
 	-webkit-transition: all 200ms ease-out;
+			transition: all 200ms ease-out;
 }
 
 .validfact--btn.valBg--close {
 	-webkit-transform: scale(1);
+			transform: scale(1);
 }
 
 .validFact.btnVal--transition {
 	-webkit-transition: all 300ms ease-out;
+			transition: all 300ms ease-out;
 }
 
 .validFact.btnVal--open {
 	-webkit-transform: scale(1);
+			transform: scale(1);
 }
