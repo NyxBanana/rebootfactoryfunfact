@@ -216,8 +216,8 @@
 
 			mesFact.addEventListener("transitionend", function() {
 				mesFact.classList.remove("mesFact--close--transition");
-				sectionFact.classList.add("section"); //ajout de la class section pour faire disparaitre les facts
-				sectionFav.classList.remove("section"); //suppression de la class section pour faire apparaitre les fav
+				sectionFact.classList.add("inProfileOpen"); //ajout de la class section pour faire disparaitre les facts
+				sectionFav.classList.remove("inProfileClose"); //suppression de la class section pour faire apparaitre les fav
 				mesFav.classList.add("mesFav--open");//animation des fav qui apparaissent
 				mesFav.classList.add("mesFav--transition");
 				AddCascadeDelay(menu, 0.2);
@@ -237,8 +237,8 @@
 
 			mesFav.addEventListener("transitionend", function() {
 				mesFav.classList.remove("mesFav--close--transition");
-				sectionFav.classList.add("section"); //ajout de la class section pour faire disparaitre les fav
-				sectionFact.classList.remove("section"); //suppression de la class section pour faire apparaitre les Fact
+				sectionFav.classList.add("inProfileOpen"); //ajout de la class section pour faire disparaitre les fav
+				sectionFact.classList.remove("inProfileClose"); //suppression de la class section pour faire apparaitre les Fact
 				mesFact.classList.add("mesFact--open");//anim des fact qui apparaissent
 				mesFact.classList.add("mesFact--transition");
 				AddCascadeDelay(menu, 0.2);

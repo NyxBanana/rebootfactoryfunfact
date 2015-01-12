@@ -337,22 +337,22 @@ ul.filters li:last-child {
 	transform: translateY(0);
 }
 
-.inProfileClose {
+.inProfileClose, .inProfileOpen {
 	position: absolute;
 	top: 25px;
 	left: 0;
+}
+
+.inProfileClose {
 	transform:         scale(0);
 	-webkit-transform: scale(0);
 }
 
+.mesFact--close, .mesFav--open {
 	animation:         display 5s ;
 	-webkit-animation: display 5s ;
-
-.inProfileOpen {
-	position: absolute;
-	top: 25px;
-	left: 0;
 }
+
 
 @keyframes display {
 	from, 80%, to { transform: scale(0); }
