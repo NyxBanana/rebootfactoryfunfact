@@ -145,7 +145,7 @@
 						label.classList.remove("visible");
 				});
 			}
-		})();
+
 
 	//Home Menu Toggle
 	(function() {

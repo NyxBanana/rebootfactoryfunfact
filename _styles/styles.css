@@ -205,7 +205,7 @@ ul.filters li:last-child {
 	background-color: #FAA81A;
 
 	position: absolute;
-	bottom: 75px;
+	bottom: 50%;
 	left: calc(50% - 30px);
 }
 
@@ -263,6 +263,11 @@ ul.filters li:last-child {
 }
 
 .menu.unsee {
+	opacity: 0;
+	z-index: -1;
+}
+
+.visible_fact.menu.unsee  {
 	opacity: 0;
 	z-index: -1;
 }
