@@ -1,151 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<title>FunFact</title>
-	<meta charset="UTF-8" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="viewport" content="user-scalable=no, initial-scale=1.0; minimal-ui">
-	<link rel="stylesheet" href="_styles/styles.css" />
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
-</head>
-<body>
-	<header>
-		<h1 class="head"><a href="#home" class="goHome"><span class="fun">Fun</span>fact</a></h1>
-
-		<button class="btn--openfilter"><div class="icon icon--filters"> </div></button>
-		<button class="btn--openprofile profilIcon"><div class="icon icon--profile"> </div></button>
-	</header>
-
-	<main>
-
-		<div class="blackFilter unsee"></div>
-		<section class="section__filter">
-				<ul class="filters">
-					<li><button class="filters__sport"><div class="icon iconFilters icon--sportW"></div>Sport</button></li>
-					<li><button class="filters__art"><div class="icon iconFilters icon--artW"></div>Art</button></li>
-					<li><button class="filters__culture"><div class="icon iconFilters icon--cultureW"></div>Culture</button></li>
-					<li><button class="filters__cinema"><div class="icon iconFilters icon--cinemaW"></div>Tv/Cinéma</button></li>
-					<li><button class="filters__sciences"><div class="icon iconFilters icon--sciencesW"></div>Sciences</button></li>
-					<li><button class="filters__history"><div class="icon iconFilters icon--historyW"></div>Histoire</button></li>
-					<li><button class="filters__world"><div class="icon iconFilters icon--worldW"></div>Monde</button></li>
-					<li><button class="filters__celebrities"><div class="icon iconFilters icon--celebrityW"></div>Célébrités</button></li>
-					<li><button class="filters__fails"><div class="icon iconFilters icon--failsW"></div>Fails</button></li>
-				</ul>
-		</section>
-
-		<section id="home" class="section section__home">
-			<article class="article  visible_fact article__fact">
-				<p class="category"></p>
-				<button class="menuFact icon icon--factmenu clearfix"></button>
-				<p class="fact"></p>
-				<button class="btn--swipeFact icon icon--swipeFact"></button>
-			
-				<div class="infofact clearfix">
-					<button class="btn--addToFav icon icon--favempty"></button>
-
-					<ul>
-						<li class="author"></li>
-						<li class="source"></li>
-					</ul>
-				</div>
-			</article>
-			
-			<article class="article hidden_fact article__fact">
-				<p class="category"></p>
-				<button class="menuFact icon icon--factmenu clearfix"></button>
-				<p class="fact"></p>
-				<button class="btn--swipeFact icon icon--swipeFact"></button>
-			
-				<div class="infofact clearfix">
-					<div class="btn--addToFav icon icon--favempty"></div>
-
-					<ul>
-						<li class="author"></li>
-						<li class="source"></li>
-					</ul>
-				</div>
-			</article>
-
-			<div class="footPA">
-				<button class="addfact">+</button>
-				<div class="addfact--btn"></div>
-			</div>
-		</section>
-
-		<section id="addFact" class="section section__addFact unsee">
-			<form action="" method="post" class="form--addafact">
-	       		<fieldset>
-	       			<input class="fact--add" name="fact--src" type="text" value="" placeholder="Pseudo"></input>
-
-		            <select class="categorie" name="categorie" size="1">
-		                <option value="" disabled selected>Catégorie</option>
-		                <option value="sport">Sport</option>
-		                <option value="cinema">Cinéma</option>
-		                <option value="culture">Culture</option>
-		                <option value="art">Art</option>                    
-		                <option value="monde">Monde</option>
-		                <option value="celebrite">Célébrité</option>
-		                <option value="autre">Autre</option>
-		            </select>
-		            
-		            <div class="triangle"></div>
-		            
-		            <textarea class="insertfact" name="fact" rows="1" cols="1" placeholder="Insérer votre fact"></textarea>
-		            
-		            <input class="fact--add addSource" name="fact--src" type="text" value="" placeholder="Source (facultatif)"></input>
-		            
-		            <input class="validFact" tabindex="1" type="submit" value="v"/>
-		            <div class="validfact--btn"></div>
-		            <div class="validMessage unsee"><p>Votre fact a bien été ajouté.</p></div>
-	       		</fieldset>
-			</form>
-		</section>
-
-		<section id="profil" class="section section__profil">
-			<ul>
-				<li><button class="btn--myfact">Mes facts</button></li>
-				<li><button class="btn--fav">Mes favoris</button></li>
-			</ul>
-
-			<div class="section section__fav">
-				<article class="article article__fact">
-					<p class="factfav">Techniquement, ce n’est pas la Seine mais l’Yonne qui coule à Paris.</p>
-					<ul>
-						<li>source</li>
-						<li>author</li>
-					</ul>
-
-					<div class="options">
-						<button class="btn--share">Share</button>
-					</div>
-				</article>
-			</div>
-
-			<div class="section__mesFacts">
-				<article class="article article__fact">
-					<p class="factperso">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
-					<ul>
-						<li>source</li>
-					</ul>
-
-					<div class="options">
-						<button class="btn--share">Share</button>
-					</div>
-				</article>
-			</div>
-		</section>
-
-	</main>
-	<footer>
-	</footer>
-
-	<script src="_js/jquery-1.11.2.min.js"></script>
-	<script src="_js/hammer.js"></script>
-	<script src="_js/javascript.js"></script>
-
-	<script>
-	/*		// Adds delay to node.
+// Adds delay to node.
 		function AddDelay(node, delay)
 		{
 			node.style.transitionDelay = delay + 's';
@@ -210,23 +63,19 @@
 					// Update cursor.
 				this.cursor = this.cursor + 1 ;
 			};
-		}*/
-	</script>
-	
-	
-	<script>
-		
-		/*if (location.hash === "") location.hash = "home";
+		}
+
+		if (location.hash === "") location.hash = "home";
 
 		
 			// Home swipper.
 		var homeSection = document.getElementsByClassName("section__home")[0];
 
 		var HomeSwipper = new Hammer(homeSection);
-		HomeSwipper.get('swipe').set({ prevent_default:true, threshold: 1, velocity : 0.2, direction: Hammer.DIRECTION_ALL });*/
+		HomeSwipper.get('swipe').set({ prevent_default:true, threshold: 1, velocity : 0.2, direction: Hammer.DIRECTION_ALL });
 		
 		// Filters
-		/*(function() {
+		(function() {
 			"use strict";
 			var openFilterBtn = document.getElementsByClassName("btn--openfilter")[0],
 				filterMenu = document.getElementsByClassName("section__filter")[0],
@@ -258,8 +107,28 @@
 				filterMenu.classList.toggle("filter--open");
 				filterMenu.classList.add("filter--transition");
 				//AddCascadeDelay(filterList, 0.1);
-			});*/
+			});
 			
+			
+
+		// Facts
+		(function() {
+			"use strict";
+			/*var facts = document.querySelectorAll(".article__fact .fact");
+			for (var i = 0; i < facts.length; i++) {
+				facts[i].addEventListener("click", function() {
+					var option = this.nextElementSibling.nextElementSibling;
+					if (option !== void(0))
+						option.classList.add("active");
+				});
+			}
+			var options = document.querySelectorAll(".article__fact .options");
+			for (i = 0; i < options.length; i++) {
+				options[i].addEventListener("click", function() {
+					this.classList.remove("active");
+				});
+			}*/
+		})();
 
 		// Forms
 			"use strict";
@@ -282,7 +151,7 @@
 			}
 
 		//AddFact
-		/*	"use strict";
+			"use strict";
 			var floatlabels = document.getElementsByClassName("floatlabel");
 			for (var i = 0; i < floatlabels.length; i++) {
 				var input = floatlabels[i].getElementsByTagName("input")[0];
@@ -563,9 +432,4 @@
 						targetHome.classList.remove("unsee");
 					})
 				}, 800);
-		})();*/
-	</script>
-
-	
-</body>
-</html>
+		})();
