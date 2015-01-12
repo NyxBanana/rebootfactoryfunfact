@@ -450,20 +450,6 @@
 					btnVal.classList.add("btnVal--downTransition");
 				});
 				btnVal.addEventListener("click", function() {
-					validMessage.classList.add("validMessage--open"); //attention, il est en unsee, il aura donc besoin que tu ajoute le changement d'opacité dans la transition
-					validMessage.classList.add("validMessage--transition");
-					blackFilter.classList.add("blackFilter--open"); //pareil que validMessage, il est en unsee de base
-					blackFilter.classList.add("blackFilter--transition");
+					location.hash = "home";
 				});
-				validMessage.addEventListener("transitionend", function() {
-					setTimeout(function() {
-						validMessage.classList.remove("validMessage--open");
-						blackFilter.classList.remove("blackFilter--open");
-						validMessage.classList.remove("validMessage--transition");
-						blackFilter.classList.remove("blackFilter--transition");
-						location.hash = "home";
-						targetAddFact.classList.add("unsee");
-						targetHome.classList.remove("unsee");
-					})
-				}, 800);
 		})();
