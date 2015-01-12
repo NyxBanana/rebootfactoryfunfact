@@ -133,31 +133,31 @@ ul.filters li:last-child {
 
 
 /* Color Filter */
-#filters__sport {
+#sport {
 	background-color: #00A498;
 }
-#filters__art {
+#art {
 	background-color: #F2971F;
 }
-#filters__culture {
+#culture {
 	background-color: #A2CC39;
 }
-#filters__cinema {
+#cinema {
 	background-color: #EE5281;
 }
-#filters__sciences {
+#sciences {
 	background-color: #F16723;
 }
-#filters__history {
+#histoire {
 	background-color: #2E72B5;
 }
-#filters__world {
+#monde {
 	background-color: #FBB64C;
 }
-#filters__celebrities {
+#celebrite {
 	background-color: #77489B;
 }
-#filters__fails {
+#fails {
 	background-color: #B892C2;
 }
 

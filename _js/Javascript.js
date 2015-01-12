@@ -1,3 +1,11 @@
+//to clear localStarage in test
+    //localStorage.clear();
+
+    //Get filters from locoal storage or empty array
+    var filterlist = JSON.parse(localStorage.getItem('filterlist')) || [];
+        
+    
+
 // Adds delay to node.
 		function AddDelay(node, delay)
 		{
@@ -293,7 +301,7 @@
 			author : "NyxBanana"
 		},
 		{
-			category : "célébrité", 
+			category : "celebrite", 
 			text : "Tom Baker a arrêté de boire et de fumer en publique lorsqu'il a obtenu le rôle du Docteur dans Doctor Who.",
 			source : "Source",
 			author : "NyxBanana"
@@ -333,10 +341,16 @@
 		if( facts.length > 0 )
 		{
 			currentFact = factShuffle.pick();
+            while (filterlist.indexOf(facts[currentFact].category) > -1)
+            {
+                currentFact = factShuffle.pick();
+            }
+            
 			$(".visible_fact .fact").html(facts[currentFact].text);
 			$(".visible_fact .source").html(facts[currentFact].source);
 			$(".visible_fact .author").html(facts[currentFact].author);
 			$(".visible_fact .category").html(facts[currentFact].category);
+            
 		}
 		
 		var visibleFact = document.getElementsByClassName("visible_fact")[0],
@@ -468,12 +482,6 @@
 
     //Filters localstorage
 
-    //to clear localStarage in test
-    //localStorage.clear();
-
-    //Get filters from locoal storage or empty array
-    var filterlist = JSON.parse(localStorage.getItem('filterlist')) || [];
-        
     //Add class 'filter-off' to each filter
     filterlist.forEach(function(filter) {
         document.getElementById(filter).className = 'filter-off';
