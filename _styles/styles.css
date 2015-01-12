@@ -660,6 +660,10 @@ fieldset {
 	z-index: -1;
 }
 
+.validfact--btn.valBg--open {
+	-webkit-transform: scale(18);
+}
+
 /*.validMessage.validMessage--open {
 	-webkit-animation: slide-in .5s ease-out 1 both;
 }*/

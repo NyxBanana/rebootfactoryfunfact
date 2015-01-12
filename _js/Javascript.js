@@ -370,9 +370,7 @@
 				valBg = document.getElementsByClassName("validfact--btn")[0],
 				targetHome = document.getElementsByClassName("section__home")[0],
 				targetAddFact = document.getElementsByClassName("section__addFact")[0],
-				goHome = document.getElementsByClassName("goHome")[0],
-				validMessage = document.getElementsByClassName("validMessage")[0],
-				blackFilter = document.getElementsByClassName("blackFilter")[0];
+				goHome = document.getElementsByClassName("goHome")[0];
 
 				goHome.addEventListener("click", function() {
 					if (targetHome.classList.contains("unsee")) {
@@ -412,24 +410,9 @@
 				valBg.addEventListener("transitionend", function() {
 					valBg.classList.remove("valBg--transition");
 					btnVal.classList.remove("btnVal--transition");
-					valBg.classList.add("valBg--bounce");
-					valBg.classList.add("valBg--bounceTransition");
 				});
+
 				btnVal.addEventListener("click", function() {
-					validMessage.classList.remove("unsee");
-					validMessage.classList.add("validMessage--transition");
-					blackFilter.classList.add("blackFilter--open");
-					blackFilter.classList.add("blackFilter--transition");
+					location.hash = "home";
 				});
-				validMessage.addEventListener("webkitAnimationEnd", function() {
-					setTimeout(function () {
-						validMessage.classList.add("unsee");
-						blackFilter.classList.remove("blackFilter--open");
-						validMessage.classList.remove("validMessage--transition");
-						blackFilter.classList.remove("blackFilter--transition");
-						location.hash = "home";
-						targetAddFact.classList.add("unsee");
-						targetHome.classList.remove("unsee");
-					})
-				}, 1000);
 		})();
