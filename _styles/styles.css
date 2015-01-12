@@ -204,9 +204,15 @@ ul.filters li:last-child {
 	display: inline-block;
 }
 
-.addfact, .addfact--btn {
+.section__home.unsee {
+	opacity: 0;
+	z-index: -1;
+}
+
+.addfact, .addfact--btn, .validFact, .validfact--btn {
 	height: 60px;
 	width: 60px;
+	border: none;
 	display: block;
 	font-family: 'Roboto';
 	font-size: 35px;
@@ -217,6 +223,30 @@ ul.filters li:last-child {
 	position: absolute;
 	bottom: 75px;
 	left: calc(50% - 30px);
+}
+
+.addfact {
+	z-index: 1;
+}
+
+.addfact--btn {
+	z-index: 0;
+}
+
+.addfact--btn.addFact--transition {
+	-webkit-transition: all 200ms ease-out;
+}
+
+.addfact--btn.addFact--open {
+	-webkit-transform: scale(18);
+}
+
+.addfact.btnAdd--transition {
+	-webkit-transition: all 300ms ease-out;
+}
+
+.addfact.btnAdd--gone {
+	-webkit-transform: scale(0);
 }
 
 .btn--openfilter, .btn--openprofile {
@@ -474,6 +504,11 @@ form textarea {
 	overflow: scroll;
 }
 
+.section__addFact.unsee {
+	opacity: 0;
+	z-index: -1;
+}
+
 fieldset {
 	border: none;
 	width: 100%;
@@ -523,6 +558,31 @@ fieldset {
     position: absolute;
     top: 110px;
     right: 38px;
+}
+
+.validFact {
+	z-index: 1;
+	-webkit-transform: scale(0);
+}
+
+.validfact--btn {
+	-webkit-transform: scale(18);
+}
+
+.validfact--btn.valBg--transition {
+	-webkit-transition: all 200ms ease-out;
+}
+
+.validfact--btn.valBg--close {
+	-webkit-transform: scale(1);
+}
+
+.validFact.btnVal--transition {
+	-webkit-transition: all 300ms ease-out;
+}
+
+.validFact.btnVal--open {
+	-webkit-transform: scale(1);
 }
 
 /* Icons */
