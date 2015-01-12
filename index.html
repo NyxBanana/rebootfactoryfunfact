@@ -206,7 +206,7 @@
 				if (!sectionFact.classList.contains("inProfileClose")) { //condition: si mesFact ne contiennent pas la class inProfileClose
 					mesFact.classList.add("mesFact--close"); //animation de fermeture des favs. S'applique sur chaque article
 					mesFact.classList.add("mesFact--close--transition");
-					AddCascadeDelay(menu, 0.2);
+					AddCascadeDelay(mesFact, 0.2);
 				}
 			});
 
@@ -216,7 +216,7 @@
 				sectionFav.classList.remove("inProfileClose"); //suppression de la class section pour faire apparaitre les fav
 				mesFav.classList.add("mesFav--open");//animation des fav qui apparaissent
 				mesFav.classList.add("mesFav--transition");
-				AddCascadeDelay(menu, 0.2);
+				AddCascadeDelay(mesFav, 0.2);
 			});
 
 			mesFav.addEventListener("transitionend", function() {
@@ -227,7 +227,7 @@
 				if (!sectionFact.classList.contains("section")) {
 					mesFav.classList.add("mesFav--close"); //animation de fermeture des fav
 					mesFav.classList.add("mesFav--close--transition");
-					AddCascadeDelay(menu, 0.2);
+					AddCascadeDelay(mesFav, 0.2);
 				}
 			});
 
@@ -237,7 +237,7 @@
 				sectionFact.classList.remove("inProfileClose"); //suppression de la class section pour faire apparaitre les Fact
 				mesFact.classList.add("mesFact--open");//anim des fact qui apparaissent
 				mesFact.classList.add("mesFact--transition");
-				AddCascadeDelay(menu, 0.2);
+				AddCascadeDelay(mesFact, 0.2);
 			});
 
 			mesFact.addEventListener("transitionend", function() {
