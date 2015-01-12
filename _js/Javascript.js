@@ -444,8 +444,10 @@
 				valBg.addEventListener("transitionend", function() {
 					valBg.classList.remove("valBg--transition");
 					btnVal.classList.remove("btnVal--transition");
-					valBg.classList.add("valBg--bounce");
-					valBg.classList.add("valBg--bounceTransition");
+					valBg.classList.add("valBg--down");
+					valBg.classList.add("valBg--downTransition");
+					btnVal.classList.add("btnVal--down");
+					btnVal.classList.add("btnVal--downTransition");
 				});
 				btnVal.addEventListener("click", function() {
 					validMessage.classList.add("validMessage--open"); //attention, il est en unsee, il aura donc besoin que tu ajoute le changement d'opacité dans la transition
