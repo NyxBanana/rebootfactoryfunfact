@@ -7,8 +7,8 @@ body {
 	padding: 0;
 	color: #454444;
 	font-family: 'Roboto';
-	line-height: 1.5;
-	font-size: 18px;
+	line-height: 1.4;
+	font-size: 16px;
 }
 
 ul {
@@ -650,12 +650,28 @@ fieldset {
 	text-align: center;
 	background: #DDD;
 	width: 150px;
+	position: absolute;
+	left: 25%;
+	top: 25%;
 }
 
 .validMessage.unsee {
 	opacity: 0;
 	z-index: -1;
 }
+
+/*.validMessage.validMessage--open {
+	-webkit-animation: slide-in .5s ease-out 1 both;
+}*/
+
+.validMessage.validMessage--transition {
+	-webkit-animation: slide-in 5s ease-out 1 both;
+}
+
+@-webkit-keyframes slide-in {
+				0% 		{ -webkit-transform: translateY(-30px) rotateX(5deg); opacity: 0; }
+				100% 	{ -webkit-transform: translateY(0) rotate(0deg); opacity: 1; }
+			}
 
 /* Icons */
 
