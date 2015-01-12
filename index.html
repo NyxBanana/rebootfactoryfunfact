@@ -4,15 +4,16 @@
 	<title>FunFact</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="initial-scale=1.0" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0; minimal-ui">
 	<link rel="stylesheet" href="_styles/styles.css" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<header>
-		<h1 class="head"><a href="#home"><span class="fun">Fun</span>fact</a></h1>
+		<h1 class="head"><a href="#home"><span class="fun goHome">Fun</span>fact</a></h1>
 
 		<button class="btn--openfilter"><div class="icon icon--filters"> </div></button>
-		<button class="btn--openprofile"><div class="icon icon--profile"> </div></button>
+		<button class="btn--openprofile profilIcon"><div class="icon icon--profile"> </div></button>
 	</header>
 
 	<main>
@@ -33,7 +34,23 @@
 		</section>
 
 		<section id="home" class="section section__home">
-			<article class="article article__fact">
+			<article class="article  visible_fact article__fact">
+				<p class="category"></p>
+				<button class="menuFact icon icon--factmenu clearfix"></button>
+				<p class="fact"></p>
+				<button class="btn--swipeFact icon icon--swipeFact"></button>
+			
+				<div class="infofact clearfix">
+					<button class="btn--addToFav icon icon--favempty"></button>
+
+					<ul>
+						<li class="author"></li>
+						<li class="source"></li>
+					</ul>
+				</div>
+			</article>
+			
+			<article class="article hidden_fact article__fact">
 				<p class="category"></p>
 				<button class="menuFact icon icon--factmenu clearfix"></button>
 				<p class="fact"></p>
@@ -51,14 +68,13 @@
 
 			<div class="footPA">
 				<button class="addfact">+</button>
-				<div class="addfact--btn"></div>
 			</div>
 		</section>
 
 		<section id="addFact" class="section section__addFact unsee">
 			<form action="" method="post" class="form--addafact">
 	       		<fieldset>
-	       			<input class="fact--pseudo" name="fact--src" type="text" value="" placeholder="Pseudo"></input>
+	       			<input class="fact--add" name="fact--src" type="text" value="" placeholder="Pseudo"></input>
 
 		            <select class="categorie" name="categorie" size="1">
 		                <option value="" disabled selected>Catégorie</option>
@@ -79,7 +95,7 @@
 		            
 		            <input class="validFact" tabindex="1" type="submit" value="v"/>
 		            <div class="validfact--btn"></div>
-		            <div class="validMessage unsee"><p>Votre message a bien été ajouté.</p></div>
+		            <div class="validMessage unsee"><p>Votre fact a bien été ajouté.</p></div>
 	       		</fieldset>
 			</form>
 		</section>
@@ -123,28 +139,128 @@
 	</footer>
 
 	<script src="_js/jquery-1.11.2.min.js"></script>
-	<script src="_js/Hammer.JS-v2.0.4.js"></script>
+	<script src="_js/hammer.js"></script>
 
+	<script>
+			// Adds delay to node.
+		function AddDelay(node, delay)
+		{
+			node.style.transitionDelay = delay + 's';
+			node.style.WebkitTransitionDelay = delay + 's';
+		}
+		
+			// Adds cascade delays to children of node.
+		function AddCascadeDelay(node, cascadeDelay)
+		{
+			childs = node.children;
+			for (i = 0; i < childs.length; i++)
+			{
+				AddDelay(childs[i], i * cascadeDelay);
+			}
+		}
+		
+			// Shuffle randomizer.
+		function Shuffle(count)
+		{
+			this.cursor = count;
+			this.tab = new Array(count);
+			
+				// COnstructor.
+			for (var i = 0 ; i < this.tab.length ; i++)
+				this.tab[i] = i;
+			
+				// Draws next element.
+			this.pick = function()
+			{
+					// Resets if finished.
+				if (this.cursor === 0)
+					this.cursor = this.tab.length;
+					
+					// Drawns next element.
+				var randomNb = Math.floor(Math.random() * this.cursor);
+				this.cursor = this.cursor - 1;
+				
+					// Swaps elements.
+				var tmp = this.tab[randomNb];
+				this.tab[randomNb] = this.tab[this.cursor];
+				this.tab[this.cursor] = tmp;
+				
+				return tmp;
+			};
+			
+				// Adds an additionnal element.
+			this.grow = function()
+			{
+					// Resets if finished.
+				if (this.cursor === 0)
+					this.cursor = this.tab.length;
+					
+					// Adds new element.
+				var oldLength = this.tab.length;
+				this.tab.push(oldLength);
+				
+					// Swaps elements.
+				var tmp = this.tab[this.cursor];
+				this.tab[this.cursor] = oldLength;
+				this.tab[oldLength] = tmp;
+				
+					// Update cursor.
+				this.cursor = this.cursor + 1 ;
+			};
+		}
+	</script>
+	
+	
 	<script>
 		
 		if (location.hash === "") location.hash = "home";
+
+		
+			// Home swipper.
+		var homeSection = document.getElementsByClassName("section__home")[0];
+
+		var HomeSwipper = new Hammer(homeSection);
+		HomeSwipper.get('swipe').set({ prevent_default:true, threshold: 1, velocity : 0.2, direction: Hammer.DIRECTION_ALL });
 		
 		// Filters
 		(function() {
 			"use strict";
-			var openFilter = document.getElementsByClassName("btn--openfilter")[0],
-				filter = document.getElementsByClassName("section__filter")[0],
-				catfilt = document.getElementsByClassName("filters")[0];
-			openFilter.addEventListener("click", function() {
-				filter.classList.toggle("filter--open");
-				filter.classList.add("filter--transition");
-				catfilt.classList.toggle("filterList--open");
-				
+			var openFilterBtn = document.getElementsByClassName("btn--openfilter")[0],
+				filterMenu = document.getElementsByClassName("section__filter")[0],
+				filterList = document.getElementsByClassName("filters")[0];
+
+			openFilterBtn.addEventListener("click", function() {
+				filterMenu.classList.toggle("filter--open");
+				filterMenu.classList.add("filter--transition");
+				AddCascadeDelay(filterList, 0.1);
 			});
-			filter.addEventListener("transitionend", function() {
-				filter.classList.remove("filter--transition");
-				
+
+			filterMenu.addEventListener("transitionend", function() {
+				filterMenu.classList.remove("filter--transition");
 			});
+<<<<<<< HEAD
+=======
+			
+
+			HomeSwipper.on('swiperight', function(ev) {
+
+				filterMenu.classList.toggle("filter--open");
+				filterMenu.classList.add("filter--transition");
+				AddCascadeDelay(filterList, 0.1);
+			});
+			
+				// Filter swipper.
+			var FilterSwipper = new Hammer(filterMenu);
+			FilterSwipper.get('swipe').set({ prevent_default:true, threshold: 1, velocity : 0.2 });
+			
+			FilterSwipper.on('swipeleft', function(ev) {
+				filterMenu.classList.toggle("filter--open");
+				filterMenu.classList.add("filter--transition");
+				//AddCascadeDelay(filterList, 0.1);
+			});
+			
+			
+
 		// Facts
 		(function() {
 			"use strict";
@@ -163,23 +279,28 @@
 				});
 			}*/
 		})();
-
+>>>>>>> origin/master
 
 		// Forms
 			"use strict";
 			var floatlabels = document.getElementsByClassName("floatlabel");
+
 			for (var i = 0; i < floatlabels.length; i++) {
 				var input = floatlabels[i].getElementsByTagName("input")[0];
 				var label = floatlabels[i].getElementsByTagName("label")[0];
+
 				input.placeholder = label.innerText;
+
 				input.addEventListener("input", function(e) {
 					var label = this.previousElementSibling;
+
 					if (this.value.length != 0)
 						label.classList.add("visible");
 					else
 						label.classList.remove("visible");
 				});
 			}
+
 		//AddFact
 			"use strict";
 			var floatlabels = document.getElementsByClassName("floatlabel");
@@ -197,7 +318,146 @@
 			}
 		})();
 
+//		//AddFact Open/Close
+//		(function() {
+//			"use strict";
+//			var btnAdd = document.getElementsByClassName("addfact")[0],
+//				addBg = document.getElementsByClassName("addfact--btn")[0],
+//				btnVal = document.getElementsByClassName("validFact")[0],
+//				valBg = document.getElementsByClassName("validfact--btn")[0],
+//				targetHome = document.getElementsByClassName("section__home")[0],
+//				targetAddFact = document.getElementsByClassName("section__addFact")[0],
+//				goHome = document.getElementsByClassName("goHome")[0],
+//				validMessage = document.getElementsByClassName("validMessage")[0],
+//				blackFilter = document.getElementsByClassName("blackFilter")[0];
+//				goHome.addEventListener("click", function() {
+//					if (targetHome.classList.contains("unsee")) {
+//						targetHome.classList.remove("unsee");
+//					}
+//					if (addBg.classList.contains("addFact--open")) {
+//						addBg.classList.remove("addFact--open");
+//						addBg.classList.remove("addFact--transition");
+//					}
+//					if (btnAdd.classList.contains("btnAdd--gone")) {
+//						btnAdd.classList.remove("btnAdd--gone");
+//					}
+//					if (!targetAddFact.classList.contains("unsee")) {
+//						targetAddFact.classList.add("unsee");
+//					}
+//					valBg.classList.remove("valBg--close");
+//					btnVal.classList.remove("btnVal--open");
+//				})
+//				btnAdd.addEventListener("click", function() {
+//					addBg.classList.add("addFact--open");
+//					addBg.classList.add("addFact--transition");
+//					btnAdd.classList.add("btnAdd--gone");
+//					btnAdd.classList.add("btnAdd--transition");
+//				});
+//				addBg.addEventListener("transitionend", function() {
+//					setTimeout(function(){
+//						location.hash = "addFact";
+//						btnAdd.classList.remove("btnAdd--transition");
+//						targetHome.classList.add("unsee");
+//						targetAddFact.classList.remove("unsee");
+//						valBg.classList.add("valBg--close"); 
+//						valBg.classList.add("valBg--transition");
+//						btnVal.classList.add("btnVal--open"); //ouverture du bouton V
+//						btnVal.classList.add("btnVal--transition");
+//					}, 200);	
+//				});
+//				valBg.addEventListener("transitionend", function() {
+//					valBg.classList.remove("valBg--transition");
+//					btnVal.classList.remove("btnVal--transition");
+//					valBg.classList.add("valBg--bounce");
+//					valBg.classList.add("valBg--bounceTransition");
+//				});
+//				btnVal.addEventListener("click", function() {
+//					validMessage.classList.add("validMessage--open"); //attention, il est en unsee, il aura donc besoin que tu ajoute le changement d'opacité dans la transition
+//					validMessage.classList.add("validMessage--transition");
+//					blackFilter.classList.add("blackFilter--open"); //pareil que validMessage, il est en unsee de base
+//					blackFilter.classList.add("blackFilter--transition");
+//				});
+//				validMessage.addEventListener("transitionend", function() {
+//					setTimeout(function() {
+//						validMessage.classList.remove("validMessage--open");
+//						blackFilter.classList.remove("blackFilter--open");
+//					})
+//				}, 800);
+//				validMessage.addEventListener("transitionend", function() {
+//					setTimeout(function() {
+//						validMessage.classList.remove("validMessage--transition");
+//						blackFilter.classList.remove("blackFilter--transition");
+//					})
+//				}, 800); //il faudra changer le temps ici pas celui de la transition
+//		})();
 
+
+		//Profil Open/Close
+	(function() {
+		"use strict";
+		var btnProfil = document.getElementsByClassName("btn--openprofile")[0],
+			profil = document.getElementsByClassName("section__profil")[0];
+		
+		btnProfil.addEventListener("click", function() {
+
+			if (btnProfil.classList.contains("profilIcon")) {
+				OpenProfil();
+			}
+			else if (btnProfil.classList.contains("homeIcon")) {
+				CloseProfil();
+			}
+		});
+		
+		profil.addEventListener("webkitAnimationEnd", function() {
+			profil.classList.remove("profilOpen--transition");
+			btnProfil.classList.remove("profilIcon");
+			btnProfil.classList.add("homeIcon");
+		});
+		
+		profil.addEventListener("transitionend", function() {
+			profil.classList.remove("profilClose--transition");
+			btnProfil.classList.add("profilIcon");
+			btnProfil.classList.remove("homeIcon"); 
+		});
+		
+		function OpenProfil() {
+			profil.classList.remove("profilClose--open");
+			profil.classList.add("profilOpen--open"); 
+			profil.classList.add("profilOpen--transition");
+
+		}
+		
+		function CloseProfil() {
+			profil.classList.remove("profilOpen--open");
+			profil.classList.add("profilClose--open"); 
+			profil.classList.add("profilClose--transition");
+		}
+		
+			// Opens if swipes down.
+		HomeSwipper.on('swipedown', function(ev) {
+			if (btnProfil.classList.contains("profilIcon")) {
+				OpenProfil();
+			}
+		});
+		
+			// Closes if swipes up.
+		var ProfilSwipper = new Hammer(profil);
+		ProfilSwipper.get('swipe').set({ prevent_default:true, threshold: 1, velocity : 0.2, direction: Hammer.DIRECTION_ALL });
+		
+		ProfilSwipper.on('swipeup', function(ev) {
+			CloseProfil();
+		});
+
+			
+		//	backHome.addEventListener("transitionend", function() { //tu peux jouer avec un settimeout pour le moment ou l'anim doit de déclencher
+		//			btnProfil.classList.remove("homeIcon"); 
+		//			btnProfil.classList.add("profilIcon");
+		//	});
+
+		//}
+			
+
+	})();
 
 	var facts = [
 		{
@@ -214,7 +474,7 @@
 		},
 		{
 			category : "history", 
-			text : "Le terme OK  vient de la Guerre de Sécession : tous les jours, ils compilaient le nombre de morts dans un registre en indiquant le nombre de tués à coté d'un K pour 'Killed', ce qui donnait 25K 12K etc... Les bons jours sont ceux où l'on avait aucun mort, soit 0 K, devenu par la suite OK.",
+			text : "Le terme OK  vient de la Guerre de Sécession : tous les jours, ils indiquaient le nombre de tués à coté d'un K pour 'Killed', ce qui donnait 25K 12K etc... Les bons jours sont ceux où l'on avait aucun mort, soit 0 K, devenu par la suite OK.",
 			source : "htt://",
 			author : "XynPapple"
 		},
@@ -255,16 +515,157 @@
 			author : "NyxBanana"
 		},
 	];
-	/*var randomFact = Math.floor(Math.random() * facts.length);*/
-	var currentFact = 0;
-	
 
+<<<<<<< HEAD
 	$(".article__fact .fact").html(facts[currentFact].text);
 	$(".article__fact .source").html(facts[currentFact].source);
 	$(".article__fact .author").html(facts[currentFact].author); 
 	$(".article__fact .category").html(facts[currentFact].category); 
 	
+	//AddFact Open/Close
+		(function() {
+			"use strict";
+			var btnAdd = document.getElementsByClassName("addfact")[0],
+				addBg = document.getElementsByClassName("addfact--btn")[0],
+				btnVal = document.getElementsByClassName("validFact")[0],
+				valBg = document.getElementsByClassName("validfact--btn")[0],
+				targetHome = document.getElementsByClassName("section__home")[0],
+				targetAddFact = document.getElementsByClassName("section__addFact")[0],
+				goHome = document.getElementsByClassName("goHome")[0],
+				validMessage = document.getElementsByClassName("validMessage")[0],
+				blackFilter = document.getElementsByClassName("blackFilter")[0];
+				goHome.addEventListener("click", function() {
+					if (targetHome.classList.contains("unsee")) {
+						targetHome.classList.remove("unsee");
+					}
+					if (addBg.classList.contains("addFact--open")) {
+						addBg.classList.remove("addFact--open");
+						addBg.classList.remove("addFact--transition");
+					}
+					if (btnAdd.classList.contains("btnAdd--gone")) {
+						btnAdd.classList.remove("btnAdd--gone");
+					}
+					if (!targetAddFact.classList.contains("unsee")) {
+						targetAddFact.classList.add("unsee");
+					}
+					valBg.classList.remove("valBg--close");
+					btnVal.classList.remove("btnVal--open");
+				})
+				btnAdd.addEventListener("click", function() {
+					addBg.classList.add("addFact--open");
+					addBg.classList.add("addFact--transition");
+					btnAdd.classList.add("btnAdd--gone");
+					btnAdd.classList.add("btnAdd--transition");
+				});
+				addBg.addEventListener("transitionend", function() {
+					setTimeout(function(){
+						location.hash = "addFact";
+						btnAdd.classList.remove("btnAdd--transition");
+						targetHome.classList.add("unsee");
+						targetAddFact.classList.remove("unsee");
+						valBg.classList.add("valBg--close"); //animation de fermeture du cercle orange pour aller à l'état V
+						valBg.classList.add("valBg--transition");
+						btnVal.classList.add("btnVal--open"); //ouverture du bouton V
+						btnVal.classList.add("btnVal--transition");
+					}, 200);	
+				});
+				valBg.addEventListener("transitionend", function() {
+					valBg.classList.remove("valBg--transition");
+					btnVal.classList.remove("btnVal--transition");
+					//si tu ne sais pas mettre l'animation en une fois, tu peux utiliser ça pour rajouter le bounce
+					/*valBg.classList.add("valBg--bounce");
+					valBg.classList.add("valBg--bounceTransition");*/
+				});
+				btnVal.addEventListener("click", function() {
+					validMessage.classList.add("validMessage--open"); //attention, il est en unsee, il aura donc besoin que tu ajoute le changement d'opacité dans la transition
+					validMessage.classList.add("validMessage--transition");
+					blackFilter.classList.add("blackFilter--open"); //pareil que validMessage, il est en unsee de base
+					blackFilter.classList.add("blackFilter--transition");
+				});
+				validMessage.addEventListener("transitionend", function() {
+					setTimeout(function() {
+						validMessage.classList.remove("validMessage--open");
+						blackFilter.classList.remove("blackFilter--open");
+					})
+				}, 800);
+				validMessage.addEventListener("transitionend", function() {
+					setTimeout(function() {
+						validMessage.classList.remove("validMessage--transition");
+						blackFilter.classList.remove("blackFilter--transition");
+					})
+				}, 800); //il faudra changer le temps ici pas celui de la transition
+		})();
+=======
+		// HOME and fact swapping.
+	(function() {
+		var currentFact = 0;
+		var factShuffle = new Shuffle(facts.length);
+		
+			// Writes first fact if avaible.
+		if( facts.length > 0 )
+		{
+			currentFact = factShuffle.pick();
+			$(".visible_fact .fact").html(facts[currentFact].text);
+			$(".visible_fact .source").html(facts[currentFact].source);
+			$(".visible_fact .author").html(facts[currentFact].author);
+			$(".visible_fact .category").html(facts[currentFact].category);
+		}
+		
+		var visibleFact = document.getElementsByClassName("visible_fact")[0],
+		hiddenFact = document.getElementsByClassName("hidden_fact")[0];
+		
+		HomeSwipper.on('swipeleft', function(ev) {
+		
+				// Chooses next fact
+			currentFact = factShuffle.pick();
+				
+				// Writes new fact.
+			$(".hidden_fact .fact").html(facts[currentFact].text);
+			$(".hidden_fact .source").html(facts[currentFact].source);
+			$(".hidden_fact .author").html(facts[currentFact].author);
+			$(".hidden_fact .category").html(facts[currentFact].category);
+			
+				// hidden --> visible
+			hiddenFact.classList.remove("hidden_fact");
+			hiddenFact.classList.add("visible_fact");
+			hiddenFact.classList.add("transition_fact");
+			
+				// New fact on top.
+			zIndex = window.getComputedStyle(hiddenFact).getPropertyValue('z-index');
+			hiddenFact.style.zIndex = zIndex + 1;
 
+		});
+		
+		visibleFact.addEventListener("transitionend", function() {
+			ExchangeFacts();
+		});
+		
+		hiddenFact.addEventListener("transitionend", function() {
+			ExchangeFacts();
+		});
+		
+		function ExchangeFacts()
+		{
+				// end of transition
+			hiddenFact.classList.remove("transition_fact");
+			
+				// visible --> hidden (instant)
+			visibleFact.classList.remove("visible_fact");
+			visibleFact.classList.add("hidden_fact");
+			
+				// Reset z-index.
+			zIndex = window.getComputedStyle(hiddenFact).getPropertyValue('z-index');
+			hiddenFact.style.zIndex = zIndex - 1;
+			
+				// Swap svariables
+			tmp = visibleFact;
+			visibleFact = hiddenFact;
+			hiddenFact = tmp;
+			
+		}
+	})();
+
+>>>>>>> origin/master
 	</script>
 
 	
