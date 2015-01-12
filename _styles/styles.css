@@ -368,9 +368,8 @@ ul.filters li:last-child {
 }
 
 .btn--addToFav {
-	position: relative;
-	bottom: 15px;
-	left: 15px;
+	float: left;
+	margin: -15px 0 0 25px;
 }
 
 .clearfix:after {
