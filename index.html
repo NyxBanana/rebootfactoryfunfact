@@ -51,7 +51,7 @@
 		<section id="addFact" class="section section__addFact">
 			<form action="" method="post" class="form--addafact">
 	       		<fieldset>
-	       			<input class="fact--add" name="fact--src" type="text" value="" placeholder="Pseudo"></input>
+	       			<input class="fact--add" name="fact--src" type="text" value="" placeholder="Pseudo">
 
 		            <select class="categorie" name="categorie" size="1">
 		                <option value="" disabled selected>Catégorie</option>
@@ -68,7 +68,7 @@
 		            
 		            <textarea class="insertfact" name="fact" rows="1" cols="1" placeholder="Insérer votre fact"></textarea>
 		            
-		            <input class="fact--add" name="fact--src" type="text" value="" placeholder="Source (facultatif)"></input>
+		            <input class="fact--add" name="fact--src" type="text" value="" placeholder="Source (facultatif)">
 		            
 		            <input class="addfact" tabindex="1" type="submit" value="v"/>
 	       		</fieldset>
@@ -180,7 +180,6 @@
 			}
 
 		//AddFact
-			"use strict";
 			var floatlabels = document.getElementsByClassName("floatlabel");
 			for (var i = 0; i < floatlabels.length; i++) {
 				var input = floatlabels[i].getElementsByTagName("input")[0];
@@ -194,14 +193,11 @@
 						label.classList.remove("visible");
 				});
 			}
-		})();
 
 		//Mesfacts/MesFav
-		(function () {
-			"use strict";
 			var btnMesFact = document.getElementsByClassName("btn--myfact")[0],
 				btnMesFav = document.getElementsByClassName("btn--fav")[0],
-				mesFact = document.getElementsByClassNamer("artcile__meFacts")[0],
+				mesFact = document.getElementsByClassName("artcile__meFacts")[0],
 				mesFav = document.getElementsByClassName("article__mesFav")[0],
 				sectionFact = document.getElementsByClassName("section__mesFacts")[0],
 				sectionFav = document.getElementsByClassName("section__fav")[0];
@@ -223,7 +219,7 @@
 				AddCascadeDelay(menu, 0.2);
 			});
 
-			MesFav.addEventListener("transitionend", function() {
+			mesFav.addEventListener("transitionend", function() {
 				mesFav.classList.remove("mesFav--transition");
 			});
 			
@@ -244,10 +240,10 @@
 				AddCascadeDelay(menu, 0.2);
 			});
 
-			MesFact.addEventListener("transitionend", function() {
+			mesFact.addEventListener("transitionend", function() {
 				mesFact.classList.remove("mesFact--transition");
 			});
-		});
+		})();
 
 
 	var facts = [
@@ -304,34 +300,27 @@
 			text : "Au Royaume-uni, un homme peut uriner en public mais uniquement sur la roue arrière d’un véhicule motorisé sur lequel il aura préalablement posé sa main droite.",
 			source : "htt://",
 			author : "NyxBanana"
-		},
+		}
 	];
 
 	/*var randomFact = Math.floor(Math.random() * facts.length);*/
 	var currentFact = 0;
-	
-	
+
 	$(".article__fact .fact").html(facts[currentFact].text);
 	$(".article__fact .source").html(facts[currentFact].source);
 	$(".article__fact .author").html(facts[currentFact].author); 
 
-	function AddDelay(node, delay)
-	{
+	function AddDelay(node, delay) {
 		node.style.transitionDelay = delay + 's';
 		node.style.WebkitTransitionDelay = delay + 's';
 	}
 
-	function AddCascadeDelay(node, cascadeDelay)
-	{
-		childs = node.children;
-		for (i = 0; i < childs.length; i++)
-		{
+	function AddCascadeDelay(node, cascadeDelay) {
+		var childs = node.children;
+		for (var i = 0; i < childs.length; i++) {
 			AddDelay(childs[i], i * cascadeDelay);
 		}
 	}
-
-
-
 	</script>
 
 	
