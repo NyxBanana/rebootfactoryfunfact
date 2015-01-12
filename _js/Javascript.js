@@ -441,7 +441,7 @@
 						btnVal.classList.add("btnVal--transition");
 					}, 200);	
 				});
-				valBg.addEventListener("transitionend", function() {
+				btnVal.addEventListener("transitionend", function() {
 					valBg.classList.remove("valBg--transition");
 					btnVal.classList.remove("btnVal--transition");
 					valBg.classList.add("valBg--down");
@@ -451,5 +451,7 @@
 				});
 				btnVal.addEventListener("click", function() {
 					location.hash = "home";
+					btnVal.classList.remove("valBg--down");
+					valBg.classList.remove("btnVal--down");
 				});
 		})();
