@@ -180,19 +180,6 @@
 			}
 
 		//AddFact
-			var floatlabels = document.getElementsByClassName("floatlabel");
-			for (var i = 0; i < floatlabels.length; i++) {
-				var input = floatlabels[i].getElementsByTagName("input")[0];
-				var label = floatlabels[i].getElementsByTagName("label")[0];
-				input.placeholder = label.innerText;
-				input.addEventListener("input", function(e) {
-					var label = this.previousElementSibling;
-					if (this.value.length != 0)
-						label.classList.add("visible");
-					else
-						label.classList.remove("visible");
-				});
-			}
 
 		//Mesfacts/MesFav
 			var btnMesFact = document.getElementsByClassName("btn--myfact")[0],
