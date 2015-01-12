@@ -262,6 +262,15 @@ ul.filters li:last-child {
 	background-color: #E5E4E3;
 }
 
+.menu.unsee {
+	opacity: 0;
+	z-index: -1;
+}
+
+.menu {
+	background-color: #DDD;
+	width: 200px;
+}
 
 /* Facts */
 

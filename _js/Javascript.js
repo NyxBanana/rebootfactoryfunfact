@@ -5,7 +5,7 @@
 			node.style.WebkitTransitionDelay = delay + 's';
 		}
 		
-			// Adds cascade delays to children of node.
+		// Adds cascade delays to children of node.
 		function AddCascadeDelay(node, cascadeDelay)
 		{
 			childs = node.children;
@@ -15,7 +15,7 @@
 			}
 		}
 		
-			// Shuffle randomizer.
+		// Shuffle randomizer.
 		function Shuffle(count)
 		{
 			this.cursor = count;
@@ -65,16 +65,16 @@
 			};
 		}
 
-		if (location.hash === "") location.hash = "home";
+	if (location.hash === "") location.hash = "home";
 
 		
-			// Home swipper.
-		var homeSection = document.getElementsByClassName("section__home")[0];
+	// Home swipper.
+	var homeSection = document.getElementsByClassName("section__home")[0];
 
-		var HomeSwipper = new Hammer(homeSection);
+	var HomeSwipper = new Hammer(homeSection);
 		HomeSwipper.get('swipe').set({ prevent_default:true, threshold: 1, velocity : 0.2, direction: Hammer.DIRECTION_ALL });
 		
-		// Filters
+	// Filters
 		(function() {
 			"use strict";
 			var openFilterBtn = document.getElementsByClassName("btn--openfilter")[0],
@@ -108,29 +108,9 @@
 				filterMenu.classList.add("filter--transition");
 				//AddCascadeDelay(filterList, 0.1);
 			});
-			
-			
-
-		// Facts
-		(function() {
-			"use strict";
-			/*var facts = document.querySelectorAll(".article__fact .fact");
-			for (var i = 0; i < facts.length; i++) {
-				facts[i].addEventListener("click", function() {
-					var option = this.nextElementSibling.nextElementSibling;
-					if (option !== void(0))
-						option.classList.add("active");
-				});
-			}
-			var options = document.querySelectorAll(".article__fact .options");
-			for (i = 0; i < options.length; i++) {
-				options[i].addEventListener("click", function() {
-					this.classList.remove("active");
-				});
-			}*/
 		})();
 
-		// Forms
+	// Forms
 			"use strict";
 			var floatlabels = document.getElementsByClassName("floatlabel");
 
@@ -150,7 +130,7 @@
 				});
 			}
 
-		//AddFact
+	//AddFact
 			"use strict";
 			var floatlabels = document.getElementsByClassName("floatlabel");
 			for (var i = 0; i < floatlabels.length; i++) {
@@ -167,8 +147,26 @@
 			}
 		})();
 
+	//Home Menu Toggle
+	(function() {
+		var menu = document.getElementsByClassName("menu")[0],
+			menuIcon = document.getElementsByClassName("menuFact")[0],
+			blackFilter = document.getElementsByClassName("blackFilter")[0];
 
-		//Profil Open/Close
+		menuIcon.addEventListener("click", function() {
+			menu.classList.toggle("unsee");
+			menu.classList.add("menu--transition");
+			blackFilter.classList.toggle("unsee");
+			blackFilter.classList.add("blackFilter--transition");
+		});
+
+		menu.addEventListener("click", function() {
+			menu.classList.remove("menu--transition");
+			blackFilter.classList.remove("blackFilter--transition");
+		});
+	});
+
+	//Profil Open/Close
 	(function() {
 		"use strict";
 		var btnProfil = document.getElementsByClassName("btn--openprofile")[0],
@@ -231,8 +229,6 @@
 		//	});
 
 		//}
-			
-
 	})();
 
 	var facts = [
@@ -292,7 +288,7 @@
 		},
 	];
 
-		// HOME and fact swapping.
+	// HOME and fact swapping.
 	(function() {
 		var currentFact = 0;
 		var factShuffle = new Shuffle(facts.length);
