@@ -465,3 +465,40 @@
 					})
 				}, 800);
 		})();
+
+    //Filters localstorage
+
+    //to clear localStarage in test
+    //localStorage.clear();
+
+    //Get filters from locoal storage or empty array
+    var filterlist = JSON.parse(localStorage.getItem('filterlist')) || [];
+        
+    //Add class 'filter-off' to each filter
+    filterlist.forEach(function(filter) {
+        document.getElementById(filter).className = 'filter-off';
+    });
+        
+    //register click event listener
+    document.querySelector('.filters').addEventListener('click', function(e) {
+        var id = e.target.id,
+            item = e.target,
+            index = filterlist.indexOf(id);
+        
+        // return if target doesn't have an id
+        if (!id) return;
+        
+        //item is not filter
+        if (index == -1) {
+            filterlist.push(id);
+            item.className = 'filter-off'
+        } 
+        
+        //item is filter
+        else {
+            filterlist.splice(index, 1);
+            item.className = '';
+        }
+        
+        localStorage.setItem('filterlist', JSON.stringify(filterlist));    
+    });

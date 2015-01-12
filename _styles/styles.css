@@ -133,32 +133,36 @@ ul.filters li:last-child {
 
 
 /* Color Filter */
-.filters__sport {
+#filters__sport {
 	background-color: #00A498;
 }
-.filters__art {
+#filters__art {
 	background-color: #F2971F;
 }
-.filters__culture {
+#filters__culture {
 	background-color: #A2CC39;
 }
-.filters__cinema {
+#filters__cinema {
 	background-color: #EE5281;
 }
-.filters__sciences {
+#filters__sciences {
 	background-color: #F16723;
 }
-.filters__history {
+#filters__history {
 	background-color: #2E72B5;
 }
-.filters__world {
+#filters__world {
 	background-color: #FBB64C;
 }
-.filters__celebrities {
+#filters__celebrities {
 	background-color: #77489B;
 }
-.filters__fails {
+#filters__fails {
 	background-color: #B892C2;
+}
+
+.filter-off {
+    opacity: 0.3;
 }
 
 /* Other */
