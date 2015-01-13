@@ -13,6 +13,7 @@
 	<header>
 		<h1 class="head"><a href="#home" class="goHome"><span class="fun">Fun</span>fact</a></h1>
 
+		<!-- TODO: use span instead of div inside button. Make the span have a display: block; to fix render issues -->
 		<button class="btn--openfilter"><div class="icon icon--filters"> </div></button>
 		<button class="btn--openprofile profilIcon"><div class="icon icon--profile"> </div></button>
 	</header>
@@ -22,6 +23,7 @@
 		<div class="blackFilter unsee"></div>
 		<section class="section__filter">
 				<ul class="filters">
+					<!-- TODO: use span instead of div inside button. Make the span have a display: block; to fix render issues -->
 					<li><button class="filters__sport"><div class="icon iconFilters icon--sportW"></div>Sport</button></li>
 					<li><button class="filters__art"><div class="icon iconFilters icon--artW"></div>Art</button></li>
 					<li><button class="filters__culture"><div class="icon iconFilters icon--cultureW"></div>Culture</button></li>
@@ -82,7 +84,7 @@
 		<section id="addFact" class="section section__addFact unsee">
 			<form action="" method="post" class="form--addafact">
 	       		<fieldset>
-	       			<input class="fact--add" name="fact--src" type="text" value="" placeholder="Pseudo"></input>
+	       			<input class="fact--add" name="fact--src" type="text" value="" placeholder="Pseudo">
 
 		            <select class="categorie" name="categorie" size="1">
 		                <option value="" disabled selected>Catégorie</option>
@@ -99,7 +101,7 @@
 		            
 		            <textarea class="insertfact" name="fact" rows="1" cols="1" placeholder="Insérer votre fact"></textarea>
 		            
-		            <input class="fact--add" name="fact--src" type="text" value="" placeholder="Source (facultatif)"></input>
+		            <input class="fact--add" name="fact--src" type="text" value="" placeholder="Source (facultatif)">
 		            
 		            <input class="validFact" tabindex="1" type="submit" value="v"/>
 		            <div class="validfact--btn"></div>
@@ -141,7 +143,6 @@
 				</article>
 			</div>
 		</section>
-
 	</main>
 	<footer>
 	</footer>
@@ -149,6 +150,9 @@
 	<script src="_js/jquery-1.11.2.min.js"></script>
 	<script src="_js/hammer.js"></script>
 	<script src="_js/Javascript.js"></script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 </body>
 </html>
