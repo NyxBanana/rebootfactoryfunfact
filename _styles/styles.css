@@ -5,7 +5,7 @@ body {
 	margin: 0;
 	padding: 0;
 	color: #454444;
-	font-family: 'Roboto';
+	font-family: 'Roboto', sans-serif;
 	line-height: 1.5;
 	font-size: 16px;
 }
@@ -202,7 +202,7 @@ ul.filters li:last-child {
 	width: 60px;
 	border: none;
 	display: block;
-	font-family: 'Roboto';
+	font-family: 'Roboto', sans-serif;
 	font-size: 35px;
 	color: #FFF;
 	border-radius: 50%;
@@ -495,7 +495,8 @@ ul.filters li:last-child {
   	-webkit-transform:translateY(0%);
   }
 }
-@		keyframes bounce {
+
+@keyframes bounce {
   0% {
 	transform:translateY(-110%);
   }
@@ -550,7 +551,7 @@ form input, form textarea {
 }
 
 form textarea {
-	resize: auto;
+	/*resize: auto;*/ /* Doesn't exist TODO */
 	height: 150px;
 	margin: 20px 0;
 
@@ -628,7 +629,7 @@ fieldset {
     border: 1px solid #FAA81A;
     border-radius: 0;
     padding: 10px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     margin: 15px 15px;
 }
 
@@ -649,10 +650,10 @@ fieldset {
 
 .triangle {
     /*http://www.bellami.fr/triangles-css*/
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     border: 12px solid transparent;
-    border-top: 12px solid #FAA81A;
+    border-top-color: #FAA81A;
     position: absolute;
     top: 110px;
     right: 38px;
