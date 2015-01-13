@@ -65,9 +65,13 @@
 			};
 		}
 
+/* End of library */
+/* Begin of page code */
+
 	if (location.hash === "") location.hash = "home";
 
-		
+	var isTransitionRunning = false;
+	
 	// Home swipper.
 	var homeSection = document.getElementsByClassName("section__home")[0];
 
@@ -81,22 +85,41 @@
 				filterMenu = document.getElementsByClassName("section__filter")[0],
 				filterList = document.getElementsByClassName("filters")[0];
 
+			var cascadeRunningTransitionCount = 0;
+				
 			openFilterBtn.addEventListener("click", function() {
-				filterMenu.classList.toggle("filter--open");
-				filterMenu.classList.add("filter--transition");
-				AddCascadeDelay(filterList, 0.1);
+				if (isTransitionRunning === false)
+				{
+					filterMenu.classList.toggle("filter--open");
+					filterMenu.classList.add("filter--transition");
+					AddCascadeDelay(filterList, 0.1);
+					
+					cascadeRunningTransitionCount = 9;
+					isTransitionRunning = true;
+				}
 			});
 
 			filterMenu.addEventListener("transitionend", function() {
-				filterMenu.classList.remove("filter--transition");
+				if (cascadeRunningTransitionCount > 0)
+				{
+					filterMenu.classList.remove("filter--transition");
+					cascadeRunningTransitionCount--;
+					if (cascadeRunningTransitionCount === 0)
+						isTransitionRunning = false;
+				}
 			});
 			
 
 			HomeSwipper.on('swiperight', function(ev) {
-
-				filterMenu.classList.toggle("filter--open");
-				filterMenu.classList.add("filter--transition");
-				AddCascadeDelay(filterList, 0.1);
+				if (isTransitionRunning === false)
+				{
+					filterMenu.classList.toggle("filter--open");
+					filterMenu.classList.add("filter--transition");
+					AddCascadeDelay(filterList, 0.1);
+										
+					cascadeRunningTransitionCount = 9;
+					isTransitionRunning = true;
+				}
 			});
 			
 				// Filter swipper.
@@ -104,9 +127,15 @@
 			FilterSwipper.get('swipe').set({ prevent_default:true, threshold: 1, velocity : 0.2 });
 			
 			FilterSwipper.on('swipeleft', function(ev) {
-				filterMenu.classList.toggle("filter--open");
-				filterMenu.classList.add("filter--transition");
-				//AddCascadeDelay(filterList, 0.1);
+				if (isTransitionRunning === false)
+				{
+					filterMenu.classList.toggle("filter--open");
+					filterMenu.classList.add("filter--transition");
+					//AddCascadeDelay(filterList, 0.1);
+										
+					cascadeRunningTransitionCount = 9;
+					isTransitionRunning = true;
+				}
 			});
 		})();
 
@@ -183,28 +212,48 @@
 		});
 		
 		profil.addEventListener("webkitAnimationEnd", function() {
-			profil.classList.remove("profilOpen--transition");
-			btnProfil.classList.remove("profilIcon");
-			btnProfil.classList.add("homeIcon");
+			if (isTransitionRunning)
+			{
+				profil.classList.remove("profilOpen--transition");
+				btnProfil.classList.remove("profilIcon");
+				btnProfil.classList.add("homeIcon");
+				
+				isTransitionRunning = false;
+			}
 		});
 		
 		profil.addEventListener("transitionend", function() {
-			profil.classList.remove("profilClose--transition");
-			btnProfil.classList.add("profilIcon");
-			btnProfil.classList.remove("homeIcon"); 
+			if (isTransitionRunning)
+			{
+				profil.classList.remove("profilClose--transition");
+				btnProfil.classList.add("profilIcon");
+				btnProfil.classList.remove("homeIcon");
+				
+				isTransitionRunning = false;
+			}
 		});
 		
 		function OpenProfil() {
-			profil.classList.remove("profilClose--open");
-			profil.classList.add("profilOpen--open"); 
-			profil.classList.add("profilOpen--transition");
+			if (isTransitionRunning === false)
+			{
+				profil.classList.remove("profilClose--open");
+				profil.classList.add("profilOpen--open"); 
+				profil.classList.add("profilOpen--transition");
+				
+				isTransitionRunning = true;
+			}
 
 		}
 		
 		function CloseProfil() {
-			profil.classList.remove("profilOpen--open");
-			profil.classList.add("profilClose--open"); 
-			profil.classList.add("profilClose--transition");
+			if (isTransitionRunning === false)
+			{
+				profil.classList.remove("profilOpen--open");
+				profil.classList.add("profilClose--open"); 
+				profil.classList.add("profilClose--transition");
+				
+				isTransitionRunning = true;
+			}
 		}
 		
 			// Opens if swipes down.
@@ -343,33 +392,45 @@
 		hiddenFact = document.getElementsByClassName("hidden_fact")[0];
 		
 		HomeSwipper.on('swipeleft', function(ev) {
-		
-				// Chooses next fact
-			currentFact = factShuffle.pick();
+			if (isTransitionRunning === false)
+			{
+					// Chooses next fact
+				currentFact = factShuffle.pick();
+					
+					// Writes new fact.
+				$(".hidden_fact .fact").html(facts[currentFact].text);
+				$(".hidden_fact .source").html(facts[currentFact].source);
+				$(".hidden_fact .author").html(facts[currentFact].author);
+				$(".hidden_fact .category").html(facts[currentFact].category);
 				
-				// Writes new fact.
-			$(".hidden_fact .fact").html(facts[currentFact].text);
-			$(".hidden_fact .source").html(facts[currentFact].source);
-			$(".hidden_fact .author").html(facts[currentFact].author);
-			$(".hidden_fact .category").html(facts[currentFact].category);
-			
-				// hidden --> visible
-			hiddenFact.classList.remove("hidden_fact");
-			hiddenFact.classList.add("visible_fact");
-			hiddenFact.classList.add("transition_fact");
-			
-				// New fact on top.
-			zIndex = window.getComputedStyle(hiddenFact).getPropertyValue('z-index');
-			hiddenFact.style.zIndex = zIndex + 1;
+					// hidden --> visible
+				hiddenFact.classList.remove("hidden_fact");
+				hiddenFact.classList.add("visible_fact");
+				hiddenFact.classList.add("transition_fact");
+				
+					// New fact on top.
+				zIndex = window.getComputedStyle(hiddenFact).getPropertyValue('z-index');
+				hiddenFact.style.zIndex = zIndex + 1;
+				
+				isTransitionRunning = true;
+			}
 
 		});
 		
 		visibleFact.addEventListener("transitionend", function() {
-			ExchangeFacts();
+			if (isTransitionRunning)
+			{
+				ExchangeFacts();
+				isTransitionRunning = false;;
+			}
 		});
 		
 		hiddenFact.addEventListener("transitionend", function() {
-			ExchangeFacts();
+			if (isTransitionRunning)
+			{
+				ExchangeFacts();
+				isTransitionRunning = false;;
+			}
 		});
 		
 		function ExchangeFacts()
