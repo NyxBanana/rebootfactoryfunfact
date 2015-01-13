@@ -93,11 +93,57 @@
 						<button class="btn--share">Share</button>
 					</div>
 				</article>
+
+				<article class="article article__fact article__mesFav">
+					<p class="factfav">Techniquement, THIS IS A FAV, REMEMBER, THIS. IS. A. FAV.</p>
+					<ul>
+						<li>source</li>
+						<li>author</li>
+					</ul>
+
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
+
+				<article class="article article__fact article__mesFav">
+					<p class="factfav">Techniquement, blah blah 3</p>
+					<ul>
+						<li>source</li>
+						<li>author</li>
+					</ul>
+
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
 			</div>
 
 			<div class="inProfileOpen section__mesFacts">
-				<article class="article article__fact artcile__meFacts">
+				<article class="article article__fact artcile__mesFacts">
 					<p class="factperso">En Alabama, il est interdit de jouer aux dominos le dimanche.</p>
+					<ul>
+						<li>source</li>
+					</ul>
+
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
+
+				<article class="article article__fact artcile__mesFacts">
+					<p class="factperso">En Alaba - NEVERMIND, THIS IS A FACT ! -</p>
+					<ul>
+						<li>source</li>
+					</ul>
+
+					<div class="options">
+						<button class="btn--share">Share</button>
+					</div>
+				</article>
+
+				<article class="article article__fact artcile__mesFacts">
+					<p class="factperso">En Alabama, blah blah blah 3.</p>
 					<ul>
 						<li>source</li>
 					</ul>
@@ -115,15 +161,15 @@
 
 	<script src="_js/jquery-1.11.2.min.js"></script>
 	<script src="_js/Hammer.JS-v2.0.4.js"></script>
-
 	<script>
-		
-		if (location.hash === "") location.hash = "home";
-
-		
-		// Filters
-		(function() {
+		document.addEventListener("DOMContentLoaded", function() {
 			"use strict";
+
+			// if (location.hash === "") location.hash = "home";
+			// DEBUG PLEASE CHANGE ME TODO
+			if (location.hash === "") location.hash = "profil";
+
+		// Filters
 			var openFilter = document.getElementsByClassName("btn--openfilter")[0],
 				filter = document.getElementsByClassName("section__filter")[0],
 				catfilt = document.getElementsByClassName("filters")[0];
@@ -132,32 +178,30 @@
 				filter.classList.toggle("filter--open");
 				filter.classList.add("filter--transition");
 				catfilt.classList.toggle("filterList--open");
-				
 			});
 
 			filter.addEventListener("transitionend", function() {
 				filter.classList.remove("filter--transition");
-				
 			});
 
 		// Facts
-		(function() {
-			"use strict";
-			/*var facts = document.querySelectorAll(".article__fact .fact");
-			for (var i = 0; i < facts.length; i++) {
-				facts[i].addEventListener("click", function() {
-					var option = this.nextElementSibling.nextElementSibling;
-					if (option !== void(0))
-						option.classList.add("active");
-				});
-			}
-			var options = document.querySelectorAll(".article__fact .options");
-			for (i = 0; i < options.length; i++) {
-				options[i].addEventListener("click", function() {
-					this.classList.remove("active");
-				});
-			}*/
-		})();
+			/*	(function() {
+				"use strict";
+				var facts = document.querySelectorAll(".article__fact .fact");
+				for (var i = 0; i < facts.length; i++) {
+					facts[i].addEventListener("click", function() {
+						var option = this.nextElementSibling.nextElementSibling;
+						if (option !== void(0))
+							option.classList.add("active");
+					});
+				}
+				var options = document.querySelectorAll(".article__fact .options");
+				for (i = 0; i < options.length; i++) {
+					options[i].addEventListener("click", function() {
+						this.classList.remove("active");
+					});
+				}
+			})();*/
 
 		// Forms
 			"use strict";
@@ -169,7 +213,7 @@
 
 				input.placeholder = label.innerText;
 
-				input.addEventListener("input", function(e) {
+				input.addEventListener("input", function() {
 					var label = this.previousElementSibling;
 
 					if (this.value.length != 0)
@@ -179,135 +223,192 @@
 				});
 			}
 
-		//AddFact
-
 		//Mesfacts/MesFav
-			var btnMesFact = document.getElementsByClassName("btn--myfact")[0], // TODO
+			var btnMesFact = document.getElementsByClassName("btn--myfact")[0],
 				btnMesFav = document.getElementsByClassName("btn--fav")[0],
-				mesFact = document.getElementsByClassName("artcile__meFacts")[0],
-				mesFav = document.getElementsByClassName("article__mesFav")[0],
+				mesFacts = document.getElementsByClassName("artcile__mesFacts"),
+				mesFavs = document.getElementsByClassName("article__mesFav"),
 				sectionFact = document.getElementsByClassName("section__mesFacts")[0],
 				sectionFav = document.getElementsByClassName("section__fav")[0];
 
+			// ========================================
+			// BUTTON FAV (closes facts, opens fav)
+			// ========================================
 			btnMesFav.addEventListener("click", function() {
-				if (!sectionFact.classList.contains("inProfileClose")) { //condition: si mesFact ne contiennent pas la class inProfileClose
-					mesFact.classList.add("mesFact--close"); //animation de fermeture des favs. S'applique sur chaque article
-					mesFact.classList.add("mesFact--close--transition");
-					AddCascadeDelay(mesFact, 0.2);
+				if (sectionFav.classList.contains("inProfileOpen")) return;
+
+				console.log("Requesting fav opening");
+
+				// ferme les facts
+				for (var i = 0; i < mesFacts.length; i++) {
+					AddDelay(mesFacts[i], 0.2 * i);
+
+					mesFacts[i].classList.remove("mesFact--open");
+					mesFacts[i].classList.add("mesFact--close--transition");
+					mesFacts[i].classList.add("mesFact--close");
 				}
 			});
 
-			mesFact.addEventListener("transitionend", function() {
-				mesFact.classList.remove("mesFact--close--transition");
-				sectionFact.classList.add("inProfileOpen"); //ajout de la class section pour faire disparaitre les facts
-				sectionFav.classList.remove("inProfileClose"); //suppression de la class section pour faire apparaitre les fav
-				mesFav.classList.add("mesFav--open");//animation des fav qui apparaissent
-				mesFav.classList.add("mesFav--transition");
-				AddCascadeDelay(mesFav, 0.2);
+			// the last fact to close inits the favs opening
+			mesFacts[0].addEventListener("transitionend", function() {
+				if(!sectionFact.classList.contains("inProfileOpen")) {
+					console.log("last fact just closed but sectionFact isn't open");
+					return;
+				}
+
+				console.log("Last fact just closed, opening favs !");
+
+				// fermeture de la section fact
+				sectionFact.classList.remove("inProfileOpen");
+				sectionFact.classList.add("inProfileClose");
+
+				// ouverture des favs & section favs
+				sectionFav.classList.remove("inProfileClose");
+				sectionFav.classList.add("inProfileOpen");
+
+				for (var i = 0; i < mesFavs.length; i++) {
+					AddDelay(mesFavs[i], 0.2 * i);
+
+					mesFavs[i].classList.remove("mesFav--close");
+					mesFavs[i].classList.add("mesFav--open");
+					mesFavs[i].classList.add("mesFav--transition");
+				}
 			});
 
-			mesFav.addEventListener("transitionend", function() {
-				mesFav.classList.remove("mesFav--transition");
-			});
-			
+			// ========================================
+			// BUTTON FACT (closes favs, opens facts)
+			// ========================================
 			btnMesFact.addEventListener("click", function() {
-				if (!sectionFact.classList.contains("section")) {
-					mesFav.classList.add("mesFav--close"); //animation de fermeture des fav
-					mesFav.classList.add("mesFav--close--transition");
-					AddCascadeDelay(mesFav, 0.2);
+				if (sectionFact.classList.contains("inProfileOpen")) return;
+
+				// ferme les favs
+				for (var i = 0; i < mesFavs.length; i++) {
+					AddDelay(mesFavs[i], 0.2 * i);
+
+					mesFavs[i].classList.remove("mesFav--open");
+					mesFavs[i].classList.add("mesFav--close");
+					mesFavs[i].classList.add("mesFav--close--transition");
 				}
 			});
 
-			mesFav.addEventListener("transitionend", function() {
-				mesFav.classList.remove("mesFav--close--transition");
-				sectionFav.classList.add("inProfileOpen"); //ajout de la class section pour faire disparaitre les fav
-				sectionFact.classList.remove("inProfileClose"); //suppression de la class section pour faire apparaitre les Fact
-				mesFact.classList.add("mesFact--open");//anim des fact qui apparaissent
-				mesFact.classList.add("mesFact--transition");
-				AddCascadeDelay(mesFact, 0.2);
+			mesFavs[0].addEventListener("transitionend", function() {
+				if(!sectionFav.classList.contains("inProfileOpen"))
+					return;
+
+				// fermeture des favs
+				sectionFav.classList.remove("inProfileOpen");
+				sectionFav.classList.add("inProfileClose");
+
+				// ouverture des facts
+				sectionFact.classList.remove("inProfileClose");
+				sectionFact.classList.add("inProfileOpen");
+
+				for (var i = 0; i < mesFacts.length; i++) {
+					AddDelay(mesFacts[i], 0.2 * i);
+
+					mesFacts[i].classList.remove("mesFact--close");
+					mesFacts[i].classList.add("mesFact--open");
+					mesFacts[i].classList.add("mesFact--transition");
+				}
 			});
 
-			mesFact.addEventListener("transitionend", function() {
-				mesFact.classList.remove("mesFact--transition");
-			});
-		})();
+			// ========================================
+			// CLEANUP (removes transitions)
+			// ========================================
+			// because we already have a var i declared in this scope we don't need to redeclare it, cf: http://howchoo.com/g/understanding-javascript-hoisting
+			for (i = 0; i < mesFacts.length; i++) {
+				mesFacts[i].addEventListener("transitionEnd webkitTransitionEnd", function() {
+					console.log("A fact just finished its transition");
 
+					this.classList.remove("mesFact--close--transition");
+					this.classList.remove("mesFact--transition");
+				});
+			}
 
-	var facts = [
-		{
-			category : "sport", 
-			text : "A Detroit, un homme de 41 ans est mort noyé dans 50cm d’eau après avoir passé la tête dans une bouche d’égout et s’être bloqué… en cherchant ses clés de voiture.",
-			source : "Darwin Award",
-			author : "NyxBanana"
-		},
-		{
-			category : "fails", 
-			text : "A Paris, une poubelle est considérée comme une arme mortelle.",
-			source : "htt://",
-			author : "XynPapple"
-		},
-		{
-			category : "history", 
-			text : "Le terme OK  vient de la Guerre de Sécession : ils compilaient le nombre de morts dans un registre en indiquant le nombre de tués à coté d'un K pour 'Killed'. Les bons jours on avait aucun mort, soit 0 K, devenu par la suite OK.",
-			source : "htt://",
-			author : "XynPapple"
-		},
-		{
-			category : "world", 
-			text : "En Alabama, il est illégal de porter une fausse moustache qui puisse causer des rires à l’église.",
-			source : "htt://",
-			author : "NyxBanana"
-		},
-		{
-			category : "world",
-			text : "Un milliard de Chinois se partagent 100 noms de famille.",
-			source : "htt://",
-			author : "NyxBanana"
-		},
-		{
-			category : "culture", 
-			text : "Jésus est né vers l’an 7 ou 5 avant Jésus-Christ.",
-			source : "htt://",
-			author : "NyxBanana"
-		},
-		{
-			category : "culture", 
-			text : "L’inventeur du Coca-Cola s’est inspiré d’un vin français à la coca.",
-			source : "htt://",
-			author : "NyxBanana"
-		},
-		{
-			category : "fails", 
-			text : "En France, il est interdit d’appeler un cochon Napoléon.",
-			source : "htt://",
-			author : "XynPapple"
-		},
-		{
-			category : "world", 
-			text : "Au Royaume-uni, un homme peut uriner en public mais uniquement sur la roue arrière d’un véhicule motorisé sur lequel il aura préalablement posé sa main droite.",
-			source : "htt://",
-			author : "NyxBanana"
+			for (i = 0; i < mesFavs.length; i++) {
+				mesFavs[i].addEventListener("transitionend", function() {
+					console.log("A fav just finished it's transition");
+					this.classList.remove("mesFav--close--transition");
+					this.classList.remove("mesFav--transition");
+				});
+			}
+		});
+
+		var facts = [
+			{
+				category : "sport",
+				text : "A Detroit, un homme de 41 ans est mort noyé dans 50cm d’eau après avoir passé la tête dans une bouche d’égout et s’être bloqué… en cherchant ses clés de voiture.",
+				source : "Darwin Award",
+				author : "NyxBanana"
+			},
+			{
+				category : "fails",
+				text : "A Paris, une poubelle est considérée comme une arme mortelle.",
+				source : "htt://",
+				author : "XynPapple"
+			},
+			{
+				category : "history",
+				text : "Le terme OK  vient de la Guerre de Sécession : ils compilaient le nombre de morts dans un registre en indiquant le nombre de tués à coté d'un K pour 'Killed'. Les bons jours on avait aucun mort, soit 0 K, devenu par la suite OK.",
+				source : "htt://",
+				author : "XynPapple"
+			},
+			{
+				category : "world",
+				text : "En Alabama, il est illégal de porter une fausse moustache qui puisse causer des rires à l’église.",
+				source : "htt://",
+				author : "NyxBanana"
+			},
+			{
+				category : "world",
+				text : "Un milliard de Chinois se partagent 100 noms de famille.",
+				source : "htt://",
+				author : "NyxBanana"
+			},
+			{
+				category : "culture",
+				text : "Jésus est né vers l’an 7 ou 5 avant Jésus-Christ.",
+				source : "htt://",
+				author : "NyxBanana"
+			},
+			{
+				category : "culture",
+				text : "L’inventeur du Coca-Cola s’est inspiré d’un vin français à la coca.",
+				source : "htt://",
+				author : "NyxBanana"
+			},
+			{
+				category : "fails",
+				text : "En France, il est interdit d’appeler un cochon Napoléon.",
+				source : "htt://",
+				author : "XynPapple"
+			},
+			{
+				category : "world",
+				text : "Au Royaume-uni, un homme peut uriner en public mais uniquement sur la roue arrière d’un véhicule motorisé sur lequel il aura préalablement posé sa main droite.",
+				source : "htt://",
+				author : "NyxBanana"
+			}
+		];
+
+		/*var randomFact = Math.floor(Math.random() * facts.length);*/
+		var currentFact = 0;
+
+		$(".article__fact .fact").html(facts[currentFact].text);
+		$(".article__fact .source").html(facts[currentFact].source);
+		$(".article__fact .author").html(facts[currentFact].author);
+
+		function AddDelay(node, delay) {
+			node.style.transitionDelay = delay + 's';
+			node.style.WebkitTransitionDelay = delay + 's';
 		}
-	];
 
-	/*var randomFact = Math.floor(Math.random() * facts.length);*/
-	var currentFact = 0;
-
-	$(".article__fact .fact").html(facts[currentFact].text);
-	$(".article__fact .source").html(facts[currentFact].source);
-	$(".article__fact .author").html(facts[currentFact].author); 
-
-	function AddDelay(node, delay) {
-		node.style.transitionDelay = delay + 's';
-		node.style.WebkitTransitionDelay = delay + 's';
-	}
-
-	function AddCascadeDelay(node, cascadeDelay) {
-		var childs = node.children;
-		for (var i = 0; i < childs.length; i++) {
-			AddDelay(childs[i], i * cascadeDelay);
+		function AddCascadeDelay(node, cascadeDelay) {
+			var childs = node.children;
+			for (var i = 0; i < childs.length; i++) {
+				AddDelay(childs[i], i * cascadeDelay);
+			}
 		}
-	}
 	</script>
 
 	
