@@ -100,7 +100,7 @@
 			});
 
 <<<<<<< HEAD
-			filterMenu.addEventListener("transitionend", function() {
+			filterMenu.addEventListener("webkitTransitionEnd", function() {
 				if (cascadeRunningTransitionCount > 0)
 				{
 					filterMenu.classList.remove("filter--transition");
@@ -228,7 +228,7 @@
 		});
 		
 <<<<<<< HEAD
-		profil.addEventListener("transitionend", function() {
+		profil.addEventListener("webkitTransitionEnd", function() {
 			if (isTransitionRunning)
 			{
 				profil.classList.remove("profilClose--transition");
@@ -423,7 +423,7 @@
 		});
 		
 <<<<<<< HEAD
-		visibleFact.addEventListener("transitionend", function() {
+		visibleFact.addEventListener("webkitTransitionEnd", function() {
 			if (isTransitionRunning)
 			{
 				ExchangeFacts();
@@ -431,7 +431,7 @@
 			}
 		});
 		
-		hiddenFact.addEventListener("transitionend", function() {
+		hiddenFact.addEventListener("webkitTransitionEnd", function() {
 			if (isTransitionRunning)
 			{
 				ExchangeFacts();
