@@ -64,6 +64,7 @@ header  {
 	position: fixed;
 	top: 50px;
 	right: 0;
+	overflow: scroll;
 	-webkit-overflow-scrolling: touch;
 
 
@@ -101,7 +102,7 @@ ul.filters li:last-child {
 
 .section__filter ul li{
 	-webkit-transform: translateX(-100%);
-			transform:         translateX(-100%);
+			transform: translateX(-100%);
 }
 
 .filters button {
@@ -680,6 +681,7 @@ fieldset {
 
 .iconFilters {
 	margin: 0 auto;
+	display: block;
 }
 
 .icon--swipeFact {
