@@ -65,11 +65,8 @@ header  {
 	position: fixed;
 	top: 50px;
 	right: 0;
-<<<<<<< HEAD
-	overflow: scroll;
-=======
+
 	overflow-scrolling: touch;
->>>>>>> origin/fix_swipe
 	-webkit-overflow-scrolling: touch;
 
 	width: 100%;
@@ -107,12 +104,8 @@ ul.filters li:last-child {
 
 .section__filter ul li{
 	-webkit-transform: translateX(-100%);
-<<<<<<< HEAD
-			transform: translateX(-100%);
-=======
 	    -ms-transform: translateX(-100%);
 	        transform: translateX(-100%);
->>>>>>> origin/fix_swipe
 }
 
 .filters button {
