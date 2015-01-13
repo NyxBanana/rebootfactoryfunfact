@@ -99,7 +99,6 @@
 				}
 			});
 
-<<<<<<< HEAD
 			filterMenu.addEventListener("webkitTransitionEnd", function() {
 				if (cascadeRunningTransitionCount > 0)
 				{
@@ -108,10 +107,6 @@
 					if (cascadeRunningTransitionCount === 0)
 						isTransitionRunning = false;
 				}
-=======
-			filterMenu.addEventListener("webkitTransitionEnd", function() {
-				filterMenu.classList.remove("filter--transition");
->>>>>>> origin/master
 			});
 			
 
@@ -227,7 +222,6 @@
 			}
 		});
 		
-<<<<<<< HEAD
 		profil.addEventListener("webkitTransitionEnd", function() {
 			if (isTransitionRunning)
 			{
@@ -237,12 +231,6 @@
 				
 				isTransitionRunning = false;
 			}
-=======
-		profil.addEventListener("webkitTransitionEnd", function() {
-			profil.classList.remove("profilClose--transition");
-			btnProfil.classList.add("profilIcon");
-			btnProfil.classList.remove("homeIcon"); 
->>>>>>> origin/master
 		});
 		
 		function OpenProfil() {
@@ -422,7 +410,6 @@
 
 		});
 		
-<<<<<<< HEAD
 		visibleFact.addEventListener("webkitTransitionEnd", function() {
 			if (isTransitionRunning)
 			{
@@ -437,14 +424,6 @@
 				ExchangeFacts();
 				isTransitionRunning = false;;
 			}
-=======
-		visibleFact.addEventListener("webkitTransitionEnd", function() {
-			ExchangeFacts();
-		});
-		
-		hiddenFact.addEventListener("webkitTransitionEnd", function() {
-			ExchangeFacts();
->>>>>>> origin/master
 		});
 		
 		function ExchangeFacts()
