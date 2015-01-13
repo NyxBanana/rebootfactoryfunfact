@@ -28,6 +28,22 @@ function addCascadeTransitionDelay(node, cascadeDelay) {
 }
 
 /**
+ * Bind a function to a list of events for an element
+ * @param element					the element to bind to
+ * @param {string} eventTypes 		the list of event types, seperated by a spaces
+ * @param {function} listener		the listener
+ * @param {boolean} [useCapture]	see addEventListener doc
+ * @returns element
+ */
+function bindEvent(element, eventTypes, listener, useCapture) {
+	eventTypes.split(" ").forEach(function(type) {
+		element.addEventListener(type, listener, useCapture);
+	});
+
+	return element;
+}
+
+/**
  * Shuffle randomizer Class
  */
 function Shuffle(count) {
@@ -208,7 +224,7 @@ var facts = [
 			}
 		});
 
-		filterMenu.addEventListener("webkitTransitionEnd", function() {
+		bindEvent(filterMenu, "webkitTransitionEnd transitionend", function() {
 			if (cascadeRunningTransitionCount > 0) {
 				filterMenu.classList.remove("filter--transition");
 				cascadeRunningTransitionCount--;
@@ -295,7 +311,7 @@ var facts = [
 			}
 		});
 
-		profil.addEventListener("webkitAnimationEnd", function() {
+		bindEvent(profil, "webkitAnimationEnd animationend", function() {
 			if (isTransitionRunning) {
 				profil.classList.remove("profilOpen--transition");
 				btnProfil.classList.remove("profilIcon");
@@ -305,7 +321,7 @@ var facts = [
 			}
 		});
 
-		profil.addEventListener("webkitTransitionEnd", function() {
+		bindEvent(profil, "webkitTransitionEnd transitionend", function() {
 			if (isTransitionRunning) {
 				profil.classList.remove("profilClose--transition");
 				btnProfil.classList.add("profilIcon");
@@ -382,8 +398,9 @@ var facts = [
 				mesFacts[i].classList.add("mesFact--close");
 			}
 		});
+
 		// the last fact to close inits the favs opening
-		mesFacts[mesFacts.length - 1].addEventListener("webkitAnimationEnd", function() {
+		bindEvent(mesFacts[mesFacts.length - 1], "webkitAnimationEnd animationend", function() {
 			if(this.classList.contains("mesFact--open")) {
 				// remove the animation classes
 				// do NOT close facts if the animation is the opening one.
@@ -414,7 +431,8 @@ var facts = [
 				mesFavs[i].classList.add("mesFav--close");
 			}
 		});
-		mesFavs[mesFavs.length - 1].addEventListener("webkitAnimationEnd", function() {
+
+		bindEvent(mesFavs[mesFavs.length - 1],  "webkitAnimationEnd animationend", function() {
 			if(this.classList.contains("mesFav--open")) {
 				// remove the animation classes
 				// do NOT close fav if the animation is the opening one.
@@ -440,12 +458,12 @@ var facts = [
 		// ANIMATION CLEANUP
 		// =====================================
 		for (i = 0; i < mesFacts.length; i++) {
-			mesFacts[i].addEventListener("webkitAnimationEnd", function() {
+			bindEvent(mesFacts[i], "webkitAnimationEnd animationend", function() {
 				this.classList.remove("mesFact--open");
 			});
 		}
 		for (i = 0; i < mesFavs.length; i++) {
-			mesFavs[i].addEventListener("webkitAnimationEnd", function() {
+			bindEvent(mesFavs[i], "webkitAnimationEnd animationend", function() {
 				this.classList.remove("mesFav--open");
 			});
 		}
@@ -493,14 +511,14 @@ var facts = [
 			}
 		});
 
-		visibleFact.addEventListener("webkitTransitionEnd", function() {
+		bindEvent(visibleFact, "webkitTransitionEnd transitionend", function() {
 			if (isTransitionRunning) {
 				ExchangeFacts();
 				isTransitionRunning = false;
 			}
 		});
 
-		hiddenFact.addEventListener("webkitTransitionEnd", function() {
+		bindEvent(hiddenFact, "webkitTransitionEnd transitionend", function() {
 			if (isTransitionRunning) {
 				ExchangeFacts();
 				isTransitionRunning = false;
@@ -563,7 +581,7 @@ var facts = [
 			btnAdd.classList.add("btnAdd--transition");
 		});
 
-		addBg.addEventListener("webkitTransitionEnd", function() {
+		bindEvent(addBg, "webkitTransitionEnd transitionend", function() {
 			setTimeout(function(){
 				location.hash = "addFact";
 				btnAdd.classList.remove("btnAdd--transition");
@@ -576,7 +594,7 @@ var facts = [
 			}, 200);
 		});
 
-		valBg.addEventListener("webkitTransitionEnd", function() {
+		bindEvent(valBg, "webkitTransitionEnd transitionend", function() {
 			valBg.classList.remove("valBg--transition");
 			btnVal.classList.remove("btnVal--transition");
 			valBg.classList.add("valBg--bounce");
@@ -590,7 +608,7 @@ var facts = [
 			blackFilter.classList.add("blackFilter--transition");
 		});
 
-		validMessage.addEventListener("webkitTransitionEnd", function() {
+		bindEvent(validMessage, "webkitTransitionEnd transitionend", function() {
 			setTimeout(function() {
 				validMessage.classList.remove("validMessage--open");
 				blackFilter.classList.remove("blackFilter--open");

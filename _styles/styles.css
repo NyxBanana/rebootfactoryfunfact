@@ -32,6 +32,7 @@ h1 a {
 }
 
 main {
+	overflow-scrolling: touch;
 	-webkit-overflow-scrolling: touch;
 }
 
@@ -64,15 +65,18 @@ header  {
 	position: fixed;
 	top: 50px;
 	right: 0;
+<<<<<<< HEAD
 	overflow: scroll;
+=======
+	overflow-scrolling: touch;
+>>>>>>> origin/fix_swipe
 	-webkit-overflow-scrolling: touch;
-
 
 	width: 100%;
 	height: 100%;
 	-webkit-transform: translateX(-100%);
-			transform: translateX(-100%);
-
+	    -ms-transform: translateX(-100%);
+	        transform: translateX(-100%);
 
 	/*color: #FEF9F8;*/
 	background-color: #fff;
@@ -88,7 +92,8 @@ ul.filters li {
 	width: 100%;
 	margin: 0 auto;
 	display: block;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 ul.filters li:last-child {
@@ -102,7 +107,12 @@ ul.filters li:last-child {
 
 .section__filter ul li{
 	-webkit-transform: translateX(-100%);
+<<<<<<< HEAD
 			transform: translateX(-100%);
+=======
+	    -ms-transform: translateX(-100%);
+	        transform: translateX(-100%);
+>>>>>>> origin/fix_swipe
 }
 
 .filters button {
@@ -115,22 +125,24 @@ ul.filters li:last-child {
 
 .section__filter.filter--transition {
 	-webkit-transition: all 300ms ease-out;
-			transition: all 300ms ease-out;
+	        transition: all 300ms ease-out;
 }
 
 .section__filter.filter--transition ul li{
 	-webkit-transition: all 150ms ease-out;
-			transition: all 150ms ease-out;
+	        transition: all 150ms ease-out;
 }
 
 .section__filter.filter--open {
 	-webkit-transform: translateX(0);
-			transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
 }
 
 .section__filter.filter--open ul li {
 	-webkit-transform: translateX(0);
-			transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
 }
 
 
@@ -170,17 +182,20 @@ ul.filters li:last-child {
 	width: 100%;
 
 	-webkit-transform: translateX(100%);
-			transform: translateX(100%);
+	    -ms-transform: translateX(100%);
+	        transform: translateX(100%);
 }
 
 .section:target, .section:first-of-type {
 	-webkit-transform: translateX(0);
-			transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
 }
 
 .section:not(:target) {
 	-webkit-transform: translateX(100%);
-			transform: translateX(100%);
+	    -ms-transform: translateX(100%);
+	        transform: translateX(100%);
 }
 
 /* Home layout */
@@ -206,7 +221,8 @@ ul.filters li:last-child {
 	font-family: 'Roboto', sans-serif;
 	font-size: 35px;
 	color: #FFF;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 	background-color: #FAA81A;
 
 	position: absolute;
@@ -224,22 +240,24 @@ ul.filters li:last-child {
 
 .addfact--btn.addFact--transition {
 	-webkit-transition: all 200ms ease-out;
-			transition: all 200ms ease-out;
+	        transition: all 200ms ease-out;
 }
 
 .addfact--btn.addFact--open {
 	-webkit-transform: scale(18);
-			transform: scale(18);
+	    -ms-transform: scale(18);
+	        transform: scale(18);
 }
 
 .addfact.btnAdd--transition {
 	-webkit-transition: all 300ms ease-out;
-			transition: all 300ms ease-out;
+	        transition: all 300ms ease-out;
 }
 
 .addfact.btnAdd--gone {
 	-webkit-transform: scale(0);
-			transform: scale(0);
+	    -ms-transform: scale(0);
+	        transform: scale(0);
 }
 
 .btn--openfilter, .btn--openprofile {
@@ -311,8 +329,8 @@ ul.filters li:last-child {
 	margin: 0 0 75px 0;
 	padding: 13px 32px;
 	text-transform: uppercase;
-
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 
 .fact {
@@ -342,7 +360,7 @@ ul.filters li:last-child {
 	text-align: center;
 
 	-webkit-transition: opacity 0.5s;
-			transition: opacity 0.5s;
+	        transition: opacity 0.5s;
 }
 
 .article__fact .options.active {
@@ -361,15 +379,16 @@ ul.filters li:last-child {
 	width: 100%;
 	height: 73%;
 	-webkit-transform: translateX(0);
-			transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
 	position:fixed;
 	background-color: #F4F5F7;
 }
 
 .transition_fact
 {
-	-webkit-transition: transform 300ms ease-out;
-			transition: transform 300ms ease-out;
+	-webkit-transition: -webkit-transform 300ms ease-out;
+	        transition: transform 300ms ease-out;
 }
 
 .hidden_fact
@@ -377,7 +396,8 @@ ul.filters li:last-child {
     width: 100%;
 	height: 73%;
 	-webkit-transform: translateX(100%);
-			transform: translateX(100%);
+	    -ms-transform: translateX(100%);
+	        transform: translateX(100%);
 	position:fixed;
 	background-color: #F4F5F7;
 }
@@ -454,81 +474,99 @@ ul.filters li:last-child {
 
 .section__profil {
 	-webkit-transform: translateY(-100%);
-			transform: translateY(-100%);
+	    -ms-transform: translateY(-100%);
+	        transform: translateY(-100%);
 
 	background-color: #F4F5F7;
 }
 
 .section__profil.profilOpen--open {
 	-webkit-transform: translateY(0);
-			transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
 }
 
 .section__profil.profilOpen--transition {
-	/*-webkit-transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
+	/*transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
 	transition: all 500ms cubic-bezier(0.215, 0.61, 0.355, 1);*/
 
 	-webkit-animation: bounce 800ms ease-out;
-			animation: bounce 800ms ease-out;
+	        animation: bounce 800ms ease-out;
 }
 
 
 @-webkit-keyframes bounce {
   0% {
 	-webkit-transform:translateY(-110%);
+	        transform:translateY(-110%);
   }
   20% {
   	-webkit-transform:translateY(0%);
+  	        transform:translateY(0%);
   }
   50% {
   	-webkit-transform:translateY(-5%);
+  	        transform:translateY(-5%);
   }
   60% {
   	-webkit-transform:translateY(0%);
+  	        transform:translateY(0%);
   }
   70% {
   	-webkit-transform:translateY(-1%);
+  	        transform:translateY(-1%);
   }
   80% {
   	-webkit-transform:translateY(0%);
+  	        transform:translateY(0%);
   }
   100% {
   	-webkit-transform:translateY(0%);
+  	        transform:translateY(0%);
   }
 }
 
+
 @keyframes bounce {
   0% {
-	transform:translateY(-110%);
+	-webkit-transform:translateY(-110%);
+	        transform:translateY(-110%);
   }
   20% {
-  	transform:translateY(0%);
+  	-webkit-transform:translateY(0%);
+  	        transform:translateY(0%);
   }
   50% {
-  	transform:translateY(-5%);
+  	-webkit-transform:translateY(-5%);
+  	        transform:translateY(-5%);
   }
   60% {
-  	transform:translateY(0%);
+  	-webkit-transform:translateY(0%);
+  	        transform:translateY(0%);
   }
   70% {
-  	transform:translateY(-1%);
+  	-webkit-transform:translateY(-1%);
+  	        transform:translateY(-1%);
   }
   80% {
-  	transform:translateY(0%);
+  	-webkit-transform:translateY(0%);
+  	        transform:translateY(0%);
   }
   100% {
-  	transform:translateY(0%);
+  	-webkit-transform:translateY(0%);
+  	        transform:translateY(0%);
   }
 }
 
 .section__profil.profilClose--open {
 	-webkit-transform: translateY(-110%);
-			transform: translateY( -110% );
+	    -ms-transform: translateY(-110%);
+	        transform: translateY(-110%);
 }
 
 .section__profil.profilClose--transition {
 	-webkit-transition: all 400ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
-			transition: all 400ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+	        transition: all 400ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
 
@@ -592,6 +630,7 @@ form textarea {
 	font-size: 11px;
     -webkit-transition: margin-left 0.5s, color 0.5s;
             transition: margin-left 0.5s, color 0.5s;
+
     top: 6px;
 }
 
@@ -622,13 +661,15 @@ fieldset {
 
 .categorie, .insertfact, .fact--add, .fact--pseudo {
     /*http://stackoverflow.com/questions/22681141/select-option-padding-not-working-in-chrome*/
-    -webkit-appearance: none;
-   			appearance: none;
+    appearance: none;
+
     background-color: #fff;
     font-size: 15px;
     width: 240px;
     border: 1px solid #FAA81A;
-    border-radius: 0;
+    -webkit-border-radius: 0;
+            border-radius: 0;
+
     padding: 10px;
     font-family: 'Roboto', sans-serif;
     margin: 15px 15px;
@@ -743,33 +784,37 @@ fieldset {
 .validFact {
 	z-index: 10;
 	-webkit-transform: scale(0);
-			transform: scale(0);
+	    -ms-transform: scale(0);
+	        transform: scale(0);
 }
 
 .validfact--btn {
 	z-index: 9;
 	-webkit-transform: scale(18);
-			transform: scale(18);
+	    -ms-transform: scale(18);
+	        transform: scale(18);
 }
 
 .validfact--btn.valBg--transition {
 	-webkit-transition: all 200ms ease-out;
-			transition: all 200ms ease-out;
+	        transition: all 200ms ease-out;
 }
 
 .validfact--btn.valBg--close {
 	-webkit-transform: scale(1);
-			transform: scale(1);
+	    -ms-transform: scale(1);
+	        transform: scale(1);
 }
 
 .validFact.btnVal--transition {
 	-webkit-transition: all 300ms ease-out;
-			transition: all 300ms ease-out;
+	        transition: all 300ms ease-out;
 }
 
 .validFact.btnVal--open {
 	-webkit-transform: scale(1);
-			transform: scale(1);
+	    -ms-transform: scale(1);
+	        transform: scale(1);
 }
 
 .inProfileClose {
@@ -777,34 +822,39 @@ fieldset {
 }
 
 .mesFav--open, .mesFact--open {
-	animation:         open 0.6s;
-	-webkit-animation: open 0.6s;
+	-webkit-animation:         open 0.6s;
+	        animation:         open 0.6s;
 
-	transform: scale(0);
+	-webkit-transform: scale(0);
+	    -ms-transform: scale(0);
+	        transform: scale(0);
 }
 
 .mesFav--close, .mesFact--close {
-	animation:         close 0.6s;
-	-webkit-animation: close 0.6s;
+	-webkit-animation:         close 0.6s;
+	        animation:         close 0.6s;
 
-	transform: scale(0);
+	-webkit-transform: scale(0);
+	    -ms-transform: scale(0);
+	        transform: scale(0);
+}
+
+@-webkit-keyframes open {
+	from { -webkit-transform: scale(0); transform: scale(0); }
+	to { -webkit-transform: scale(1); transform: scale(1); }
 }
 
 @keyframes open {
-	from { transform: scale(0); }
-	to { transform: scale(1); }
-}
-@-webkit-keyframes open {
-	from { transform: scale(0); }
-	to { transform: scale(1); }
-}
-
-@keyframes close {
-	from { transform: scale(1); }
-	to { transform: scale(0); }
+	from { -webkit-transform: scale(0); transform: scale(0);  }
+	to { -webkit-transform: scale(1); transform: scale(1); }
 }
 
 @-webkit-keyframes close {
-	from { transform: scale(1); }
-	to { transform: scale(0); }
+	from { -webkit-transform: scale(1); transform: scale(1);  }
+	to { -webkit-transform: scale(0); transform: scale(0); }
+}
+
+@keyframes close {
+	from { -webkit-transform: scale(1); transform: scale(1); }
+	to { -webkit-transform: scale(0); transform: scale(0); }
 }
