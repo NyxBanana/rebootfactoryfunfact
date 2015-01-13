@@ -232,104 +232,114 @@
 				sectionFav = document.getElementsByClassName("section__fav")[0];
 
 			// ========================================
+			// DELAYS
+			// ========================================
+			for (i = 0; i < mesFacts.length; i++) {
+				addAnimationDelay(mesFacts[i], 0.1 * i);
+			}
+
+			for (i = 0; i < mesFavs.length; i++) {
+				addAnimationDelay(mesFavs[i], 0.1 * i);
+			}
+
+			// ========================================
 			// BUTTON FAV (closes facts, opens fav)
 			// ========================================
+			function isClosed(section) {
+				return section.classList.contains("inProfileClose");
+			}
+
 			btnMesFav.addEventListener("click", function() {
-				if (sectionFav.classList.contains("inProfileOpen")) return;
+				if (!isClosed(sectionFav)) {
+					return;
+				}
 
-				console.log("Requesting fav opening");
-
-				// ferme les facts
 				for (var i = 0; i < mesFacts.length; i++) {
-					AddDelay(mesFacts[i], 0.2 * i);
-
-					mesFacts[i].classList.remove("mesFact--open");
-					mesFacts[i].classList.add("mesFact--close--transition");
 					mesFacts[i].classList.add("mesFact--close");
 				}
 			});
 
 			// the last fact to close inits the favs opening
-			mesFacts[0].addEventListener("transitionend", function() {
-				if(!sectionFact.classList.contains("inProfileOpen")) {
-					console.log("last fact just closed but sectionFact isn't open");
+			mesFacts[mesFacts.length - 1].addEventListener("webkitAnimationEnd", function() {
+				if(this.classList.contains("mesFact--open")) {
+					// remove the animation classes
+					// do NOT close facts if the animation is the opening one.
+
+
 					return;
+				} else {
+					for (i = 0; i < mesFacts.length; i++) {
+						mesFacts[i].classList.remove("mesFact--close");
+					}
 				}
 
-				console.log("Last fact just closed, opening favs !");
+				// animation d'ouverture
+				for (i = 0; i < mesFavs.length; i++) {
+					mesFavs[i].classList.add("mesFav--open");
+				}
 
-				// fermeture de la section fact
-				sectionFact.classList.remove("inProfileOpen");
+				// cacher la section facts
 				sectionFact.classList.add("inProfileClose");
 
-				// ouverture des favs & section favs
+				// afficher la section fav
 				sectionFav.classList.remove("inProfileClose");
-				sectionFav.classList.add("inProfileOpen");
-
-				for (var i = 0; i < mesFavs.length; i++) {
-					AddDelay(mesFavs[i], 0.2 * i);
-
-					mesFavs[i].classList.remove("mesFav--close");
-					mesFavs[i].classList.add("mesFav--open");
-					mesFavs[i].classList.add("mesFav--transition");
-				}
 			});
 
 			// ========================================
 			// BUTTON FACT (closes favs, opens facts)
 			// ========================================
 			btnMesFact.addEventListener("click", function() {
-				if (sectionFact.classList.contains("inProfileOpen")) return;
+				if (!isClosed(sectionFact)) {
+					return;
+				}
 
 				// ferme les favs
 				for (var i = 0; i < mesFavs.length; i++) {
-					AddDelay(mesFavs[i], 0.2 * i);
-
-					mesFavs[i].classList.remove("mesFav--open");
 					mesFavs[i].classList.add("mesFav--close");
-					mesFavs[i].classList.add("mesFav--close--transition");
 				}
 			});
 
-			mesFavs[0].addEventListener("transitionend", function() {
-				if(!sectionFav.classList.contains("inProfileOpen"))
-					return;
+			mesFavs[mesFavs.length - 1].addEventListener("webkitAnimationEnd", function() {
+				if(this.classList.contains("mesFav--open")) {
+					// remove the animation classes
+					// do NOT close fav if the animation is the opening one.
 
-				// fermeture des favs
-				sectionFav.classList.remove("inProfileOpen");
+					for (i = 0; i < mesFavs.length; i++) {
+						mesFavs[i].classList.remove("mesFav--open");
+					}
+
+					return;
+				} else {
+					for (i = 0; i < mesFavs.length; i++) {
+						mesFavs[i].classList.remove("mesFav--close");
+					}
+				}
+
+				// animation de l'ouverture des facts
+				for (var i = 0; i < mesFacts.length; i++) {
+					mesFacts[i].classList.add("mesFact--open");
+				}
+
+				// cachetage des favs
 				sectionFav.classList.add("inProfileClose");
 
-				// ouverture des facts
+				// affichage des facts
 				sectionFact.classList.remove("inProfileClose");
-				sectionFact.classList.add("inProfileOpen");
-
-				for (var i = 0; i < mesFacts.length; i++) {
-					AddDelay(mesFacts[i], 0.2 * i);
-
-					mesFacts[i].classList.remove("mesFact--close");
-					mesFacts[i].classList.add("mesFact--open");
-					mesFacts[i].classList.add("mesFact--transition");
-				}
 			});
 
-			// ========================================
-			// CLEANUP (removes transitions)
-			// ========================================
-			// because we already have a var i declared in this scope we don't need to redeclare it, cf: http://howchoo.com/g/understanding-javascript-hoisting
-			for (i = 0; i < mesFacts.length; i++) {
-				mesFacts[i].addEventListener("transitionEnd webkitTransitionEnd", function() {
-					console.log("A fact just finished its transition");
+			// =====================================
+			// ANIMATION CLEANUP
+			// =====================================
 
-					this.classList.remove("mesFact--close--transition");
-					this.classList.remove("mesFact--transition");
+			for (i = 0; i < mesFacts.length; i++) {
+				mesFacts[i].addEventListener("webkitAnimationEnd", function() {
+					this.classList.remove("mesFact--open");
 				});
 			}
 
 			for (i = 0; i < mesFavs.length; i++) {
-				mesFavs[i].addEventListener("transitionend", function() {
-					console.log("A fav just finished it's transition");
-					this.classList.remove("mesFav--close--transition");
-					this.classList.remove("mesFav--transition");
+				mesFavs[i].addEventListener("webkitAnimationEnd", function() {
+					this.classList.remove("mesFav--open");
 				});
 			}
 		});
@@ -398,19 +408,10 @@
 		$(".article__fact .source").html(facts[currentFact].source);
 		$(".article__fact .author").html(facts[currentFact].author);
 
-		function AddDelay(node, delay) {
-			node.style.transitionDelay = delay + 's';
-			node.style.WebkitTransitionDelay = delay + 's';
-		}
-
-		function AddCascadeDelay(node, cascadeDelay) {
-			var childs = node.children;
-			for (var i = 0; i < childs.length; i++) {
-				AddDelay(childs[i], i * cascadeDelay);
-			}
+		function addAnimationDelay(node, delay) {
+			node.style.animationDelay = delay + 's';
+			node.style.webkitAnimationDelay = delay + 's';
 		}
 	</script>
-
-	
 </body>
 </html>

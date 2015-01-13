@@ -337,32 +337,42 @@ ul.filters li:last-child {
 	transform: translateY(0);
 }
 
-.inProfileClose, .inProfileOpen {
-	position: absolute;
-	top: 25px;
-	left: 0;
-}
-
 .inProfileClose {
-	transform:         scale(0);
-	-webkit-transform: scale(0);
+	display: none;
 }
 
-.mesFact--close, .mesFav--open {
-	animation:         display 5s ;
-	-webkit-animation: display 5s ;
+.mesFav--open, .mesFact--open {
+	animation:         open 0.6s;
+	-webkit-animation: open 0.6s;
+
+	transform: scale(0);
 }
 
+.mesFav--close, .mesFact--close {
+	animation:         close 0.6s;
+	-webkit-animation: close 0.6s;
 
-@keyframes display {
-	from, 80%, to { transform: scale(0); }
-	4%, 76%   { transform: scale(1); }
-}
-@-webkit-keyframes display {
-	from, 80%, to { -webkit-transform: scale(0); }
-	4%, 76%   { -webkit-transform: scale(1); }
+	transform: scale(0);
 }
 
+@keyframes open {
+	from { transform: scale(0); }
+	to { transform: scale(1); }
+}
+@-webkit-keyframes open {
+	from { transform: scale(0); }
+	to { transform: scale(1); }
+}
+
+@keyframes close {
+	from { transform: scale(1); }
+	to { transform: scale(0); }
+}
+
+@-webkit-keyframes close {
+	from { transform: scale(1); }
+	to { transform: scale(0); }
+}
 
 /* FORMS */
 form input, form textarea, form button {
