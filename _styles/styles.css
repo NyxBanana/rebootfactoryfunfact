@@ -1,7 +1,6 @@
 /* Base style */
 
 body {
-	font-family: sans-serif;
 	background-color: #F4F5F7;
 	margin: 0;
 	padding: 0;
@@ -767,4 +766,41 @@ fieldset {
 .validFact.btnVal--open {
 	-webkit-transform: scale(1);
 			transform: scale(1);
+}
+
+.inProfileClose {
+	display: none;
+}
+
+.mesFav--open, .mesFact--open {
+	animation:         open 0.6s;
+	-webkit-animation: open 0.6s;
+
+	transform: scale(0);
+}
+
+.mesFav--close, .mesFact--close {
+	animation:         close 0.6s;
+	-webkit-animation: close 0.6s;
+
+	transform: scale(0);
+}
+
+@keyframes open {
+	from { transform: scale(0); }
+	to { transform: scale(1); }
+}
+@-webkit-keyframes open {
+	from { transform: scale(0); }
+	to { transform: scale(1); }
+}
+
+@keyframes close {
+	from { transform: scale(1); }
+	to { transform: scale(0); }
+}
+
+@-webkit-keyframes close {
+	from { transform: scale(1); }
+	to { transform: scale(0); }
 }

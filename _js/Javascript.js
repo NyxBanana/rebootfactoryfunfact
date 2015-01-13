@@ -9,6 +9,14 @@ function addTransitionDelay(node, delay) {
 }
 
 /**
+ * Adds delay to the animation of a node
+ */
+function addAnimationDelay(node, delay) {
+	node.style.animationDelay = delay + 's';
+	node.style.webkitAnimationDelay = delay + 's';
+}
+
+/**
  * Adds cascade delay to the children of a node
  */
 function addCascadeTransitionDelay(node, cascadeDelay) {
@@ -64,7 +72,7 @@ function Shuffle(count) {
 		this.tab[oldLength] = tmp;
 
 		// Update cursor.
-		this.cursor = this.cursor + 1 ;
+		this.cursor++;
 	};
 }
 
@@ -341,6 +349,106 @@ var facts = [
 		profilSwipper.on('swipeup', function() {
 			closeProfil();
 		});
+	})();
+
+	(function() {
+		//Mesfacts/MesFav
+		var btnMesFact = document.getElementsByClassName("btn--myfact")[0],
+			btnMesFav = document.getElementsByClassName("btn--fav")[0],
+			mesFacts = document.getElementsByClassName("artcile__mesFacts"),
+			mesFavs = document.getElementsByClassName("article__mesFav"),
+			sectionFact = document.getElementsByClassName("section__mesFacts")[0],
+			sectionFav = document.getElementsByClassName("section__fav")[0];
+		// ========================================
+		// DELAYS
+		// ========================================
+		for (var i = 0; i < mesFacts.length; i++) {
+			addAnimationDelay(mesFacts[i], 0.1 * i);
+		}
+		for (i = 0; i < mesFavs.length; i++) {
+			addAnimationDelay(mesFavs[i], 0.1 * i);
+		}
+		// ========================================
+		// BUTTON FAV (closes facts, opens fav)
+		// ========================================
+		function isClosed(section) {
+			return section.classList.contains("inProfileClose");
+		}
+		btnMesFav.addEventListener("click", function() {
+			if (!isClosed(sectionFav)) {
+				return;
+			}
+			for (var i = 0; i < mesFacts.length; i++) {
+				mesFacts[i].classList.add("mesFact--close");
+			}
+		});
+		// the last fact to close inits the favs opening
+		mesFacts[mesFacts.length - 1].addEventListener("webkitAnimationEnd", function() {
+			if(this.classList.contains("mesFact--open")) {
+				// remove the animation classes
+				// do NOT close facts if the animation is the opening one.
+				return;
+			} else {
+				for (i = 0; i < mesFacts.length; i++) {
+					mesFacts[i].classList.remove("mesFact--close");
+				}
+			}
+			// animation d'ouverture
+			for (i = 0; i < mesFavs.length; i++) {
+				mesFavs[i].classList.add("mesFav--open");
+			}
+			// cacher la section facts
+			sectionFact.classList.add("inProfileClose");
+			// afficher la section fav
+			sectionFav.classList.remove("inProfileClose");
+		});
+		// ========================================
+		// BUTTON FACT (closes favs, opens facts)
+		// ========================================
+		btnMesFact.addEventListener("click", function() {
+			if (!isClosed(sectionFact)) {
+				return;
+			}
+			// ferme les favs
+			for (var i = 0; i < mesFavs.length; i++) {
+				mesFavs[i].classList.add("mesFav--close");
+			}
+		});
+		mesFavs[mesFavs.length - 1].addEventListener("webkitAnimationEnd", function() {
+			if(this.classList.contains("mesFav--open")) {
+				// remove the animation classes
+				// do NOT close fav if the animation is the opening one.
+				for (i = 0; i < mesFavs.length; i++) {
+					mesFavs[i].classList.remove("mesFav--open");
+				}
+				return;
+			} else {
+				for (i = 0; i < mesFavs.length; i++) {
+					mesFavs[i].classList.remove("mesFav--close");
+				}
+			}
+			// animation de l'ouverture des facts
+			for (var i = 0; i < mesFacts.length; i++) {
+				mesFacts[i].classList.add("mesFact--open");
+			}
+			// cachetage des favs
+			sectionFav.classList.add("inProfileClose");
+			// affichage des facts
+			sectionFact.classList.remove("inProfileClose");
+		});
+		// =====================================
+		// ANIMATION CLEANUP
+		// =====================================
+		for (i = 0; i < mesFacts.length; i++) {
+			mesFacts[i].addEventListener("webkitAnimationEnd", function() {
+				this.classList.remove("mesFact--open");
+			});
+		}
+		for (i = 0; i < mesFavs.length; i++) {
+			mesFavs[i].addEventListener("webkitAnimationEnd", function() {
+				this.classList.remove("mesFav--open");
+			});
+		}
 	})();
 
 	// HOME and fact swapping.
