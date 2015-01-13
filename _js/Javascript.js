@@ -99,6 +99,7 @@
 				}
 			});
 
+<<<<<<< HEAD
 			filterMenu.addEventListener("transitionend", function() {
 				if (cascadeRunningTransitionCount > 0)
 				{
@@ -107,6 +108,10 @@
 					if (cascadeRunningTransitionCount === 0)
 						isTransitionRunning = false;
 				}
+=======
+			filterMenu.addEventListener("webkitTransitionEnd", function() {
+				filterMenu.classList.remove("filter--transition");
+>>>>>>> origin/master
 			});
 			
 
@@ -222,6 +227,7 @@
 			}
 		});
 		
+<<<<<<< HEAD
 		profil.addEventListener("transitionend", function() {
 			if (isTransitionRunning)
 			{
@@ -231,6 +237,12 @@
 				
 				isTransitionRunning = false;
 			}
+=======
+		profil.addEventListener("webkitTransitionEnd", function() {
+			profil.classList.remove("profilClose--transition");
+			btnProfil.classList.add("profilIcon");
+			btnProfil.classList.remove("homeIcon"); 
+>>>>>>> origin/master
 		});
 		
 		function OpenProfil() {
@@ -271,13 +283,6 @@
 			CloseProfil();
 		});
 
-			
-		//	backHome.addEventListener("transitionend", function() { //tu peux jouer avec un settimeout pour le moment ou l'anim doit de déclencher
-		//			btnProfil.classList.remove("homeIcon"); 
-		//			btnProfil.classList.add("profilIcon");
-		//	});
-
-		//}
 	})();
 
 	var facts = [
@@ -417,6 +422,7 @@
 
 		});
 		
+<<<<<<< HEAD
 		visibleFact.addEventListener("transitionend", function() {
 			if (isTransitionRunning)
 			{
@@ -431,6 +437,14 @@
 				ExchangeFacts();
 				isTransitionRunning = false;;
 			}
+=======
+		visibleFact.addEventListener("webkitTransitionEnd", function() {
+			ExchangeFacts();
+		});
+		
+		hiddenFact.addEventListener("webkitTransitionEnd", function() {
+			ExchangeFacts();
+>>>>>>> origin/master
 		});
 		
 		function ExchangeFacts()
@@ -490,7 +504,7 @@
 					btnAdd.classList.add("btnAdd--gone");
 					btnAdd.classList.add("btnAdd--transition");
 				});
-				addBg.addEventListener("transitionend", function() {
+				addBg.addEventListener("webkitTransitionEnd", function() {
 					setTimeout(function(){
 						location.hash = "addFact";
 						btnAdd.classList.remove("btnAdd--transition");
@@ -502,19 +516,19 @@
 						btnVal.classList.add("btnVal--transition");
 					}, 200);	
 				});
-				valBg.addEventListener("transitionend", function() {
+				valBg.addEventListener("webkitTransitionEnd", function() {
 					valBg.classList.remove("valBg--transition");
 					btnVal.classList.remove("btnVal--transition");
 					valBg.classList.add("valBg--bounce");
-					valBg.classList.add("valBg--bounceTransition");
-				});
+    					valBg.classList.add("valBg--bounceTransition");
+    				});
 				btnVal.addEventListener("click", function() {
 					validMessage.classList.add("validMessage--open"); //attention, il est en unsee, il aura donc besoin que tu ajoute le changement d'opacité dans la transition
 					validMessage.classList.add("validMessage--transition");
 					blackFilter.classList.add("blackFilter--open"); //pareil que validMessage, il est en unsee de base
 					blackFilter.classList.add("blackFilter--transition");
 				});
-				validMessage.addEventListener("transitionend", function() {
+				validMessage.addEventListener("webkitTransitionEnd", function() {
 					setTimeout(function() {
 						validMessage.classList.remove("validMessage--open");
 						blackFilter.classList.remove("blackFilter--open");
