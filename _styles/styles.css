@@ -682,18 +682,6 @@ fieldset {
     margin-bottom: 135px;
 }
 
-
-.triangle {
-    /*http://www.bellami.fr/triangles-css*/
-    width: 0;
-    height: 0;
-    border: 12px solid transparent;
-    border-top-color: #FAA81A;
-    position: absolute;
-    top: 110px;
-    right: 38px;
-}
-
 .validMessage {
 	text-align: center;
 	background: #DDD;
